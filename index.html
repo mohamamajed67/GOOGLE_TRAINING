@@ -1,0 +1,1385 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Google Workspace Training</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/moon.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --google-sans: 'Google Sans', sans-serif;
+            --roboto: 'Roboto', sans-serif;
+        }
+
+        .reveal {
+            font-family: var(--roboto);
+            font-weight: 300;
+            font-size: 18px;
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4,
+        .reveal h5,
+        .reveal h6 {
+            font-family: var(--google-sans);
+            font-weight: 500;
+            letter-spacing: normal;
+            text-transform: none;
+            text-shadow: none;
+            word-wrap: break-word;
+        }
+
+        .reveal section img {
+            border: none !important;
+            box-shadow: none !important;
+            max-height: 400px;
+        }
+        .intro-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .workspace-apps {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+        }
+
+        .app-icon:hover {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.4));
+        }
+
+        .custom-title {
+            font-size: 4em !important;
+            background: linear-gradient(120deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent !important;
+            font-family: var(--google-sans) !important;
+            font-weight: 700 !important;
+            margin-bottom: 1rem !important;
+            text-shadow: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .custom-title::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(30px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .google-colors span {
+            display: inline-block;
+            padding: 0 5px;
+            font-size: 3em;
+            font-weight: 700;
+            animation: float 3s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.2s);
+            text-shadow: 0 0 20px currentColor;
+        }
+        .blue { color: #4285f4; }
+        .red { color: #ea4335; }
+        .yellow { color: #fbbc05; }
+        .green { color: #34a853; }
+        .feature-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .two-columns {
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            flex: 1;
+            padding: 20px;
+        }
+        .reveal p {
+            line-height: 1.6;
+            margin-bottom: 1em;
+        }
+        .reveal ul {
+            font-family: var(--roboto);
+            font-size: 1.1em;
+        }
+        .reveal li {
+            margin: 12px 0;
+        }
+        .feature-box h4 {
+            margin-top: 0;
+            color: #4285f4;
+        }
+        .feature-box p {
+            font-family: var(--roboto);
+            font-size: 0.9em;
+            margin-bottom: 0;
+        }
+        .intro-text {
+            font-size: 2.2em;
+            font-family: var(--google-sans);
+            margin-top: 2rem;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, #4285f4, #34a853);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .sub-text {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8em;
+            font-weight: 400;
+        }
+
+        .powered-by {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.8em;
+            opacity: 0.5;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .powered-by .highlight {
+            color: #fbbc05;
+            font-weight: 500;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+
+        .three-js-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .content-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 2rem;
+        }
+
+        .logo-container {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .google-workspace-logo {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .letter-3d {
+            font-family: var(--google-sans);
+            font-size: 6rem;
+            font-weight: 700;
+            color: var(--color);
+            text-shadow: 0 0 20px var(--color);
+            animation: floating 3s ease-in-out infinite;
+            animation-delay: var(--delay);
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
+        }
+
+        .letter-3d:hover {
+            transform: translateZ(50px) rotateY(45deg);
+        }
+
+        .workspace-text {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .glitch {
+            font-family: var(--google-sans);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 0px var(--color);
+            position: relative;
+            display: block;
+            animation: glitch 2s infinite;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .floating-cards {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            perspective: 1000px;
+        }
+
+        .card-3d {
+            width: 200px;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: cardFloat 4s ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .card-3d:hover .card-content {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            padding: 1.5rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .app-name {
+            font-family: var(--google-sans);
+            font-size: 1.2rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0) translateZ(0); }
+            50% { transform: translateY(-20px) translateZ(50px); }
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0) rotateX(0); }
+            50% { transform: translateY(-30px) rotateX(5deg); }
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            4.166666667% { clip: rect(91px, 9999px, 43px, 0); }
+            8.333333333% { clip: rect(15px, 9999px, 13px, 0); }
+            12.5% { clip: rect(75px, 9999px, 57px, 0); }
+            16.666666667% { clip: rect(73px, 9999px, 56px, 0); }
+            20.833333333% { clip: rect(57px, 9999px, 98px, 0); }
+            25% { clip: rect(35px, 9999px, 100px, 0); }
+            29.166666667% { clip: rect(82px, 9999px, 64px, 0); }
+            33.333333333% { clip: rect(54px, 9999px, 27px, 0); }
+            37.5% { clip: rect(89px, 9999px, 98px, 0); }
+            41.666666667% { clip: rect(76px, 9999px, 82px, 0); }
+            45.833333333% { clip: rect(23px, 9999px, 55px, 0); }
+            50% { clip: rect(42px, 9999px, 78px, 0); }
+            54.166666667% { clip: rect(67px, 9999px, 45px, 0); }
+            58.333333333% { clip: rect(41px, 9999px, 89px, 0); }
+            62.5% { clip: rect(56px, 9999px, 32px, 0); }
+            66.666666667% { clip: rect(84px, 9999px, 23px, 0); }
+            70.833333333% { clip: rect(23px, 9999px, 76px, 0); }
+            75% { clip: rect(67px, 9999px, 34px, 0); }
+            79.166666667% { clip: rect(89px, 9999px, 45px, 0); }
+            83.333333333% { clip: rect(65px, 9999px, 67px, 0); }
+            87.5% { clip: rect(32px, 9999px, 87px, 0); }
+            91.666666667% { clip: rect(43px, 9999px, 43px, 0); }
+            95.833333333% { clip: rect(56px, 9999px, 78px, 0); }
+            100% { clip: rect(32px, 9999px, 23px, 0); }
+        }
+
+        .presenter-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .role {
+            font-family: var(--google-sans);
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: linear-gradient(120deg, #34a853, #4285f4, #fbbc05);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(66, 133, 244, 0.4);
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: var(--delay);
+            opacity: 0;
+        }
+
+        .name-parts {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .name-part {
+            font-family: var(--google-sans);
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 25px rgba(66, 133, 244, 0.6);
+            animation: nameReveal 1.5s ease-out forwards;
+            animation-delay: var(--delay);
+            opacity: 0;
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
+        }
+
+        .name-part:hover {
+            transform: translateZ(50px) rotateY(15deg);
+        }
+
+        .title {
+            font-family: var(--roboto);
+            font-size: 1.8rem;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: var(--delay);
+            opacity: 0;
+        }
+
+        @keyframes nameReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) rotateX(-30deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .presentation-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .google-logo {
+            margin-bottom: 1rem;
+        }
+
+        .google-image {
+            height: 125px;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        }
+
+        .training-title {
+            text-align: center;
+            perspective: 1000px;
+        }
+
+        .main-title {
+            font-family: var(--google-sans);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 1px 0 #4285f4,
+                0 2px 0 #ea4335,
+                0 3px 0 #fbbc05,
+                0 4px 0 #34a853,
+                0 5px 10px rgba(0, 0, 0, 0.6);
+            margin: 0;
+            animation: titleFloat 3s ease-in-out infinite;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .main-title::before {
+            content: 'TRAINING';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4285f4, #ea4335, #fbbc05, #34a853);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0.5;
+            filter: blur(8px);
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% {
+                transform: translateY(0) rotateX(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotateX(10deg);
+            }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% {
+                opacity: 0.5;
+                filter: blur(8px);
+            }
+            50% {
+                opacity: 0.8;
+                filter: blur(12px);
+            }
+        }
+
+        .presenter-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .intro-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .intro-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--google-sans);
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #4285f4, #34a853);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .definition-text {
+            font-size: 2rem;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: #fbbc05;
+            font-weight: 700;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.5s ease-out forwards;
+            animation-delay: var(--delay);
+            opacity: 0;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .app-card h3 {
+            font-family: var(--google-sans);
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        .mindmap-section {
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .mindmap-container {
+            position: relative;
+            width: 100%;
+            max-width: 2000px;
+            height: 1000px;
+            margin: 0 auto;
+            perspective: 2000px;
+        }
+
+        .central-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .node-content {
+            width: 250px;
+            height: 250px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            border: 2px solid rgba(66,133,244,0.3);
+            box-shadow: 
+                0 0 30px rgba(66,133,244,0.2),
+                inset 0 0 20px rgba(66,133,244,0.1);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+        }
+
+        .node-content:hover {
+            transform: scale(1.05);
+            border-color: rgba(66,133,244,0.6);
+            box-shadow: 
+                0 0 50px rgba(66,133,244,0.4),
+                inset 0 0 30px rgba(66,133,244,0.2);
+        }
+
+        .branch {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            transform: rotate(var(--angle));
+            transition: all 0.5s ease;
+        }
+
+        .branch-line {
+            position: absolute;
+            width: 300px;
+            height: 2px;
+            background: rgba(66,133,244,0.3);
+            transform-origin: left center;
+            overflow: hidden;
+        }
+
+        .branch-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(66,133,244,0.8),
+                rgba(52,168,83,0.8),
+                transparent
+            );
+            animation: lightFlow 3s linear infinite;
+        }
+
+        .branch-node {
+            position: absolute;
+            left: 300px;
+            top: -100px;
+            width: 320px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            transform: rotate(calc(var(--angle) * -1));
+            opacity: 0;
+            animation: nodeAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 1s;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.1),
+                0 0 30px rgba(66,133,244,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .branch-node:hover {
+            transform: rotate(calc(var(--angle) * -1)) translateY(-15px) scale(1.05);
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(66,133,244,0.3);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.2),
+                0 0 50px rgba(66,133,244,0.2);
+        }
+
+        .node-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, 
+                rgba(66,133,244,0.2), 
+                rgba(52,168,83,0.2)
+            );
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .branch-node:hover .node-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(135deg,
+                rgba(66,133,244,0.4),
+                rgba(52,168,83,0.4)
+            );
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .branch-details {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .branch-details li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .branch-details li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background: #4285f4;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .branch-details li::marker {
+            display: none;
+            content: '';
+        }
+
+        .branch-details li:hover {
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .branch-details li:hover::before {
+            background: #34a853;
+            box-shadow: 0 0 10px rgba(52,168,83,0.5);
+        }
+
+        @keyframes branchGrow {
+            from {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+            to {
+                transform: scaleX(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes nodeAppear {
+            from {
+                opacity: 0;
+                transform: rotate(calc(var(--angle) * -1)) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(calc(var(--angle) * -1)) translateY(0);
+            }
+        }
+
+        @keyframes lightFlow {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .branch-node.active {
+            transform: rotate(calc(var(--angle) * -1)) scale(1.1);
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(66,133,244,0.8);
+            box-shadow: 
+                0 0 30px rgba(66,133,244,0.4),
+                0 0 50px rgba(52,168,83,0.3);
+        }
+
+        .branch-node.active .node-icon {
+            transform: scale(1.2) rotate(15deg);
+            background: linear-gradient(135deg,
+                rgba(66,133,244,0.6),
+                rgba(52,168,83,0.6)
+            );
+        }
+
+        .branch-node.active .branch-details li {
+            color: #fff;
+            transform: translateX(10px);
+        }
+
+        /* Thêm hiệu ứng particle cho background */
+        .mindmap-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(66,133,244,0.2);
+            border-radius: 50%;
+            animation: particleFloat 20s infinite linear;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <!-- Three.js background container -->
+    <div id="three-js-bg" class="three-js-bg"></div>
+
+    <div class="reveal">
+        <div class="slides">
+            <!-- Trang mở đầu -->
+            <section class="hero-container">
+                <div class="content-container">
+                    <div class="presentation-header">
+                        <div class="training-title">
+                            <h1 class="main-title">Training</h1>
+                        </div>
+                        <div class="google-logo">
+                            <img src="src/images/workspace-logo.svg" alt="Google" class="google-image">
+                        </div>
+                    </div>
+
+                    <div class="presenter-section">
+                        <div class="presenter-role">
+                            <div class="role" style="--delay: 0.5s;">Kỹ thuật viên</div>
+                        </div>
+                        <div class="presenter-name">
+                            <div class="name-parts">
+                                <div class="name-part" style="--delay: 0.7s;">Trần</div>
+                                <div class="name-part" style="--delay: 0.9s;">Văn</div>
+                                <div class="name-part" style="--delay: 1.1s;">Duy</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mindmap Overview -->
+            <section data-background-transition="slide">
+                <div class="mindmap-section">
+                    <div class="mindmap-particles"></div>
+                    <div class="mindmap-container">
+                        <div class="central-node">
+                            <div class="node-content">
+                                <h3>Đề mục </h3>
+                                <img src="src/images/workspace-logo.svg" alt="Google Workspace" class="workspace-logo">
+                            </div>
+                        </div>
+
+                        <div class="branches-container">
+                            <!-- Branch 1: Giới thiệu chung -->
+                            <div class="branch" style="--angle: -154deg; --delay: 0.2s;">
+                                <div class="branch-line"></div>
+                                <div class="branch-node">
+                                    <div class="node-icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <h3>Giới thiệu chung</h3>
+                                    <ul class="branch-details">
+                                        <li>Google Workspace là gì?</li>
+                                        <li>Tổng quan ứng dụng</li>
+                                        <li>Lợi ích doanh nghiệp</li>
+                                        <li>Giao diện người dùng</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Branch 2: Quản lý tài khoản -->
+                            <div class="branch" style="--angle: -44deg; --delay: 0.4s;">
+                                <div class="branch-line"></div>
+                                <div class="branch-node">
+                                    <div class="node-icon">
+                                        <i class="fas fa-users-cog"></i>
+                                    </div>
+                                    <h3>Quản lý tài khoản</h3>
+                                    <ul class="branch-details">
+                                        <li>Thao tác Admin</li>
+                                        <li>Quản lý giấy phép</li>
+                                        <li>Phân quyền quản trị</li>
+                                        <li>Bảo mật tài khoản</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Branch 3: Shared Drive -->
+                            <div class="branch" style="--angle: 26deg; --delay: 0.6s;">
+                                <div class="branch-line"></div>
+                                <div class="branch-node">
+                                    <div class="node-icon">
+                                        <i class="fas fa-cloud"></i>
+                                    </div>
+                                    <h3>Shared Drive</h3>
+                                    <ul class="branch-details">
+                                        <li>Quản lý dữ liệu chung</li>
+                                        <li>Phân quyền truy cập</li>
+                                        <li>Tổ chức dữ liệu</li>
+                                        <li>Chính sách lưu trữ</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                             <!-- Branch 4: Giấy phép -->
+                            <div class="branch" style="--angle: 136deg; --delay: 1s;">
+                                <div class="branch-line"></div>
+                                <div class="branch-node">
+                                    <div class="node-icon">
+                                        <i class="fas fa-question-circle"></i>
+                                    </div>
+                                    <h3>Giấy phép</h3>
+                                    <ul class="branch-details">
+                                        <li>So sánh các gói</li>
+                                        <li>Tính năng nâng cao</li>
+                                        <li>Lựa chọn phù hợp</li>
+                                        <li>Lựa chọn phù hợp</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phần 1: Giới thiệu -->
+            <section class="intro-section">
+                <div class="intro-header">
+                    <h2 class="section-title">Google Workspace là gì?</h2>
+                    <div class="workspace-definition">
+                        <p class="definition-text">
+                            <span class="highlight">Giải pháp toàn diện</span> cho doanh nghiệp của bạn
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="apps-showcase">
+                    <div class="apps-grid">
+                        <div class="app-card" style="--delay: 0.1s;">
+                            <div class="app-icon gmail"></div>
+                            <h3>Gmail</h3>
+                            <p>Email chuyên nghiệp</p>
+                        </div>
+                        <div class="app-card" style="--delay: 0.2s;">
+                            <div class="app-icon drive"></div>
+                            <h3>Drive</h3>
+                            <p>Lưu trữ đám mây</p>
+                        </div>
+                        <div class="app-card" style="--delay: 0.3s;">
+                            <div class="app-icon docs"></div>
+                            <h3>Docs</h3>
+                            <p>Xử lý văn bản</p>
+                        </div>
+                        <div class="app-card" style="--delay: 0.4s;">
+                            <div class="app-icon sheets"></div>
+                            <h3>Sheets</h3>
+                            <p>Bảng tính</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Phần 2: Quản lý tài khoản -->
+            <section data-background="#f1f1f1">
+                <section>
+                    <h2>Quản lý tài khoản và giấy phép</h2>
+                    <div class="feature-box fragment">
+                        <h3>Admin Console</h3>
+                        <img src="admin-console.png" alt="Admin Console">
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Phân quyền quản trị</h3>
+                    <div class="r-stack">
+                        <div class="fragment fade-in-then-out">
+                            <div class="feature-box">
+                                <h4>Super Admin</h4>
+                                <p>Quyền cao nhất, quản lý mọi thứ</p>
+                            </div>
+                        </div>
+                        <div class="fragment fade-in-then-out">
+                            <div class="feature-box">
+                                <h4>Group Admin</h4>
+                                <p>Quản lý nhóm người dùng</p>
+                            </div>
+                        </div>
+                        <div class="fragment fade-in-then-out">
+                            <div class="feature-box">
+                                <h4>Service Admin</h4>
+                                <p>Quản lý dịch vụ cụ thể</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Phần 3: Shared Drive -->
+            <section data-background-gradient="linear-gradient(45deg, #fbbc05, #ea4335)">
+                <section>
+                    <h2>Shared Drive</h2>
+                    <div class="fragment fade-up">
+                        <img src="shared-drive.png" alt="Shared Drive">
+                    </div>
+                </section>
+
+                <section data-background-iframe="https://example.com/shared-drive-demo"
+                         data-background-interactive>
+                    <div style="background-color: rgba(0,0,0,0.7); padding: 20px;">
+                        <h3>Demo trực tiếp</h3>
+                        <p>Khám phá tính năng Shared Drive</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Phần 4: So sánh giấy phép -->
+            <section>
+                <div class="r-stack">
+                    <img class="fragment fade-out" data-fragment-index="0" src="license-basic.png">
+                    <img class="fragment current-visible" data-fragment-index="0" src="license-business.png">
+                    <img class="fragment" data-fragment-index="1" src="license-enterprise.png">
+                </div>
+                <aside class="notes">
+                    Ghi chú cho người thuyết trình về các điểm khác biệt chính
+                </aside>
+            </section>
+
+            <!-- Phần 5: Q&A -->
+            <section data-background-color="#34a853">
+                <h2>Hỏi & Đáp</h2>
+                <div class="fragment">
+                    <img src="qr-code.png" alt="QR Code for Questions">
+                    <p>Quét mã QR để đặt câu hỏi</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
+    <!-- Plugin RevealJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/zoom/zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/search/search.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            mouseWheel: true,
+            transition: 'slide',
+            autoPlayMedia: true,
+            // Cấu hình thêm
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles-bg');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function createGeometricBackground() {
+            const bg = document.querySelector('.geometric-bg');
+            const shapes = 5;
+
+            for (let i = 0; i < shapes; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'geometric-shape';
+                
+                // Random size between 100px and 300px
+                const size = Math.random() * 200 + 100;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                
+                // Random position
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay
+                shape.style.animationDelay = `${Math.random() * 5}s`;
+                
+                bg.appendChild(shape);
+            }
+        }
+
+        // Gọi hàm tạo particles khi trang được load
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createGeometricBackground();
+        });
+
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+
+    <!-- Thêm vào trước </body> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+    // Three.js background animation
+    function initThreeJS() {
+        const container = document.getElementById('three-js-bg');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 3000);
+        const renderer = new THREE.WebGLRenderer({ 
+            antialias: true, 
+            alpha: true,
+            preserveDrawingBuffer: true
+        });
+        
+        // Thiết lập kích thước renderer theo container
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        // Tăng số lượng particles và khoảng cách
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        
+        for (let i = 0; i < 10000; i++) {
+            vertices.push(
+                Math.random() * 4000 - 2000,
+                Math.random() * 4000 - 2000,
+                Math.random() * 4000 - 2000
+            );
+        }
+        
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        
+        const material = new THREE.PointsMaterial({
+            size: 3,
+            color: 0xffffff,
+            transparent: true,
+            opacity: 0.8,
+            sizeAttenuation: true
+        });
+        
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+        
+        camera.position.z = 1500;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            points.rotation.x += 0.0005;
+            points.rotation.y += 0.001;
+            
+            renderer.render(scene, camera);
+        }
+        
+        animate();
+
+        // Cập nhật hàm onWindowResize
+        function onWindowResize() {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+
+        window.addEventListener('resize', onWindowResize);
+    }
+
+    document.addEventListener('DOMContentLoaded', initThreeJS);
+    </script>
+
+    <script>
+        function createMindmapParticles() {
+            const container = document.querySelector('.mindmap-particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createMindmapParticles);
+    </script>
+
+    <script>
+        function initBranchAnimation() {
+            const branches = document.querySelectorAll('.branch');
+            let currentIndex = 0;
+
+            function activateNextBranch() {
+                // Xóa active state từ tất cả branches
+                branches.forEach(branch => {
+                    branch.querySelector('.branch-node').classList.remove('active');
+                });
+
+                // Kích hoạt branch tiếp theo
+                const currentBranch = branches[currentIndex];
+                const branchLine = currentBranch.querySelector('.branch-line');
+                const branchNode = currentBranch.querySelector('.branch-node');
+
+                // Reset animation của branch line
+                branchLine.style.animation = 'none';
+                branchLine.offsetHeight; // Trigger reflow
+                branchLine.style.animation = null;
+
+                // Thêm class active sau khi ánh sáng chạy qua
+                setTimeout(() => {
+                    branchNode.classList.add('active');
+                }, 1500); // Một nửa thời gian của animation lightFlow
+
+                // Chuyển đến branch tiếp theo
+                currentIndex = (currentIndex + 1) % branches.length;
+            }
+
+            // Bắt đầu animation cycle
+            setInterval(activateNextBranch, 3000); // 3 giây cho mỗi branch
+
+            // Thêm hover interaction
+            branches.forEach(branch => {
+                branch.addEventListener('mouseenter', () => {
+                    const branchLine = branch.querySelector('.branch-line');
+                    const branchNode = branch.querySelector('.branch-node');
+
+                    // Reset và kích hoạt animation khi hover
+                    branchLine.style.animation = 'none';
+                    branchLine.offsetHeight;
+                    branchLine.style.animation = null;
+                    
+                    // Kích hoạt node
+                    branches.forEach(b => {
+                        b.querySelector('.branch-node').classList.remove('active');
+                    });
+                    branchNode.classList.add('active');
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createMindmapParticles();
+            initBranchAnimation();
+        });
+    </script>
+</body>
+</html> 
