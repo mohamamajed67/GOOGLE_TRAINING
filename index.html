@@ -1322,10 +1322,10 @@
                         </div>
 
                         <!-- Grid các tính năng chính -->
-                        <div class="features-grid">
-                            <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="features-grid" style="position: relative; z-index: 10;">
+                            <div class="feature-item" data-aos="fade-up">
                                 <div class="feature-icon">
-                                    <img src="src/images/collaboration.svg" alt="Collaboration">
+                                    <img src="./src/images/collaboration.svg" alt="Collaboration">
                                 </div>
                                 <h3>Cộng tác thời gian thực</h3>
                                 <p>Làm việc cùng lúc trên mọi tài liệu, mọi nơi</p>
@@ -1347,7 +1347,7 @@
                         </div>
 
                         <!-- App showcase -->
-                        <div class="app-showcase">
+                        <!-- <div class="app-showcase">
                             <h3 class="showcase-title">Các ứng dụng tích hợp</h3>
                             <div class="app-grid">
                                 <div class="app-item" data-app="gmail">
@@ -1366,9 +1366,8 @@
                                     <img src="src/images/meet.svg" alt="Meet">
                                     <span>Meet</span>
                                 </div>
-                                <!-- Thêm các ứng dụng khác tương tự -->
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
 
@@ -1949,7 +1948,21 @@
     </script>
 
     <script>
-        AOS.init();
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 50,
+                disable: 'mobile',
+                mirror: false,
+                anchorPlacement: 'top-bottom'
+            });
+            
+            // Đảm bảo AOS được refresh khi slide thay đổi
+            Reveal.addEventListener('slidechanged', function() {
+                AOS.refresh();
+            });
+        });
     </script>
 </body>
 </html> 
