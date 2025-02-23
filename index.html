@@ -625,6 +625,11 @@
         .mindmap-section {
             min-height: 100vh;
             overflow: hidden;
+            transition: opacity 0.5s ease;
+        }
+
+        .mindmap-section.fade-out {
+            opacity: 0;
         }
 
         .mindmap-container {
@@ -634,6 +639,7 @@
             height: 1000px;
             margin: 0 auto;
             perspective: 2000px;
+            overflow: visible;
         }
 
         .central-node {
@@ -642,7 +648,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .node-content {
@@ -677,7 +683,38 @@
             left: 50%;
             transform-origin: 0 0;
             transform: rotate(var(--angle));
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .branch.fade-out {
+            opacity: 0;
+            transform: scale(0.8) rotate(var(--angle));
+        }
+
+        .branch.highlight-solo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-450px, -50%) scale(1.5);
+            z-index: 100;
+            opacity: 1 !important;
+        }
+
+        .branch.highlight-solo .branch-node {
+            transform: none !important;
+            opacity: 1 !important;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(66,133,244,0.8);
+            box-shadow: 
+                0 0 30px rgba(66,133,244,0.4),
+                0 0 50px rgba(52,168,83,0.3);
+            animation: pulseHighlight 3s ease-in-out;
+        }
+
+        @keyframes pulseHighlight {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
 
         .branch-line {
@@ -874,6 +911,46 @@
             background: rgba(66,133,244,0.2);
             border-radius: 50%;
             animation: particleFloat 20s infinite linear;
+        }
+
+        /* Style cho central node khi transition */
+        .central-node {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .central-node.slide-left {
+            transform: translateX(-600px);
+            opacity: 1;
+        }
+
+        /* Điều chỉnh lại position cho branch highlight */
+        .branch.highlight-solo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-450px, -50%) scale(1.5);
+            z-index: 100;
+            opacity: 1 !important;
+        }
+
+        /* Thêm transition cho branch khi di chuyển */
+        .branch {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .branch.slide-left {
+            transform: translateX(-450px) rotate(var(--angle));
+        }
+
+        .branch.highlight-solo .branch-node {
+            transform: none !important;
+            opacity: 1 !important;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(66,133,244,0.8);
+            box-shadow: 
+                0 0 30px rgba(66,133,244,0.4),
+                0 0 50px rgba(52,168,83,0.3);
+            animation: pulseHighlight 3s ease-in-out;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -1376,6 +1453,104 @@
             });
         }
 
+        document.addEventListener('DOMContentLoaded', () => {
+            createMindmapParticles();
+            initBranchAnimation();
+        });
+    </script>
+
+    <script>
+        let isTransitioning = false;
+
+        async function handleTransition() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            const mindmapSection = document.querySelector('.mindmap-section');
+            const centralNode = document.querySelector('.central-node');
+            const branches = document.querySelectorAll('.branch');
+            const introductionBranch = branches[0];
+
+            // Di chuyển node trung tâm và branch Giới thiệu chung sang trái
+            centralNode.classList.add('slide-left');
+            introductionBranch.classList.add('slide-left');
+
+            // Fade out các branch khác
+            branches.forEach((branch, index) => {
+                if (index !== 0) {
+                    branch.classList.add('fade-out');
+                }
+            });
+
+            // Đợi animation di chuyển hoàn thành
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Highlight branch Giới thiệu chung
+            introductionBranch.classList.remove('slide-left');
+            introductionBranch.classList.add('highlight-solo');
+
+            // Đợi 3 giây
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
+            // Fade out mindmap section
+            mindmapSection.style.opacity = '0';
+            mindmapSection.style.transition = 'opacity 0.5s ease';
+
+            // Đợi fade out hoàn thành
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // Reset và chuyển slide
+            isTransitioning = false;
+            Reveal.next();
+
+            // Cleanup
+            setTimeout(() => {
+                mindmapSection.style.opacity = '';
+                centralNode.classList.remove('slide-left');
+                branches.forEach(branch => {
+                    branch.classList.remove('fade-out', 'slide-left', 'highlight-solo');
+                });
+            }, 1000);
+        }
+
+        // Override điều khiển mặc định của Reveal.js
+        Reveal.configure({
+            keyboard: {
+                39: null  // Vô hiệu hóa phím mũi tên phải mặc định
+            }
+        });
+
+        // Xử lý sự kiện keydown
+        document.addEventListener('keydown', async (event) => {
+            if (event.key === 'ArrowRight') {
+                const currentSlide = Reveal.getCurrentSlide();
+                
+                // Kiểm tra nếu đang ở slide mindmap
+                if (currentSlide.querySelector('.mindmap-section')) {
+                    event.preventDefault(); // Ngăn chặn hành vi mặc định
+                    await handleTransition();
+                }
+            }
+        });
+
+        // Cleanup function
+        function resetMindmap() {
+            const mindmapSection = document.querySelector('.mindmap-section');
+            const branches = document.querySelectorAll('.branch');
+            
+            mindmapSection.classList.remove('fade-out');
+            branches.forEach(branch => {
+                branch.classList.remove('fade-out', 'slide-left', 'highlight-solo');
+            });
+            isTransitioning = false;
+        }
+
+        // Thêm event listener cho Reveal.js
+        Reveal.addEventListener('slidechanged', (event) => {
+            resetMindmap();
+        });
+
+        // Khởi tạo khi trang load
         document.addEventListener('DOMContentLoaded', () => {
             createMindmapParticles();
             initBranchAnimation();
