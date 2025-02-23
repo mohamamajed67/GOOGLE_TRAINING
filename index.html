@@ -952,6 +952,24 @@
                 0 0 50px rgba(52,168,83,0.3);
             animation: pulseHighlight 3s ease-in-out;
         }
+
+        .slide-content {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide-content.show {
+            opacity: 1;
+        }
+
+        .reveal .slides section {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .reveal .slides section.present {
+            opacity: 1;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
@@ -1208,6 +1226,24 @@
             minScale: 0.2,
             maxScale: 2.0,
             plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+        });
+
+        Reveal.addEventListener('ready', event => {
+            // Hiển thị slide đầu tiên
+            event.currentSlide.style.opacity = '1';
+        });
+
+        Reveal.addEventListener('slidechanged', event => {
+            // Reset opacity cho slide cũ
+            if (event.previousSlide) {
+                event.previousSlide.style.opacity = '0';
+            }
+            
+            // Thêm hiệu ứng fade-in cho slide mới
+            event.currentSlide.style.opacity = '0';
+            setTimeout(() => {
+                event.currentSlide.style.opacity = '1';
+            }, 50);
         });
 
         function createParticles() {
@@ -1516,13 +1552,13 @@
         // Override điều khiển mặc định của Reveal.js
         Reveal.configure({
             keyboard: {
-                39: null  // Vô hiệu hóa phím mũi tên phải mặc định
+                80: null  // Vô hiệu hóa phím 'p' mặc định (80 là mã ASCII của 'p')
             }
         });
 
         // Xử lý sự kiện keydown
         document.addEventListener('keydown', async (event) => {
-            if (event.key === 'ArrowRight') {
+            if (event.key === '1' || event.key === '2') {
                 const currentSlide = Reveal.getCurrentSlide();
                 
                 // Kiểm tra nếu đang ở slide mindmap
@@ -1548,6 +1584,20 @@
         // Thêm event listener cho Reveal.js
         Reveal.addEventListener('slidechanged', (event) => {
             resetMindmap();
+            
+            // Thêm hiệu ứng fade-in cho slide mới
+            const currentSlide = event.currentSlide;
+            const content = currentSlide.querySelector('.slide-content');
+            
+            if (content) {
+                // Reset opacity
+                content.style.opacity = '0';
+                
+                // Trigger fade-in sau một khoảng thời gian ngắn
+                setTimeout(() => {
+                    content.style.opacity = '1';
+                }, 100);
+            }
         });
 
         // Khởi tạo khi trang load
