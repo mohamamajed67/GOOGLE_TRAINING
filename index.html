@@ -5,8 +5,10 @@
     <title>Google Workspace Training</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/moon.css">
+    <link rel="stylesheet" href="intro-section.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
             --google-sans: 'Google Sans', sans-serif;
@@ -970,8 +972,218 @@
         .reveal .slides section.present {
             opacity: 1;
         }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefit-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .benefit-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #fbbc05;
+            font-weight: bold;
+        }
+
+        .two-columns .column img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .intro-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .title-container {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title.glowing-text {
+            font-size: 3.5em;
+            background: linear-gradient(120deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        .title-underline {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4285f4, #34a853);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .definition-container {
+            margin-bottom: 4rem;
+        }
+
+        .main-definition {
+            font-size: 2.2em;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .sub-definition {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.8);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .key-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: var(--delay);
+            opacity: 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 1rem;
+            color: #4285f4;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .core-apps {
+            margin-top: 4rem;
+        }
+
+        .apps-title {
+            font-size: 2em;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .app-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: var(--delay);
+            opacity: 0;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-info h4 {
+            font-size: 1.5em;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .app-info p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1rem;
+        }
+
+        .app-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .app-features li {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .app-features li::before {
+            content: '•';
+            color: #4285f4;
+            position: absolute;
+            left: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(66,133,244,0.3);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(66,133,244,0.5);
+            }
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
     <!-- Three.js background container -->
@@ -1092,40 +1304,116 @@
             </section>
 
             <!-- Phần 1: Giới thiệu -->
-            <section class="intro-section">
-                <div class="intro-header">
-                    <h2 class="section-title">Google Workspace là gì?</h2>
-                    <div class="workspace-definition">
-                        <p class="definition-text">
-                            <span class="highlight">Giải pháp toàn diện</span> cho doanh nghiệp của bạn
-                        </p>
+            <section>
+                <section class="intro-section">
+                    <div class="intro-container">
+                        <!-- Tiêu đề chính -->
+                        <div class="title-container">
+                            <h2 class="section-title glowing-text">Google Workspace là gì?</h2>
+                            <div class="title-underline"></div>
+                        </div>
+
+                        <!-- Định nghĩa chính -->
+                        <div class="definition-container">
+                            <p class="main-definition">
+                                <span class="highlight-text">Bộ công cụ đám mây</span> tích hợp hoàn chỉnh cho doanh nghiệp
+                            </p>
+                            <p class="sub-definition">Trước đây được biết đến với tên gọi G Suite</p>
+                        </div>
+
+                        <!-- Grid các tính năng chính -->
+                        <div class="features-grid">
+                            <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                                <div class="feature-icon">
+                                    <img src="src/images/collaboration.svg" alt="Collaboration">
+                                </div>
+                                <h3>Cộng tác thời gian thực</h3>
+                                <p>Làm việc cùng lúc trên mọi tài liệu, mọi nơi</p>
+                            </div>
+                            <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                                <div class="feature-icon">
+                                    <img src="src/images/cloud-storage.svg" alt="Cloud Storage">
+                                </div>
+                                <h3>Lưu trữ đám mây</h3>
+                                <p>Dung lượng lớn, truy cập mọi lúc mọi nơi</p>
+                            </div>
+                            <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                                <div class="feature-icon">
+                                    <img src="src/images/security.svg" alt="Security">
+                                </div>
+                                <h3>Bảo mật nâng cao</h3>
+                                <p>Tính năng bảo mật và quản trị chuyên nghiệp</p>
+                            </div>
+                        </div>
+
+                        <!-- App showcase -->
+                        <div class="app-showcase">
+                            <h3 class="showcase-title">Các ứng dụng tích hợp</h3>
+                            <div class="app-grid">
+                                <div class="app-item" data-app="gmail">
+                                    <img src="src/images/gmail.svg" alt="Gmail">
+                                    <span>Gmail</span>
+                                </div>
+                                <div class="app-item" data-app="drive">
+                                    <img src="src/images/drive.svg" alt="Drive">
+                                    <span>Drive</span>
+                                </div>
+                                <div class="app-item" data-app="docs">
+                                    <img src="src/images/docs.svg" alt="Docs">
+                                    <span>Docs</span>
+                                </div>
+                                <div class="app-item" data-app="meet">
+                                    <img src="src/images/meet.svg" alt="Meet">
+                                    <span>Meet</span>
+                                </div>
+                                <!-- Thêm các ứng dụng khác tương tự -->
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="apps-showcase">
-                    <div class="apps-grid">
-                        <div class="app-card" style="--delay: 0.1s;">
-                            <div class="app-icon gmail"></div>
-                            <h3>Gmail</h3>
-                            <p>Email chuyên nghiệp</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Tính năng nổi bật</h2>
+                    <div class="feature-grid">
+                        <div class="feature-box fragment fade-up">
+                            <h4>Làm việc mọi nơi</h4>
+                            <p>Truy cập từ mọi thiết bị, mọi lúc mọi nơi</p>
                         </div>
-                        <div class="app-card" style="--delay: 0.2s;">
-                            <div class="app-icon drive"></div>
-                            <h3>Drive</h3>
-                            <p>Lưu trữ đám mây</p>
+                        <div class="feature-box fragment fade-up">
+                            <h4>Cộng tác thời gian thực</h4>
+                            <p>Làm việc cùng lúc trên cùng tài liệu</p>
                         </div>
-                        <div class="app-card" style="--delay: 0.3s;">
-                            <div class="app-icon docs"></div>
-                            <h3>Docs</h3>
-                            <p>Xử lý văn bản</p>
-                        </div>
-                        <div class="app-card" style="--delay: 0.4s;">
-                            <div class="app-icon sheets"></div>
-                            <h3>Sheets</h3>
-                            <p>Bảng tính</p>
+                        <div class="feature-box fragment fade-up">
+                            <h4>Tích hợp đa dịch vụ</h4>
+                            <p>Kết nối liền mạch giữa các ứng dụng</p>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <section data-background-gradient="linear-gradient(45deg, #4285f4, #34a853)">
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3>Lợi ích doanh nghiệp</h3>
+                            <ul class="benefit-list fragment fade-up">
+                                <li>Tăng năng suất làm việc</li>
+                                <li>Tiết kiệm chi phí vận hành</li>
+                                <li>Bảo mật dữ liệu tối ưu</li>
+                                <li>Quản lý tập trung</li>
+                            </ul>
+                        </div>
+                        <div class="column fragment fade-left">
+                            <img src="business-benefits.png" alt="Business Benefits">
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background-iframe="https://workspace.google.com/features/"
+                         data-background-interactive>
+                    <div style="background-color: rgba(0,0,0,0.7); padding: 20px;">
+                        <h3>Demo trực tiếp</h3>
+                        <p>Khám phá giao diện người dùng</p>
+                    </div>
+                </section>
             </section>
 
             <!-- Phần 2: Quản lý tài khoản -->
@@ -1175,7 +1463,8 @@
                 <section data-background-iframe="https://example.com/shared-drive-demo"
                          data-background-interactive>
                     <div style="background-color: rgba(0,0,0,0.7); padding: 20px;">
-                        <h3>Demo trực tiếp</h3>
+                        <h3>D
+                            emo trực tiếp</h3>
                         <p>Khám phá tính năng Shared Drive</p>
                     </div>
                 </section>
@@ -1657,6 +1946,10 @@
                 initMindmapAnimations();
             }
         });
+    </script>
+
+    <script>
+        AOS.init();
     </script>
 </body>
 </html> 

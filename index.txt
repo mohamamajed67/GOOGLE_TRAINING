@@ -1,0 +1,72 @@
+GOOGLE WORKSPACE TRAINING
+GIỚI THIỆU CHUNG VỀ GOOGLE WORKSPACE 
+•	Google Workspace là gì?
+o	Tổng quan về các ứng dụng chính (Gmail, Drive, Docs, Sheets, Slides, Calendar, Meet, Chat...)
+o	Lợi ích của việc sử dụng Google Workspace trong doanh nghiệp.
+•	Đăng nhập và giao diện người dùng
+o	Hướng dẫn đăng nhập bằng tài khoản công ty.
+o	Làm quen với giao diện chung của Google Workspace.
+o	Cá nhân hóa cài đặt cơ bản (ngôn ngữ, múi giờ...).
+PHẦN 2: QUẢN LÝ TÀI KHOẢN VÀ GIẤY PHÉP 
+•	2.1. THAO TÁC QUẢN TRỊ (ADMIN) 
+o	Truy cập Google Admin Console
+o	Thêm/Xóa tài khoản người dùng
+	Hướng dẫn tạo tài khoản mới (nhập thông tin, đặt mật khẩu ban đầu).
+	Vô hiệu hóa hoặc xóa tài khoản người dùng (lưu ý về dữ liệu).
+o	Quản lý giấy phép (License)
+	Gán/Gỡ giấy phép cho người dùng (ví dụ: Business Standard, Business Plus).
+	Xem thông tin về gói Subscription của công ty.
+o	Phân quyền quản trị (Delegation)
+	Các loại quyền quản trị cơ bản:
+	(A) Super Admin: Quyền cao nhất, quản lý mọi thứ.
+	(B) Group Admin: Quản lý nhóm người dùng.
+	(C) Service Admin: Quản lý một dịch vụ cụ thể (ví dụ: Gmail, Drive).
+	Hướng dẫn phân quyền cho các Admin khác.
+	Lưu ý về bảo mật khi phân quyền.
+•	2.2. THAO TÁC NGƯỜI DÙNG
+o	Thay đổi mật khẩu
+o	Cập nhật thông tin cá nhân
+o	Quản lý bảo mật tài khoản
+	Bật xác thực 2 yếu tố (2FA).
+	Xem lại các thiết bị đã đăng nhập.
+o	Quyền cơ bản của người dùng:
+	 Sử dụng các ứng dụng được cấp phép (Gmail, Drive...).
+	Chia sẻ tài liệu với người khác.
+	Tham gia cuộc họp trực tuyến (Google Meet).
+	….
+PHẦN 3: SÂU VỀ SHARED DRIVE: QUẢN LÝ DỮ LIỆU CHUNG 
+3.1. Giới thiệu về Shared Drive
+o	Shared Drive là gì? Tại sao nên sử dụng Shared Drive?
+o	Phân biệt Shared Drive và My Drive.
+o	Ưu điểm của Shared Drive:
+	Dữ liệu thuộc sở hữu của công ty, không phụ thuộc vào tài khoản cá nhân.
+	Dễ dàng chia sẻ và cộng tác.
+	Kiểm soát quyền truy cập chặt chẽ.
+•	3.2. Thao tác với Shared Drive
+o	Tạo và quản lý Shared Drive
+	Hướng dẫn tạo Shared Drive mới.
+	Đổi tên, thay đổi cài đặt (ví dụ: chia sẻ bên ngoài).
+o	Quản lý thành viên và quyền truy cập
+	Thêm/Xóa thành viên.
+	Các cấp quyền: Viewer, Commenter, Contributor, Manager.
+	Lựa chọn quyền phù hợp cho từng thành viên.
+o	Tải lên, tạo mới và sắp xếp dữ liệu
+	Hướng dẫn tải lên file/folder.
+	Tạo mới tài liệu (Docs, Sheets, Slides...) trực tiếp trong Shared Drive.
+	Sắp xếp dữ liệu theo cấu trúc thư mục hợp lý.
+•	3.3. Chính sách dữ liệu liên quan đến Shared Drive
+o	Lưu trữ 
+	Dung lượng lưu trữ của Shared Drive.
+o	Xóa dữ liệu và khôi phục
+	Dữ liệu bị xóa sẽ được lưu trong thùng rác trong bao lâu?
+	Hướng dẫn khôi phục dữ liệu đã xóa.
+o	Xóa tài khoản và ảnh hưởng đến dữ liệu
+	Khi tài khoản bị xóa, dữ liệu trong Shared Drive sẽ như thế nào?
+	Cách chuyển quyền sở hữu dữ liệu trước khi xóa tài khoản.
+PHẦN 4: SO SÁNH CÁC GIẤY PHÉP NÂNG CAO 
+Tổng quan về các gói giấy phép Google Workspace
+•	So sánh chi tiết các tính năng và lợi ích
+•	Lựa chọn gói giấy phép phù hợp
+PHẦN 5: HỎI ĐÁP VÀ KIỂM TRA
+•	Giải đáp các thắc mắc
+•	Bài kiểm tra 
