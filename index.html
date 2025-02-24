@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="vi">
+
 <head>
     <meta charset="utf-8">
     <title>Google Workspace Training</title>
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/moon.css">
     <link rel="stylesheet" href="intro-section.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
@@ -40,6 +43,7 @@
             box-shadow: none !important;
             max-height: 400px;
         }
+
         .intro-container {
             display: flex;
             flex-direction: column;
@@ -51,7 +55,7 @@
             display: flex;
             gap: 1.5rem;
             margin-top: 2rem;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
             border-radius: 20px;
             backdrop-filter: blur(10px);
@@ -61,12 +65,12 @@
             width: 60px;
             height: 60px;
             transition: all 0.3s ease;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
         }
 
         .app-icon:hover {
             transform: translateY(-5px);
-            filter: drop-shadow(0 0 20px rgba(255,255,255,0.4));
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
         }
 
         .custom-title {
@@ -87,6 +91,7 @@
             content: '';
             position: absolute;
             top: 0;
+            ''
             left: 0;
             width: 100%;
             height: 100%;
@@ -105,45 +110,66 @@
             animation-delay: calc(var(--i) * 0.2s);
             text-shadow: 0 0 20px currentColor;
         }
-        .blue { color: #4285f4; }
-        .red { color: #ea4335; }
-        .yellow { color: #fbbc05; }
-        .green { color: #34a853; }
+
+        .blue {
+            color: #4285f4;
+        }
+
+        .red {
+            color: #ea4335;
+        }
+
+        .yellow {
+            color: #fbbc05;
+        }
+
+        .green {
+            color: #34a853;
+        }
+
         .feature-box {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
             margin: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .two-columns {
             display: flex;
             justify-content: space-between;
         }
+
         .column {
             flex: 1;
             padding: 20px;
         }
+
         .reveal p {
             line-height: 1.6;
             margin-bottom: 1em;
         }
+
         .reveal ul {
             font-family: var(--roboto);
             font-size: 1.1em;
         }
+
         .reveal li {
             margin: 12px 0;
         }
+
         .feature-box h4 {
             margin-top: 0;
             color: #4285f4;
         }
+
         .feature-box p {
             font-family: var(--roboto);
             font-size: 0.9em;
             margin-bottom: 0;
         }
+
         .intro-text {
             font-size: 2.2em;
             font-family: var(--google-sans);
@@ -161,7 +187,7 @@
         }
 
         .sub-text {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.8em;
             font-weight: 400;
         }
@@ -172,7 +198,7 @@
             right: 20px;
             font-size: 0.8em;
             opacity: 0.5;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 8px 15px;
             border-radius: 20px;
             backdrop-filter: blur(5px);
@@ -184,8 +210,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px) scale(1.1); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px) scale(1.1);
+            }
         }
 
         .three-js-bg {
@@ -341,41 +374,129 @@
         }
 
         @keyframes floating {
-            0%, 100% { transform: translateY(0) translateZ(0); }
-            50% { transform: translateY(-20px) translateZ(50px); }
+
+            0%,
+            100% {
+                transform: translateY(0) translateZ(0);
+            }
+
+            50% {
+                transform: translateY(-20px) translateZ(50px);
+            }
         }
 
         @keyframes cardFloat {
-            0%, 100% { transform: translateY(0) rotateX(0); }
-            50% { transform: translateY(-30px) rotateX(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotateX(0);
+            }
+
+            50% {
+                transform: translateY(-30px) rotateX(5deg);
+            }
         }
 
         @keyframes glitch-anim {
-            0% { clip: rect(31px, 9999px, 94px, 0); }
-            4.166666667% { clip: rect(91px, 9999px, 43px, 0); }
-            8.333333333% { clip: rect(15px, 9999px, 13px, 0); }
-            12.5% { clip: rect(75px, 9999px, 57px, 0); }
-            16.666666667% { clip: rect(73px, 9999px, 56px, 0); }
-            20.833333333% { clip: rect(57px, 9999px, 98px, 0); }
-            25% { clip: rect(35px, 9999px, 100px, 0); }
-            29.166666667% { clip: rect(82px, 9999px, 64px, 0); }
-            33.333333333% { clip: rect(54px, 9999px, 27px, 0); }
-            37.5% { clip: rect(89px, 9999px, 98px, 0); }
-            41.666666667% { clip: rect(76px, 9999px, 82px, 0); }
-            45.833333333% { clip: rect(23px, 9999px, 55px, 0); }
-            50% { clip: rect(42px, 9999px, 78px, 0); }
-            54.166666667% { clip: rect(67px, 9999px, 45px, 0); }
-            58.333333333% { clip: rect(41px, 9999px, 89px, 0); }
-            62.5% { clip: rect(56px, 9999px, 32px, 0); }
-            66.666666667% { clip: rect(84px, 9999px, 23px, 0); }
-            70.833333333% { clip: rect(23px, 9999px, 76px, 0); }
-            75% { clip: rect(67px, 9999px, 34px, 0); }
-            79.166666667% { clip: rect(89px, 9999px, 45px, 0); }
-            83.333333333% { clip: rect(65px, 9999px, 67px, 0); }
-            87.5% { clip: rect(32px, 9999px, 87px, 0); }
-            91.666666667% { clip: rect(43px, 9999px, 43px, 0); }
-            95.833333333% { clip: rect(56px, 9999px, 78px, 0); }
-            100% { clip: rect(32px, 9999px, 23px, 0); }
+            0% {
+                clip: rect(31px, 9999px, 94px, 0);
+            }
+
+            4.166666667% {
+                clip: rect(91px, 9999px, 43px, 0);
+            }
+
+            8.333333333% {
+                clip: rect(15px, 9999px, 13px, 0);
+            }
+
+            12.5% {
+                clip: rect(75px, 9999px, 57px, 0);
+            }
+
+            16.666666667% {
+                clip: rect(73px, 9999px, 56px, 0);
+            }
+
+            20.833333333% {
+                clip: rect(57px, 9999px, 98px, 0);
+            }
+
+            25% {
+                clip: rect(35px, 9999px, 100px, 0);
+            }
+
+            29.166666667% {
+                clip: rect(82px, 9999px, 64px, 0);
+            }
+
+            33.333333333% {
+                clip: rect(54px, 9999px, 27px, 0);
+            }
+
+            37.5% {
+                clip: rect(89px, 9999px, 98px, 0);
+            }
+
+            41.666666667% {
+                clip: rect(76px, 9999px, 82px, 0);
+            }
+
+            45.833333333% {
+                clip: rect(23px, 9999px, 55px, 0);
+            }
+
+            50% {
+                clip: rect(42px, 9999px, 78px, 0);
+            }
+
+            54.166666667% {
+                clip: rect(67px, 9999px, 45px, 0);
+            }
+
+            58.333333333% {
+                clip: rect(41px, 9999px, 89px, 0);
+            }
+
+            62.5% {
+                clip: rect(56px, 9999px, 32px, 0);
+            }
+
+            66.666666667% {
+                clip: rect(84px, 9999px, 23px, 0);
+            }
+
+            70.833333333% {
+                clip: rect(23px, 9999px, 76px, 0);
+            }
+
+            75% {
+                clip: rect(67px, 9999px, 34px, 0);
+            }
+
+            79.166666667% {
+                clip: rect(89px, 9999px, 45px, 0);
+            }
+
+            83.333333333% {
+                clip: rect(65px, 9999px, 67px, 0);
+            }
+
+            87.5% {
+                clip: rect(32px, 9999px, 87px, 0);
+            }
+
+            91.666666667% {
+                clip: rect(43px, 9999px, 43px, 0);
+            }
+
+            95.833333333% {
+                clip: rect(56px, 9999px, 78px, 0);
+            }
+
+            100% {
+                clip: rect(32px, 9999px, 23px, 0);
+            }
         }
 
         .presenter-info {
@@ -443,6 +564,7 @@
                 opacity: 0;
                 transform: translateY(50px) rotateX(-30deg);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0) rotateX(0);
@@ -454,6 +576,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -487,7 +610,7 @@
             font-weight: 700;
             color: #fff;
             letter-spacing: 2px;
-            text-shadow: 
+            text-shadow:
                 0 1px 0 #4285f4,
                 0 2px 0 #ea4335,
                 0 3px 0 #fbbc05,
@@ -516,19 +639,25 @@
         }
 
         @keyframes titleFloat {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) rotateX(0deg);
             }
+
             50% {
                 transform: translateY(-10px) rotateX(10deg);
             }
         }
 
         @keyframes titleGlow {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0.5;
                 filter: blur(8px);
             }
+
             50% {
                 opacity: 0.8;
                 filter: blur(12px);
@@ -656,13 +785,13 @@
         .node-content {
             width: 250px;
             height: 250px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 50%;
-            border: 2px solid rgba(66,133,244,0.3);
-            box-shadow: 
-                0 0 30px rgba(66,133,244,0.2),
-                inset 0 0 20px rgba(66,133,244,0.1);
+            border: 2px solid rgba(66, 133, 244, 0.3);
+            box-shadow:
+                0 0 30px rgba(66, 133, 244, 0.2),
+                inset 0 0 20px rgba(66, 133, 244, 0.1);
             padding: 2rem;
             display: flex;
             flex-direction: column;
@@ -673,10 +802,10 @@
 
         .node-content:hover {
             transform: scale(1.05);
-            border-color: rgba(66,133,244,0.6);
-            box-shadow: 
-                0 0 50px rgba(66,133,244,0.4),
-                inset 0 0 30px rgba(66,133,244,0.2);
+            border-color: rgba(66, 133, 244, 0.6);
+            box-shadow:
+                0 0 50px rgba(66, 133, 244, 0.4),
+                inset 0 0 30px rgba(66, 133, 244, 0.2);
         }
 
         .branch {
@@ -705,25 +834,33 @@
         .branch.highlight-solo .branch-node {
             transform: none !important;
             opacity: 1 !important;
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(66,133,244,0.8);
-            box-shadow: 
-                0 0 30px rgba(66,133,244,0.4),
-                0 0 50px rgba(52,168,83,0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(66, 133, 244, 0.8);
+            box-shadow:
+                0 0 30px rgba(66, 133, 244, 0.4),
+                0 0 50px rgba(52, 168, 83, 0.3);
             animation: pulseHighlight 3s ease-in-out;
         }
 
         @keyframes pulseHighlight {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .branch-line {
             position: absolute;
             width: 300px;
             height: 2px;
-            background: rgba(66,133,244,0.3);
+            background: rgba(66, 133, 244, 0.3);
             transform-origin: left center;
             overflow: hidden;
         }
@@ -735,13 +872,11 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(66,133,244,0.8),
-                rgba(52,168,83,0.8),
-                transparent
-            );
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(66, 133, 244, 0.8),
+                    rgba(52, 168, 83, 0.8),
+                    transparent);
             animation: lightFlow 3s linear infinite;
         }
 
@@ -750,7 +885,7 @@
             left: 300px;
             top: -100px;
             width: 320px;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 2rem;
@@ -758,45 +893,43 @@
             opacity: 0;
             animation: nodeAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             animation-delay: calc(var(--delay) + 0.5s);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 
-                0 10px 30px rgba(0,0,0,0.1),
-                0 0 30px rgba(66,133,244,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.1),
+                0 0 30px rgba(66, 133, 244, 0.1);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .branch-node:hover {
             transform: rotate(calc(var(--angle) * -1)) translateY(-15px) scale(1.05);
-            background: rgba(255,255,255,0.12);
-            border-color: rgba(66,133,244,0.3);
-            box-shadow: 
-                0 20px 40px rgba(0,0,0,0.2),
-                0 0 50px rgba(66,133,244,0.2);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(66, 133, 244, 0.3);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 50px rgba(66, 133, 244, 0.2);
         }
 
         .node-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, 
-                rgba(66,133,244,0.2), 
-                rgba(52,168,83,0.2)
-            );
+            background: linear-gradient(135deg,
+                    rgba(66, 133, 244, 0.2),
+                    rgba(52, 168, 83, 0.2));
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
             transition: all 0.4s ease;
-            border: 2px solid rgba(255,255,255,0.1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .branch-node:hover .node-icon {
             transform: scale(1.1) rotate(10deg);
             background: linear-gradient(135deg,
-                rgba(66,133,244,0.4),
-                rgba(52,168,83,0.4)
-            );
-            border-color: rgba(255,255,255,0.2);
+                    rgba(66, 133, 244, 0.4),
+                    rgba(52, 168, 83, 0.4));
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .branch-details {
@@ -810,7 +943,7 @@
             padding-left: 1.5rem;
             margin-bottom: 1rem;
             font-size: 1rem;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -839,7 +972,7 @@
 
         .branch-details li:hover::before {
             background: #34a853;
-            box-shadow: 0 0 10px rgba(52,168,83,0.5);
+            box-shadow: 0 0 10px rgba(52, 168, 83, 0.5);
         }
 
         @keyframes branchGrow {
@@ -847,6 +980,7 @@
                 transform: scaleX(0);
                 opacity: 0;
             }
+
             to {
                 transform: scaleX(1);
                 opacity: 1;
@@ -858,6 +992,7 @@
                 opacity: 0;
                 transform: rotate(calc(var(--angle) * -1)) translateY(50px) scale(0.8);
             }
+
             100% {
                 opacity: 1;
                 transform: rotate(calc(var(--angle) * -1)) translateY(0) scale(1);
@@ -868,6 +1003,7 @@
             0% {
                 left: -100%;
             }
+
             100% {
                 left: 100%;
             }
@@ -875,19 +1011,18 @@
 
         .branch-node.active {
             transform: rotate(calc(var(--angle) * -1)) scale(1.1);
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(66,133,244,0.8);
-            box-shadow: 
-                0 0 30px rgba(66,133,244,0.4),
-                0 0 50px rgba(52,168,83,0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(66, 133, 244, 0.8);
+            box-shadow:
+                0 0 30px rgba(66, 133, 244, 0.4),
+                0 0 50px rgba(52, 168, 83, 0.3);
         }
 
         .branch-node.active .node-icon {
             transform: scale(1.2) rotate(15deg);
             background: linear-gradient(135deg,
-                rgba(66,133,244,0.6),
-                rgba(52,168,83,0.6)
-            );
+                    rgba(66, 133, 244, 0.6),
+                    rgba(52, 168, 83, 0.6));
         }
 
         .branch-node.active .branch-details li {
@@ -910,7 +1045,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(66,133,244,0.2);
+            background: rgba(66, 133, 244, 0.2);
             border-radius: 50%;
             animation: particleFloat 20s infinite linear;
         }
@@ -947,11 +1082,11 @@
         .branch.highlight-solo .branch-node {
             transform: none !important;
             opacity: 1 !important;
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(66,133,244,0.8);
-            box-shadow: 
-                0 0 30px rgba(66,133,244,0.4),
-                0 0 50px rgba(52,168,83,0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(66, 133, 244, 0.8);
+            box-shadow:
+                0 0 30px rgba(66, 133, 244, 0.4),
+                0 0 50px rgba(52, 168, 83, 0.3);
             animation: pulseHighlight 3s ease-in-out;
         }
 
@@ -1004,7 +1139,7 @@
         .two-columns .column img {
             max-width: 100%;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .intro-container {
@@ -1049,7 +1184,7 @@
 
         .sub-definition {
             font-size: 1.2em;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             max-width: 800px;
             margin: 0 auto;
         }
@@ -1062,7 +1197,7 @@
         }
 
         .feature-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
             border-radius: 20px;
             backdrop-filter: blur(10px);
@@ -1074,7 +1209,7 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .feature-icon {
@@ -1090,7 +1225,7 @@
         }
 
         .feature-card p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .core-apps {
@@ -1110,7 +1245,7 @@
         }
 
         .app-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             padding: 2rem;
             transition: all 0.3s ease;
@@ -1121,8 +1256,8 @@
 
         .app-card:hover {
             transform: translateY(-10px);
-            background: rgba(255,255,255,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .app-icon {
@@ -1138,7 +1273,7 @@
         }
 
         .app-info p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 1rem;
         }
 
@@ -1149,7 +1284,7 @@
         }
 
         .app-features li {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 0.5rem;
             padding-left: 1.5rem;
             position: relative;
@@ -1167,6 +1302,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1174,11 +1310,14 @@
         }
 
         @keyframes titleGlow {
-            0%, 100% {
-                text-shadow: 0 0 20px rgba(66,133,244,0.3);
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(66, 133, 244, 0.3);
             }
+
             50% {
-                text-shadow: 0 0 30px rgba(66,133,244,0.5);
+                text-shadow: 0 0 30px rgba(66, 133, 244, 0.5);
             }
         }
 
@@ -1197,10 +1336,11 @@
         .timeline8462::before {
             content: '';
             position: absolute;
-            width: 100%;
+            width: 955px;
             height: 2px;
             background: linear-gradient(to right, #4285f4, #34a853, #fbbc05, #ea4335);
-            top: 50%;
+            top: 13%;
+            left: 99px;
             transform: translateY(-50%);
             animation: timelineGlow 3s infinite;
         }
@@ -1308,6 +1448,7 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
+
 <body>
     <!-- Three.js background container -->
     <div id="three-js-bg" class="three-js-bg"></div>
@@ -1405,7 +1546,7 @@
                                 </div>
                             </div>
 
-                             <!-- Branch 4: Giấy phép -->
+                            <!-- Branch 4: Giấy phép -->
                             <div class="branch" style="--angle: 136deg; --delay: 0.8s;">
                                 <div class="branch-line"></div>
                                 <div class="branch-node" style="--delay: 0.8s;">
@@ -1445,16 +1586,18 @@
                                         <div class="timeline-content8462">
                                             <div class="timeline-date8462">02/2006</div>
                                             <h3>Gmail for Your Domain</h3>
-                                            <p>Google ra mắt Gmail for Your Domain, cho phép tổ chức sử dụng Gmail với địa chỉ email tùy chỉnh</p>
+                                            <p>Google ra mắt Gmail for Your Domain, cho phép tổ chức sử dụng Gmail với
+                                                địa chỉ email tùy chỉnh</p>
                                         </div>
                                     </div>
 
                                     <div class="timeline-item8462" data-aos="fade-right" data-aos-delay="200">
                                         <div class="timeline-dot8462"></div>
                                         <div class="timeline-content8462">
-                                            <div class="timeline-date8462">28/08/2006</div>
+                                            <div class="timeline-date8462">08/2006</div>
                                             <h3>Google Apps for Your Domain</h3>
-                                            <p>Mở rộng thành Google Apps for Your Domain, bổ sung Google Calendar, Google Talk, và Google Page Creator</p>
+                                            <p>Mở rộng thành Google Apps for Your Domain, bổ sung Google Calendar,
+                                                Google Talk, và Google Page Creator</p>
                                         </div>
                                     </div>
 
@@ -1463,25 +1606,27 @@
                                         <div class="timeline-content8462">
                                             <div class="timeline-date8462">09/2014</div>
                                             <h3>Google Apps for Work</h3>
-                                            <p>Đổi tên thành Google Apps for Work và nâng cấp phiên bản giáo dục lên Google Apps Unlimited</p>
+                                            <p>Đổi tên thành Google Apps for Work và nâng cấp phiên bản giáo dục lên
+                                                Google Apps Unlimited</p>
                                         </div>
                                     </div>
 
                                     <div class="timeline-item8462" data-aos="fade-right" data-aos-delay="400">
                                         <div class="timeline-dot8462"></div>
                                         <div class="timeline-content8462">
-                                            <div class="timeline-date8462">29/09/2016</div>
+                                            <div class="timeline-date8462">09/2016</div>
                                             <h3>G Suite</h3>
-                                            <p>Google chính thức đổi tên Google Apps for Work thành G Suite</p>
+                                            <p>Đổi tên từ Google Apps for Work thành G Suite, tập hợp các công cụ làm việc như Gmail, Drive, Docs, Sheets, và Calendar.</p>
                                         </div>
                                     </div>
 
                                     <div class="timeline-item8462" data-aos="fade-right" data-aos-delay="500">
                                         <div class="timeline-dot8462"></div>
                                         <div class="timeline-content8462">
-                                            <div class="timeline-date8462">06/10/2020</div>
+                                            <div class="timeline-date8462">10/2020 --></div>
                                             <h3>Google Workspace</h3>
-                                            <p>Đổi tên thành Google Workspace, phản ánh sự tích hợp tốt hơn giữa các công cụ</p>
+                                            <p>Đổi tên thành Google Workspace, phản ánh sự tích hợp tốt hơn giữa các
+                                                công cụ hỗ trợ từ xa cho doanh nghiệp</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1525,8 +1670,7 @@
                     </div>
                 </section>
 
-                <section data-background-iframe="https://workspace.google.com/features/"
-                         data-background-interactive>
+                <section data-background-iframe="https://workspace.google.com/features/" data-background-interactive>
                     <div style="background-color: rgba(0,0,0,0.7); padding: 20px;">
                         <h3>Demo trực tiếp</h3>
                         <p>Khám phá giao diện người dùng</p>
@@ -1578,8 +1722,7 @@
                     </div>
                 </section>
 
-                <section data-background-iframe="https://example.com/shared-drive-demo"
-                         data-background-interactive>
+                <section data-background-iframe="https://example.com/shared-drive-demo" data-background-interactive>
                     <div style="background-color: rgba(0,0,0,0.7); padding: 20px;">
                         <h3>D
                             emo trực tiếp</h3>
@@ -1632,7 +1775,7 @@
             margin: 0.04,
             minScale: 0.2,
             maxScale: 2.0,
-            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+            plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
         });
 
         Reveal.addEventListener('ready', event => {
@@ -1645,7 +1788,7 @@
             if (event.previousSlide) {
                 event.previousSlide.style.opacity = '0';
             }
-            
+
             // Thêm hiệu ứng fade-in cho slide mới
             event.currentSlide.style.opacity = '0';
             setTimeout(() => {
@@ -1674,19 +1817,19 @@
             for (let i = 0; i < shapes; i++) {
                 const shape = document.createElement('div');
                 shape.className = 'geometric-shape';
-                
+
                 // Random size between 100px and 300px
                 const size = Math.random() * 200 + 100;
                 shape.style.width = `${size}px`;
                 shape.style.height = `${size}px`;
-                
+
                 // Random position
                 shape.style.left = `${Math.random() * 100}%`;
                 shape.style.top = `${Math.random() * 100}%`;
-                
+
                 // Random animation delay
                 shape.style.animationDelay = `${Math.random() * 5}s`;
-                
+
                 bg.appendChild(shape);
             }
         }
@@ -1758,71 +1901,71 @@
     <!-- Thêm vào trước </body> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-    // Three.js background animation
-    function initThreeJS() {
-        const container = document.getElementById('three-js-bg');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 3000);
-        const renderer = new THREE.WebGLRenderer({ 
-            antialias: true, 
-            alpha: true,
-            preserveDrawingBuffer: true
-        });
-        
-        // Thiết lập kích thước renderer theo container
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
-        container.appendChild(renderer.domElement);
+        // Three.js background animation
+        function initThreeJS() {
+            const container = document.getElementById('three-js-bg');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 3000);
+            const renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true,
+                preserveDrawingBuffer: true
+            });
 
-        // Tăng số lượng particles và khoảng cách
-        const geometry = new THREE.BufferGeometry();
-        const vertices = [];
-        
-        for (let i = 0; i < 10000; i++) {
-            vertices.push(
-                Math.random() * 4000 - 2000,
-                Math.random() * 4000 - 2000,
-                Math.random() * 4000 - 2000
-            );
-        }
-        
-        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-        
-        const material = new THREE.PointsMaterial({
-            size: 3,
-            color: 0xffffff,
-            transparent: true,
-            opacity: 0.8,
-            sizeAttenuation: true
-        });
-        
-        const points = new THREE.Points(geometry, material);
-        scene.add(points);
-        
-        camera.position.z = 1500;
-
-        function animate() {
-            requestAnimationFrame(animate);
-            
-            points.rotation.x += 0.0005;
-            points.rotation.y += 0.001;
-            
-            renderer.render(scene, camera);
-        }
-        
-        animate();
-
-        // Cập nhật hàm onWindowResize
-        function onWindowResize() {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
+            // Thiết lập kích thước renderer theo container
             renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Tăng số lượng particles và khoảng cách
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+
+            for (let i = 0; i < 10000; i++) {
+                vertices.push(
+                    Math.random() * 4000 - 2000,
+                    Math.random() * 4000 - 2000,
+                    Math.random() * 4000 - 2000
+                );
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 3,
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.8,
+                sizeAttenuation: true
+            });
+
+            const points = new THREE.Points(geometry, material);
+            scene.add(points);
+
+            camera.position.z = 1500;
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                points.rotation.x += 0.0005;
+                points.rotation.y += 0.001;
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Cập nhật hàm onWindowResize
+            function onWindowResize() {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            }
+
+            window.addEventListener('resize', onWindowResize);
         }
 
-        window.addEventListener('resize', onWindowResize);
-    }
-
-    document.addEventListener('DOMContentLoaded', initThreeJS);
+        document.addEventListener('DOMContentLoaded', initThreeJS);
     </script>
 
     <script>
@@ -1886,7 +2029,7 @@
                     branchLine.style.animation = 'none';
                     branchLine.offsetHeight;
                     branchLine.style.animation = null;
-                    
+
                     // Kích hoạt node
                     branches.forEach(b => {
                         b.querySelector('.branch-node').classList.remove('active');
@@ -1967,7 +2110,7 @@
         document.addEventListener('keydown', async (event) => {
             if (event.key === '1' || event.key === '2') {
                 const currentSlide = Reveal.getCurrentSlide();
-                
+
                 // Kiểm tra nếu đang ở slide mindmap
                 if (currentSlide.querySelector('.mindmap-section')) {
                     event.preventDefault(); // Ngăn chặn hành vi mặc định
@@ -1980,7 +2123,7 @@
         function resetMindmap() {
             const mindmapSection = document.querySelector('.mindmap-section');
             const branches = document.querySelectorAll('.branch');
-            
+
             mindmapSection.classList.remove('fade-out');
             branches.forEach(branch => {
                 branch.classList.remove('fade-out', 'slide-left', 'highlight-solo');
@@ -1991,15 +2134,15 @@
         // Thêm event listener cho Reveal.js
         Reveal.addEventListener('slidechanged', (event) => {
             resetMindmap();
-            
+
             // Thêm hiệu ứng fade-in cho slide mới
             const currentSlide = event.currentSlide;
             const content = currentSlide.querySelector('.slide-content');
-            
+
             if (content) {
                 // Reset opacity
                 content.style.opacity = '0';
-                
+
                 // Trigger fade-in sau một khoảng thời gian ngắn
                 setTimeout(() => {
                     content.style.opacity = '1';
@@ -2035,14 +2178,14 @@
         Reveal.addEventListener('slidechanged', (event) => {
             // Reset mindmap nếu cần
             resetMindmap();
-            
+
             const currentSlide = event.currentSlide;
-            
+
             // Kiểm tra nếu slide hiện tại chứa mindmap
             if (currentSlide.querySelector('.mindmap-section')) {
                 initMindmapAnimations();
             }
-            
+
             // Thêm hiệu ứng fade-in cho slide content
             const content = currentSlide.querySelector('.slide-content');
             if (content) {
@@ -2057,7 +2200,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             createMindmapParticles();
             initBranchAnimation();
-            
+
             // Kiểm tra nếu slide đầu tiên là mindmap
             const firstSlide = Reveal.getCurrentSlide();
             if (firstSlide.querySelector('.mindmap-section')) {
@@ -2067,7 +2210,7 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             AOS.init({
                 duration: 1000,
                 once: true,
@@ -2076,12 +2219,13 @@
                 mirror: false,
                 anchorPlacement: 'top-bottom'
             });
-            
+
             // Đảm bảo AOS được refresh khi slide thay đổi
-            Reveal.addEventListener('slidechanged', function() {
+            Reveal.addEventListener('slidechanged', function () {
                 AOS.refresh();
             });
         });
     </script>
 </body>
-</html> 
+
+</html>
