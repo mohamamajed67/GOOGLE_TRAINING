@@ -1772,53 +1772,53 @@
         /* Thêm class ngẫu nhiên cho logo */
         .logo-transition8462 {
             transition: all 2s ease-in-out;
-            position: fixed; /* Thay đổi thành fixed để logo luôn ở trên cùng */
-            z-index: 9999;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 380px; /* Đảm bảo kích thước logo đồng nhất */
+            position: fixed;
+            z-index: 99999; /* Tăng z-index để logo luôn hiển thị trên cùng */
+            width: 380px;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+            pointer-events: none; /* Ngăn logo can thiệp với các element khác */
         }
 
         .logo-transition8462.animate8462 {
-            animation: logoToTitle8462 2s forwards;
-        }
-
-        .feature-title8462 {
-            opacity: 0; /* Ẩn tiêu đề ban đầu */
-            transition: opacity 0.5s;
-            position: relative;
-        }
-
-        .feature-title8462.show8462 {
-            opacity: 1;
+            animation: logoToTitle8462 3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
         @keyframes logoToTitle8462 {
             0% {
                 transform: translate(-50%, -50%) scale(1);
                 opacity: 1;
-                filter: none;
-                top: 50%;
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
             }
-            40% {
-                transform: translate(-50%, -100%) scale(1.5);
+            25% {
+                transform: translate(-50%, -30vh) scale(1.2);
                 opacity: 1;
-                filter: brightness(1.2);
-                top: 30%;
+                filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
             }
-            70% {
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 0.8;
-                filter: brightness(1.5);
-                top: 40%;
+            50% {
+                transform: translate(-50%, -25vh) scale(1.1);
+                opacity: 1;
+                filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.3));
+            }
+            75% {
+                transform: translate(-50%, -15vh) scale(1);
+                opacity: 1;
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
             }
             100% {
                 transform: translate(-50%, 0) scale(0.8);
-                opacity: 0;
-                filter: brightness(2);
-                top: 100px; /* Vị trí cuối cùng trùng với vị trí tiêu đề */
+                opacity: 1;
+                filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
             }
+        }
+
+        .feature-title8462 {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: relative;
+        }
+
+        .feature-title8462.show8462 {
+            opacity: 1;
         }
 
         /* Thêm class để ẩn logo sau khi animation kết thúc */
@@ -2753,46 +2753,43 @@
                 if (logo && !logo.classList.contains('animate8462')) {
                     event.preventDefault();
                     
-                    // Lấy vị trí của tiêu đề
-                    const titleRect = title.getBoundingClientRect();
+                    // Clone logo và set vị trí ban đầu
                     const clonedLogo = logo.cloneNode(true);
-                    
-                    // Set vị trí cuối cùng cho logo trùng với vị trí tiêu đề
+                    const logoRect = logo.getBoundingClientRect();
+                    clonedLogo.style.top = `${logoRect.top}px`;
+                    clonedLogo.style.left = `${logoRect.left}px`;
                     document.body.appendChild(clonedLogo);
-                    clonedLogo.style.setProperty('--final-top', `${titleRect.top}px`);
-                    clonedLogo.style.setProperty('--final-left', `${titleRect.left}px`);
-                    clonedLogo.classList.add('animate8462');
                     
-                    // Chuyển slide sau khi animation bắt đầu
+                    // Bắt đầu animation
+                    requestAnimationFrame(() => {
+                        clonedLogo.classList.add('animate8462');
+                    });
+                    
+                    // Chuyển slide sau 1.5s
                     setTimeout(() => {
                         Reveal.next();
                         
-                        // Hiện tiêu đề và xóa logo clone
+                        // Hiện tiêu đề sau khi logo gần đến vị trí cuối
                         setTimeout(() => {
                             title.classList.add('show8462');
-                            clonedLogo.remove();
-                        }, 1500);
-                    }, 1000);
+                        }, 1000);
+                        
+                        // Giữ logo hiển thị tại vị trí cuối
+                        clonedLogo.style.position = 'absolute';
+                        clonedLogo.style.top = title.offsetTop + 'px';
+                        clonedLogo.style.left = '50%';
+                        clonedLogo.style.transform = 'translateX(-50%)';
+                    }, 1500);
                 }
             }
         });
 
-        // Thêm hàm để tính toán vị trí
-        function updateLogoPosition(logo, title) {
-            const titleRect = title.getBoundingClientRect();
-            logo.style.setProperty('--final-top', `${titleRect.top}px`);
-            logo.style.setProperty('--final-left', `${titleRect.left}px`);
-        }
-
         // Cleanup khi slide thay đổi
         Reveal.addEventListener('slidechanged', (event) => {
-            const clonedLogos = document.querySelectorAll('.logo-transition8462.animate8462');
-            clonedLogos.forEach(logo => logo.remove());
-            
+            // Không xóa logo clone ngay lập tức để animation có thể tiếp tục
             const titles = document.querySelectorAll('.feature-title8462');
             titles.forEach(title => {
                 title.classList.remove('show8462');
-                title.style.opacity = '1';
             });
         });
     </script>
