@@ -91,7 +91,6 @@
             content: '';
             position: absolute;
             top: 0;
-            ''
             left: 0;
             width: 100%;
             height: 100%;
@@ -1333,16 +1332,82 @@
             padding: 20px 0;
         }
 
+        /* Cập nhật animation cho timeline */
         .timeline8462::before {
             content: '';
             position: absolute;
             width: 955px;
-            height: 2px;
+            height: 3px;
             background: linear-gradient(to right, #4285f4, #34a853, #fbbc05, #ea4335);
             top: 13%;
             left: 99px;
             transform: translateY(-50%);
-            animation: timelineGlow 3s infinite;
+            transform-origin: left;
+            animation: timelineProgress 5s ease-in-out forwards;
+        }
+
+        /* Animation cho timeline chạy từ trái sang phải */
+        @keyframes timelineProgress {
+            0% {
+                transform: translateY(-50%) scaleX(0);
+            }
+            100% {
+                transform: translateY(-50%) scaleX(1);
+            }
+        }
+
+        /* Đặt sẵn dots từ đầu và thêm animation pulse */
+        .timeline-dot8462 {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+            animation: dotPulse 2s infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2);
+                box-shadow: 0 0 25px rgba(66, 133, 244, 0.8);
+            }
+        }
+
+        /* Animation cho timeline items xuất hiện theo tiến độ của timeline */
+        .timeline-item8462 {
+            opacity: 0;
+            animation: itemAppear 0.8s ease-out forwards;
+        }
+
+        .timeline-item8462:nth-child(1) { animation-delay: 1s; }
+        .timeline-item8462:nth-child(2) { animation-delay: 2s; }
+        .timeline-item8462:nth-child(3) { animation-delay: 3s; }
+        .timeline-item8462:nth-child(4) { animation-delay: 4s; }
+        .timeline-item8462:nth-child(5) { animation-delay: 5s; }
+
+        /* Cập nhật hiệu ứng glow theo timeline */
+        .timeline8462::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(66, 133, 244, 0.4) 0%, transparent 70%);
+            top: 13%;
+            left: 99px;
+            transform: translateY(-50%);
+            animation: glowMove 5s ease-in-out forwards;
+        }
+
+        @keyframes glowMove {
+            0% {
+                left: 99px;
+                opacity: 1;
+            }
+            100% {
+                left: calc(99px + 955px);
+                opacity: 0;
+            }
         }
 
         .timeline-track8462 {
@@ -1372,6 +1437,22 @@
             box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
             transition: all 0.3s ease;
             z-index: 1;
+            animation: dotPulse 2s infinite;
+        }
+
+        @keyframes dotPulse {
+            0% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2);
+                box-shadow: 0 0 25px rgba(66, 133, 244, 0.8);
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
+            }
         }
 
         .timeline-content8462 {
@@ -1380,7 +1461,7 @@
             padding: 20px;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             text-align: center;
         }
 
@@ -1394,10 +1475,12 @@
         }
 
         .timeline-content8462:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(66, 133, 244, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px) scale(1.03);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(66, 133, 244, 0.5);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.2),
+                0 0 25px rgba(66, 133, 244, 0.4);
         }
 
         .timeline-content8462 h3 {
@@ -1412,13 +1495,6 @@
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9em;
             line-height: 1.4;
-        }
-
-        /* Hover effects */
-        .timeline-item8462:hover .timeline-dot8462 {
-            transform: translateX(-50%) scale(1.3);
-            background: #34a853;
-            box-shadow: 0 0 25px rgba(52, 168, 83, 0.7);
         }
 
         /* Responsive adjustments */
@@ -1444,6 +1520,95 @@
                 flex: 0 0 100%;
             }
         }
+
+        /* Thêm style cho tiêu đề timeline */
+        .timeline-header8462 {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .timeline-header8462 h3 {
+            font-family: var(--google-sans);
+            font-size: 2em;
+            background: linear-gradient(120deg, #4285f4, #34a853);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .timeline-header8462::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #4285f4, #34a853);
+            border-radius: 2px;
+        }
+
+        /* Animation cho timeline items */
+        .timeline-content8462 {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: contentFadeIn 0.8s ease-out forwards;
+        }
+
+        /* Thiết lập delay cho từng item */
+        .timeline-item8462:nth-child(1) .timeline-content8462 { animation-delay: 0s; }
+        .timeline-item8462:nth-child(2) .timeline-content8462 { animation-delay: 1s; }
+        .timeline-item8462:nth-child(3) .timeline-content8462 { animation-delay: 2s; }
+        .timeline-item8462:nth-child(4) .timeline-content8462 { animation-delay: 3s; }
+        .timeline-item8462:nth-child(5) .timeline-content8462 { animation-delay: 4s; }
+
+        @keyframes contentFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Cập nhật animation cho timeline */
+        .timeline8462::before {
+            content: '';
+            position: absolute;
+            width: 955px;
+            height: 3px;
+            background: linear-gradient(to right, #4285f4, #34a853, #fbbc05, #ea4335);
+            top: 13%;
+            left: 99px;
+            transform: translateY(-50%);
+            transform-origin: left;
+            animation: timelineProgress 5s ease-in-out forwards;
+        }
+
+        /* Đảm bảo dots hiển thị ngay từ đầu */
+        .timeline-dot8462 {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+            animation: dotPulse 2s infinite;
+        }
+
+        /* Xóa animation cũ của timeline-item8462 */
+        .timeline-item8462 {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+            padding-top: 30px;
+        }
+
+        /* Thêm script để reset animation khi chuyển slide */
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1579,6 +1744,7 @@
 
                         <!-- Timeline section -->
                         <div class="timeline-container8462">
+                            <h3>Lịch sử hình thành và phát triển</h3>
                             <div class="timeline8462">
                                 <div class="timeline-track8462">
                                     <div class="timeline-item8462" data-aos="fade-right" data-aos-delay="100">
@@ -2225,6 +2391,30 @@
                 AOS.refresh();
             });
         });
+    </script>
+
+    <script>
+    // Thêm vào phần script
+    Reveal.addEventListener('slidechanged', function(event) {
+        // Kiểm tra nếu đang chuyển đến slide timeline
+        if (event.currentSlide.querySelector('.timeline-container8462')) {
+            // Reset và kích hoạt lại animation cho timeline
+            const timelineLine = event.currentSlide.querySelector('.timeline8462::before');
+            const timelineContents = event.currentSlide.querySelectorAll('.timeline-content8462');
+            
+            if (timelineLine) {
+                timelineLine.style.animation = 'none';
+                timelineLine.offsetHeight; // Trigger reflow
+                timelineLine.style.animation = 'timelineProgress 5s ease-in-out forwards';
+            }
+            
+            timelineContents.forEach((content, index) => {
+                content.style.animation = 'none';
+                content.offsetHeight; // Trigger reflow
+                content.style.animation = `contentFadeIn 0.8s ease-out forwards ${index}s`;
+            });
+        }
+    });
     </script>
 </body>
 
