@@ -1351,6 +1351,7 @@
             0% {
                 transform: translateY(-50%) scaleX(0);
             }
+
             100% {
                 transform: translateY(-50%) scaleX(1);
             }
@@ -1364,10 +1365,13 @@
         }
 
         @keyframes dotPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateX(-50%) scale(1);
                 box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
             }
+
             50% {
                 transform: translateX(-50%) scale(1.2);
                 box-shadow: 0 0 25px rgba(66, 133, 244, 0.8);
@@ -1380,11 +1384,25 @@
             animation: itemAppear 0.8s ease-out forwards;
         }
 
-        .timeline-item8462:nth-child(1) { animation-delay: 1s; }
-        .timeline-item8462:nth-child(2) { animation-delay: 2s; }
-        .timeline-item8462:nth-child(3) { animation-delay: 3s; }
-        .timeline-item8462:nth-child(4) { animation-delay: 4s; }
-        .timeline-item8462:nth-child(5) { animation-delay: 5s; }
+        .timeline-item8462:nth-child(1) {
+            animation-delay: 1s;
+        }
+
+        .timeline-item8462:nth-child(2) {
+            animation-delay: 2s;
+        }
+
+        .timeline-item8462:nth-child(3) {
+            animation-delay: 3s;
+        }
+
+        .timeline-item8462:nth-child(4) {
+            animation-delay: 4s;
+        }
+
+        .timeline-item8462:nth-child(5) {
+            animation-delay: 5s;
+        }
 
         /* Cập nhật hiệu ứng glow theo timeline */
         .timeline8462::after {
@@ -1404,6 +1422,7 @@
                 left: 99px;
                 opacity: 1;
             }
+
             100% {
                 left: calc(99px + 955px);
                 opacity: 0;
@@ -1445,10 +1464,12 @@
                 transform: translateX(-50%) scale(1);
                 box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
             }
+
             50% {
                 transform: translateX(-50%) scale(1.2);
                 box-shadow: 0 0 25px rgba(66, 133, 244, 0.8);
             }
+
             100% {
                 transform: translateX(-50%) scale(1);
                 box-shadow: 0 0 15px rgba(66, 133, 244, 0.5);
@@ -1478,7 +1499,7 @@
             transform: translateY(-10px) scale(1.03);
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(66, 133, 244, 0.5);
-            box-shadow: 
+            box-shadow:
                 0 15px 35px rgba(0, 0, 0, 0.2),
                 0 0 25px rgba(66, 133, 244, 0.4);
         }
@@ -1562,17 +1583,32 @@
         }
 
         /* Thiết lập delay cho từng item */
-        .timeline-item8462:nth-child(1) .timeline-content8462 { animation-delay: 0s; }
-        .timeline-item8462:nth-child(2) .timeline-content8462 { animation-delay: 1s; }
-        .timeline-item8462:nth-child(3) .timeline-content8462 { animation-delay: 2s; }
-        .timeline-item8462:nth-child(4) .timeline-content8462 { animation-delay: 3s; }
-        .timeline-item8462:nth-child(5) .timeline-content8462 { animation-delay: 4s; }
+        .timeline-item8462:nth-child(1) .timeline-content8462 {
+            animation-delay: 0s;
+        }
+
+        .timeline-item8462:nth-child(2) .timeline-content8462 {
+            animation-delay: 1s;
+        }
+
+        .timeline-item8462:nth-child(3) .timeline-content8462 {
+            animation-delay: 2s;
+        }
+
+        .timeline-item8462:nth-child(4) .timeline-content8462 {
+            animation-delay: 3s;
+        }
+
+        .timeline-item8462:nth-child(5) .timeline-content8462 {
+            animation-delay: 4s;
+        }
 
         @keyframes contentFadeIn {
             0% {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -1609,6 +1645,129 @@
         }
 
         /* Thêm script để reset animation khi chuyển slide */
+
+        .logo-evolution-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 180px;
+            margin: 40px auto;
+            perspective: 1000px;
+        }
+
+        .logo-stage {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: stageFloat 6s ease-in-out infinite;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+
+        .evolution-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 380px;
+            height: 200px;
+            object-fit: contain;
+            opacity: 0;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .evolution-logo.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+
+        .evolution-logo.exit {
+            transform: translate(-50%, -50%) scale(0.8);
+            opacity: 0;
+            filter: blur(10px);
+        }
+
+
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+            }
+            50% {
+                transform: translate(-50%, -55%) scale(1.02);
+                filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+            }
+        }
+
+        @keyframes stageFloat {
+            0%, 100% {
+                transform: rotateX(5deg) rotateY(0deg);
+            }
+            50% {
+                transform: rotateX(8deg) rotateY(3deg);
+            }
+        }
+
+        @keyframes reflectionPulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translateX(-50%) scaleY(-1) scaleX(0.8);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateX(-50%) scaleY(-1) scaleX(1);
+            }
+        }
+
+        /* Thêm hiệu ứng particle cho logo */
+        .logo-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Hiệu ứng glitch cho logo đang active */
+        .evolution-logo.active {
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes logoGlitch {
+            0%, 100% {
+                clip-path: inset(0 0 0 0);
+            }
+            5% {
+                clip-path: inset(10% 0 0 0);
+                transform: translate(-50%, -48%) scale(1.02);
+            }
+            10% {
+                clip-path: inset(0 10% 0 0);
+                transform: translate(-52%, -50%) scale(0.98);
+            }
+            15% {
+                clip-path: inset(0 0 10% 0);
+                transform: translate(-50%, -52%) scale(1.02);
+            }
+            20% {
+                clip-path: inset(0 0 0 10%);
+                transform: translate(-48%, -50%) scale(0.98);
+            }
+            25% {
+                clip-path: inset(0 0 0 0);
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1782,7 +1941,8 @@
                                         <div class="timeline-content8462">
                                             <div class="timeline-date8462">09/2016</div>
                                             <h3>G Suite</h3>
-                                            <p>Đổi tên từ Google Apps for Work thành G Suite, tập hợp các công cụ làm việc như Gmail, Drive, Docs, Sheets, và Calendar.</p>
+                                            <p>Đổi tên từ Google Apps for Work thành G Suite, tập hợp các công cụ làm
+                                                việc như Gmail, Drive, Docs, Sheets, và Calendar.</p>
                                         </div>
                                     </div>
 
@@ -1795,6 +1955,24 @@
                                                 công cụ hỗ trợ từ xa cho doanh nghiệp</p>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Thêm vào bên dưới div class="timeline-container8462" -->
+
+                        <div class="logo-evolution-container">
+                            <div class="logo-stage">
+                                <div class="logo-wrapper">
+                                    <img src="https://logos-world.net/wp-content/uploads/2023/12/Google-Apps-for-Your-Domain-Logo-2006-500x281.png" alt="Gmail for Your Domain"
+                                        class="evolution-logo" data-year="2006">
+                                    <img src="https://logos-world.net/wp-content/uploads/2023/12/Google-Apps-Logo-2010-500x281.png" alt="Google Apps for Your Domain"
+                                        class="evolution-logo" data-year="2006">
+                                    <img src="https://logos-world.net/wp-content/uploads/2023/12/Google-Apps-for-Work-Logo-2015-500x281.png" alt="Google Apps for Work"
+                                        class="evolution-logo" data-year="2014">
+                                    <img src="https://logos-world.net/wp-content/uploads/2023/12/G-Suite-Logo-2016-500x281.png" alt="G Suite" class="evolution-logo"
+                                        data-year="2016">
+                                    <img src="src/images/workspace-logo.svg" alt="Google Workspace"
+                                        class="evolution-logo" data-year="2020">
                                 </div>
                             </div>
                         </div>
@@ -1917,6 +2095,7 @@
                     <p>Quét mã QR để đặt câu hỏi</p>
                 </div>
             </section>
+
 
         </div>
     </div>
@@ -2394,27 +2573,107 @@
     </script>
 
     <script>
-    // Thêm vào phần script
-    Reveal.addEventListener('slidechanged', function(event) {
-        // Kiểm tra nếu đang chuyển đến slide timeline
-        if (event.currentSlide.querySelector('.timeline-container8462')) {
-            // Reset và kích hoạt lại animation cho timeline
-            const timelineLine = event.currentSlide.querySelector('.timeline8462::before');
-            const timelineContents = event.currentSlide.querySelectorAll('.timeline-content8462');
-            
-            if (timelineLine) {
-                timelineLine.style.animation = 'none';
-                timelineLine.offsetHeight; // Trigger reflow
-                timelineLine.style.animation = 'timelineProgress 5s ease-in-out forwards';
+        // Thêm vào phần script
+        Reveal.addEventListener('slidechanged', function (event) {
+            // Kiểm tra nếu đang chuyển đến slide timeline
+            if (event.currentSlide.querySelector('.timeline-container8462')) {
+                // Reset và kích hoạt lại animation cho timeline
+                const timelineLine = event.currentSlide.querySelector('.timeline8462::before');
+                const timelineContents = event.currentSlide.querySelectorAll('.timeline-content8462');
+
+                if (timelineLine) {
+                    timelineLine.style.animation = 'none';
+                    timelineLine.offsetHeight; // Trigger reflow
+                    timelineLine.style.animation = 'timelineProgress 5s ease-in-out forwards';
+                }
+
+                timelineContents.forEach((content, index) => {
+                    content.style.animation = 'none';
+                    content.offsetHeight; // Trigger reflow
+                    content.style.animation = `contentFadeIn 0.8s ease-out forwards ${index}s`;
+                });
             }
-            
-            timelineContents.forEach((content, index) => {
-                content.style.animation = 'none';
-                content.offsetHeight; // Trigger reflow
-                content.style.animation = `contentFadeIn 0.8s ease-out forwards ${index}s`;
+        });
+    </script>
+
+    <script>
+        function initLogoEvolution() {
+            const logos = document.querySelectorAll('.evolution-logo');
+            let currentIndex = 0;
+            const animationDuration = 5000; // 5 seconds per logo
+
+            function updateLogo() {
+                // Remove active class from all logos
+                logos.forEach(logo => {
+                    logo.classList.remove('active');
+                    logo.classList.remove('exit');
+                });
+
+                // Add active class to current logo
+                logos[currentIndex].classList.add('active');
+
+                // Add exit class to previous logo
+                const prevIndex = (currentIndex - 1 + logos.length) % logos.length;
+                logos[prevIndex].classList.add('exit');
+
+                // Create particles effect
+                createParticles(logos[currentIndex]);
+
+                // Update current index
+                currentIndex = (currentIndex + 1) % logos.length;
+            }
+
+            function createParticles(logo) {
+                const container = document.querySelector('.logo-stage');
+                for (let i = 0; i < 20; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'logo-particle';
+
+                    // Random position around the logo
+                    const x = Math.random() * 300 - 150;
+                    const y = Math.random() * 300 - 150;
+
+                    particle.style.left = `calc(50% + ${x}px)`;
+                    particle.style.top = `calc(50% + ${y}px)`;
+
+                    // Random animation
+                    particle.style.animation = `
+                    particleFloat ${2 + Math.random() * 2}s linear infinite,
+                    particleFade ${1 + Math.random()}s ease-out forwards
+                `;
+
+                    container.appendChild(particle);
+
+                    // Remove particle after animation
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 2000);
+                }
+            }
+
+            // Start the animation
+            updateLogo();
+            setInterval(updateLogo, animationDuration);
+
+            // Sync with timeline
+            const timelineItems = document.querySelectorAll('.timeline-item8462');
+            timelineItems.forEach((item, index) => {
+                item.addEventListener('mouseenter', () => {
+                    currentIndex = index;
+                    updateLogo();
+                });
             });
         }
-    });
+
+        // Initialize when document is loaded
+        document.addEventListener('DOMContentLoaded', initLogoEvolution);
+
+        // Reinitialize when slide changes
+        Reveal.addEventListener('slidechanged', function (event) {
+            if (event.currentSlide.querySelector('.logo-evolution-container')) {
+                initLogoEvolution();
+            }
+        });
     </script>
 </body>
 
