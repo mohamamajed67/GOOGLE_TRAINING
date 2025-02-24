@@ -1768,6 +1768,71 @@
                 transform: translate(-50%, -50%) scale(1);
             }
         }
+
+        /* Thêm class ngẫu nhiên cho logo */
+        .logo-transition8462 {
+            transition: all 2s ease-in-out;
+            position: fixed; /* Thay đổi thành fixed để logo luôn ở trên cùng */
+            z-index: 9999;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 380px; /* Đảm bảo kích thước logo đồng nhất */
+        }
+
+        .logo-transition8462.animate8462 {
+            animation: logoToTitle8462 2s forwards;
+        }
+
+        .feature-title8462 {
+            opacity: 0; /* Ẩn tiêu đề ban đầu */
+            transition: opacity 0.5s;
+            position: relative;
+        }
+
+        .feature-title8462.show8462 {
+            opacity: 1;
+        }
+
+        @keyframes logoToTitle8462 {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+                filter: none;
+                top: 50%;
+            }
+            40% {
+                transform: translate(-50%, -100%) scale(1.5);
+                opacity: 1;
+                filter: brightness(1.2);
+                top: 30%;
+            }
+            70% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+                filter: brightness(1.5);
+                top: 40%;
+            }
+            100% {
+                transform: translate(-50%, 0) scale(0.8);
+                opacity: 0;
+                filter: brightness(2);
+                top: 100px; /* Vị trí cuối cùng trùng với vị trí tiêu đề */
+            }
+        }
+
+        /* Thêm class để ẩn logo sau khi animation kết thúc */
+        .logo-transition8462.hidden8462 {
+            visibility: hidden;
+        }
+
+        /* Thêm style cho container để định vị chính xác */
+        .title-container8462 {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            margin-bottom: 2rem;
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1971,8 +2036,8 @@
                                         class="evolution-logo" data-year="2014">
                                     <img src="https://logos-world.net/wp-content/uploads/2023/12/G-Suite-Logo-2016-500x281.png" alt="G Suite" class="evolution-logo"
                                         data-year="2016">
-                                    <img src="src/images/workspace-logo.svg" alt="Google Workspace"
-                                        class="evolution-logo" data-year="2020">
+                                    <img src="src/images/workspace-logo.svg" alt="Google Workspace" 
+                                         class="evolution-logo logo-transition8462" data-year="2020">
                                 </div>
                             </div>
                         </div>
@@ -1980,7 +2045,7 @@
                 </section>
 
                 <section data-auto-animate>
-                    <h2>Tính năng nổi bật</h2>
+                    <h2 class="feature-title8462">Tính năng nổi bật</h2>
                     <div class="feature-grid">
                         <div class="feature-box fragment fade-up">
                             <h4>Làm việc mọi nơi</h4>
@@ -2673,6 +2738,62 @@
             if (event.currentSlide.querySelector('.logo-evolution-container')) {
                 initLogoEvolution();
             }
+        });
+    </script>
+
+    <script>
+        // Thêm vào phần script hiện có
+        document.addEventListener('keydown', async (event) => {
+            if (event.key === '2') {
+                const currentSlide = Reveal.getCurrentSlide();
+                const logo = currentSlide.querySelector('.logo-transition8462');
+                const nextSlide = Reveal.getCurrentSlide().nextElementSibling;
+                const title = nextSlide.querySelector('.feature-title8462');
+                
+                if (logo && !logo.classList.contains('animate8462')) {
+                    event.preventDefault();
+                    
+                    // Lấy vị trí của tiêu đề
+                    const titleRect = title.getBoundingClientRect();
+                    const clonedLogo = logo.cloneNode(true);
+                    
+                    // Set vị trí cuối cùng cho logo trùng với vị trí tiêu đề
+                    document.body.appendChild(clonedLogo);
+                    clonedLogo.style.setProperty('--final-top', `${titleRect.top}px`);
+                    clonedLogo.style.setProperty('--final-left', `${titleRect.left}px`);
+                    clonedLogo.classList.add('animate8462');
+                    
+                    // Chuyển slide sau khi animation bắt đầu
+                    setTimeout(() => {
+                        Reveal.next();
+                        
+                        // Hiện tiêu đề và xóa logo clone
+                        setTimeout(() => {
+                            title.classList.add('show8462');
+                            clonedLogo.remove();
+                        }, 1500);
+                    }, 1000);
+                }
+            }
+        });
+
+        // Thêm hàm để tính toán vị trí
+        function updateLogoPosition(logo, title) {
+            const titleRect = title.getBoundingClientRect();
+            logo.style.setProperty('--final-top', `${titleRect.top}px`);
+            logo.style.setProperty('--final-left', `${titleRect.left}px`);
+        }
+
+        // Cleanup khi slide thay đổi
+        Reveal.addEventListener('slidechanged', (event) => {
+            const clonedLogos = document.querySelectorAll('.logo-transition8462.animate8462');
+            clonedLogos.forEach(logo => logo.remove());
+            
+            const titles = document.querySelectorAll('.feature-title8462');
+            titles.forEach(title => {
+                title.classList.remove('show8462');
+                title.style.opacity = '1';
+            });
         });
     </script>
 </body>
