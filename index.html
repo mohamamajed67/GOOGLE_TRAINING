@@ -127,7 +127,7 @@
         }
 
         .feature-box {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             padding: 20px;
             border-radius: 10px;
             margin: 10px;
@@ -1111,7 +1111,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 10rem;
         }
 
         .benefit-list {
@@ -1833,6 +1833,171 @@
             height: 100px;
             margin-bottom: 2rem;
         }
+
+        /* Cập nhật style cho feature grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 10rem;
+            padding: 0 2rem;
+        }
+
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(66, 133, 244, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-box h4 {
+            color: #4285f4;
+            font-family: var(--google-sans);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .feature-box h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #4285f4, transparent);
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Animation cho feature boxes */
+        .feature-box.fragment.fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .feature-box.fragment.fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(66, 133, 244, 0.1),
+                rgba(52, 168, 83, 0.1),
+                rgba(251, 188, 5, 0.1),
+                rgba(234, 67, 53, 0.1)
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(66, 133, 244, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(66, 133, 244, 0.2);
+        }
+
+        .feature-box:hover::before {
+            opacity: 1;
+        }
+
+        .app-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .app-icon {
+            width: 32px;
+            height: 32px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+        }
+
+        .feature-box:hover .app-icon {
+            transform: scale(1.15);
+            filter: drop-shadow(0 4px 8px rgba(66, 133, 244, 0.4));
+        }
+
+        .feature-box h4 {
+            color: #4285f4;
+            font-family: var(--google-sans);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        .feature-box h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            border-radius: 3px;
+        }
+
+        .feature-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 1200px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -2045,19 +2210,67 @@
                 </section>
 
                 <section data-auto-animate>
-                    <h2 class="feature-title8462">Tính năng nổi bật</h2>
+                    <h2 class="feature-title8462">Tổng quan ứng dụng</h2>
                     <div class="feature-grid">
                         <div class="feature-box fragment fade-up">
-                            <h4>Làm việc mọi nơi</h4>
-                            <p>Truy cập từ mọi thiết bị, mọi lúc mọi nơi</p>
+                            <div class="app-icons">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/gmail_48dp.png" alt="Gmail" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/meet_48dp.png" alt="Meet" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/chat_48dp.png" alt="Chat" class="app-icon">
+                            </div>
+                            <h4>Communication & Meetings</h4>
+                            <p>Giao tiếp chuyên nghiệp với Gmail, họp trực tuyến HD qua Meet và tin nhắn tức thời với Chat</p>
                         </div>
+
                         <div class="feature-box fragment fade-up">
-                            <h4>Cộng tác thời gian thực</h4>
-                            <p>Làm việc cùng lúc trên cùng tài liệu</p>
+                            <div class="app-icons">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/docs_48dp.png" alt="Docs" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/sheets_48dp.png" alt="Sheets" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/slides_48dp.png" alt="Slides" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/forms_48dp.png" alt="Forms" class="app-icon">
+                            </div>
+                            <h4>Office & Productivity</h4>
+                            <p>Bộ công cụ văn phòng đám mây với Docs, Sheets, Slides và Forms cho công việc hiệu quả</p>
                         </div>
+
                         <div class="feature-box fragment fade-up">
-                            <h4>Tích hợp đa dịch vụ</h4>
-                            <p>Kết nối liền mạch giữa các ứng dụng</p>
+                            <div class="app-icons">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/drive_48dp.png" alt="Drive" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/keep_48dp.png" alt="Keep" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/sites_48dp.png" alt="Sites" class="app-icon">
+                            </div>
+                            <h4>Storage & Organization</h4>
+                            <p>Lưu trữ an toàn với Drive, ghi chú với Keep và tạo trang web nội bộ qua Sites</p>
+                        </div>
+
+                        <div class="feature-box fragment fade-up">
+                            <div class="app-icons">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/calendar_48dp.png" alt="Calendar" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/tasks_48dp.png" alt="Tasks" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/vids_48dp.png" alt="Vids" class="app-icon">
+                            </div>
+                            <h4>Planning & Collaboration</h4>
+                            <p>Quản lý thời gian với Calendar, theo dõi công việc qua Tasks và chia sẻ video với Vids</p>
+                        </div>
+
+                        <div class="feature-box fragment fade-up">
+                            <div class="app-icons">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/admin_48dp.png" alt="Admin" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/vault_48dp.png" alt="Vault" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/endpoint_48dp.png" alt="Endpoint" class="app-icon">
+                            </div>
+                            <h4>Security & Management</h4>
+                            <p>Quản trị tập trung với Admin Console, bảo mật dữ liệu qua Vault và quản lý thiết bị với Endpoint</p>
+                        </div>
+
+                        <div class="feature-box fragment fade-up">
+                            <div class="app-icons">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/appsheet_48dp.png" alt="AppSheet" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/apps_script_48dp.png" alt="Apps Script" class="app-icon">
+                                <img src="https://www.gstatic.com/images/branding/product/2x/gemini_48dp.png" alt="Gemini" class="app-icon">
+                            </div>
+                            <h4>Development & AI</h4>
+                            <p>Phát triển ứng dụng với AppSheet, tự động hóa qua Apps Script và tích hợp AI với Gemini</p>
                         </div>
                     </div>
                 </section>
