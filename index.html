@@ -1800,12 +1800,12 @@
                 filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.3));
             }
             75% {
-                transform: translate(-50%, -15vh) scale(1);
+                transform: translate(-50%, -7vh) scale(1);
                 opacity: 1;
                 filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
             }
             100% {
-                transform: translate(-50%, 0) scale(0.8);
+                transform: translate(-50%, 2vh) scale(0.8);
                 opacity: 1;
                 filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
             }
@@ -2755,6 +2755,7 @@
                     
                     // Clone logo và set vị trí ban đầu
                     const clonedLogo = logo.cloneNode(true);
+                    clonedLogo.id = 'animated-logo-clone'; // Thêm ID để dễ tham chiếu
                     const logoRect = logo.getBoundingClientRect();
                     clonedLogo.style.top = `${logoRect.top}px`;
                     clonedLogo.style.left = `${logoRect.left}px`;
@@ -2774,19 +2775,31 @@
                             title.classList.add('show8462');
                         }, 1000);
                         
-                        // Giữ logo hiển thị tại vị trí cuối
+                        // Giữ logo hiển thị tại vị trí cuối chỉ ở slide /2/1
                         clonedLogo.style.position = 'absolute';
                         clonedLogo.style.top = title.offsetTop + 'px';
                         clonedLogo.style.left = '50%';
                         clonedLogo.style.transform = 'translateX(-50%)';
+                        
+                        // Lưu thông tin về slide đích
+                        clonedLogo.dataset.targetSlide = '2/1';
                     }, 1500);
                 }
             }
         });
 
-        // Cleanup khi slide thay đổi
+        // Sửa đổi cleanup khi slide thay đổi
         Reveal.addEventListener('slidechanged', (event) => {
-            // Không xóa logo clone ngay lập tức để animation có thể tiếp tục
+            const currentIndices = Reveal.getIndices();
+            const currentSlideId = `${currentIndices.h}/${currentIndices.v}`;
+            
+            // Xóa logo clone nếu không ở slide /2/1
+            const clonedLogo = document.getElementById('animated-logo-clone');
+            if (clonedLogo && currentSlideId !== '2/1') {
+                clonedLogo.remove();
+            }
+
+            // Reset các title
             const titles = document.querySelectorAll('.feature-title8462');
             titles.forEach(title => {
                 title.classList.remove('show8462');
