@@ -2061,6 +2061,109 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .portal-transition5721 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .shatter-container5721 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+
+        .shatter-piece5721 {
+            position: absolute;
+            background: linear-gradient(45deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            opacity: 0;
+            transform-origin: center;
+            box-shadow: 0 0 20px rgba(66, 133, 244, 0.5);
+        }
+
+        .particle5721 {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        .portal-transition5721.active {
+            visibility: visible;
+        }
+
+        .portal-transition5721.active .shatter-piece5721 {
+            animation: shatterPiece5721 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .portal-transition5721.active .particle5721 {
+            animation: particleFly5721 1s ease-out forwards;
+        }
+
+        @keyframes shatterPiece5721 {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg) translateZ(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg) translateZ(100px);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2) rotate(360deg) translateZ(200px);
+            }
+        }
+
+        @keyframes particleFly5721 {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateZ(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) translateZ(300px);
+            }
+        }
+
+        .energy-wave5721 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #4285f4, transparent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+        }
+
+        .portal-transition5721.active .energy-wave5721 {
+            animation: energyWave5721 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes energyWave5721 {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(100);
+                opacity: 0;
+            }
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -2338,10 +2441,10 @@
                     </div>
                 </section>
 
-                <section data-background-gradient="linear-gradient(45deg, #4285f4, #34a853)">
+                <section >
                     <div class="two-columns">
                         <div class="column">
-                            <h3>Lợi ích doanh nghiệp</h3>
+                            <h3>Lợi ích của việc sử dụng Google Workspace trong doanh nghiệp</h3>
                             <ul class="benefit-list fragment fade-up">
                                 <li>Tăng năng suất làm việc</li>
                                 <li>Tiết kiệm chi phí vận hành</li>
@@ -3080,6 +3183,104 @@
             titles.forEach(title => {
                 title.classList.remove('show8462');
             });
+        });
+    </script>
+
+    <div class="portal-transition5721">
+        <div class="shatter-container5721"></div>
+        <div class="energy-wave5721"></div>
+    </div>
+
+    <script>
+        function createShatterEffect5721() {
+            const container = document.querySelector('.shatter-container5721');
+            const pieces = 12;
+            const particles = 30;
+            
+            // Tạo các mảnh vỡ
+            for (let i = 0; i < pieces; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'shatter-piece5721';
+                
+                // Random size từ 50px đến 150px
+                const size = 50 + Math.random() * 100;
+                piece.style.width = `${size}px`;
+                piece.style.height = `${size}px`;
+                
+                // Random vị trí
+                piece.style.left = `${Math.random() * 100}%`;
+                piece.style.top = `${Math.random() * 100}%`;
+                
+                // Random delay
+                piece.style.animationDelay = `${Math.random() * 0.5}s`;
+                
+                container.appendChild(piece);
+            }
+            
+            // Tạo particles
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle5721';
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 0.5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        function triggerPortalTransition5721() {
+            const portalTransition = document.querySelector('.portal-transition5721');
+            
+            return new Promise((resolve) => {
+                // Tạo hiệu ứng mới mỗi lần chuyển slide
+                const container = document.querySelector('.shatter-container5721');
+                container.innerHTML = '';
+                createShatterEffect5721();
+                
+                // Kích hoạt animation
+                portalTransition.classList.add('active');
+                
+                // Thêm hiệu ứng âm thanh (tùy chọn)
+                const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
+                audio.volume = 0.3;
+                audio.play();
+                
+                // Đợi animation hoàn thành
+                setTimeout(() => {
+                    // Chuyển slide
+                    Reveal.next();
+                    
+                    // Reset portal transition
+                    setTimeout(() => {
+                        portalTransition.classList.remove('active');
+                        resolve();
+                    }, 500);
+                }, 1500);
+            });
+        }
+
+        // Khởi tạo hiệu ứng khi trang load
+        document.addEventListener('DOMContentLoaded', createShatterEffect5721);
+
+        // Event listener cho phím số 3 (giữ nguyên)
+        document.addEventListener('keydown', async (event) => {
+            if (event.key === '3') {
+                const indices = Reveal.getIndices();
+                if (indices.h === 2 && indices.v === 1 && indices.f === 5) {
+                    event.preventDefault();
+                    await triggerPortalTransition5721();
+                }
+            }
+        });
+
+        // Cleanup khi slide thay đổi (giữ nguyên)
+        Reveal.addEventListener('slidechanged', () => {
+            const portalTransition = document.querySelector('.portal-transition5721');
+            if (portalTransition) {
+                portalTransition.classList.remove('active');
+            }
         });
     </script>
 </body>
