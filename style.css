@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+   
 }
 
 .workspace-apps {
@@ -1365,8 +1365,12 @@
 
 /* Animation cho timeline items xuất hiện theo tiến độ của timeline */
 .timeline-item8462 {
-    opacity: 0;
-    animation: itemAppear 0.8s ease-out forwards;
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+    padding-top: 30px;
+    opacity: 1;
+    animation: none;
 }
 
 .timeline-item8462:nth-child(1) {
@@ -1422,13 +1426,6 @@
     padding: 20px 0;
 }
 
-.timeline-item8462 {
-    flex: 1;
-    min-width: 200px;
-    position: relative;
-    padding-top: 30px;
-}
-
 .timeline-dot8462 {
     position: absolute;
     width: 20px;
@@ -1469,6 +1466,9 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.5s ease;
     text-align: center;
+    opacity: 1;
+    transform: none;
+    animation: none;
 }
 
 .timeline-date8462 {
@@ -1627,6 +1627,8 @@
     min-width: 200px;
     position: relative;
     padding-top: 30px;
+    opacity: 1;
+    animation: none;
 }
 
 /* Thêm script để reset animation khi chuyển slide */
@@ -1788,7 +1790,7 @@
 
 @keyframes logoToTitle8462 {
     0% {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-30%, -70%) scale(1);
         opacity: 1;
         filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
     }
@@ -1812,7 +1814,7 @@
     }
 
     100% {
-        transform: translate(-50%, 2vh) scale(0.8);
+        transform: translate(-50%, 6vh) scale(0.8);
         opacity: 1;
         filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1));
     }
@@ -1887,7 +1889,7 @@
 }
 
 .feature-box p {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1rem;
     line-height: 1.6;
 }

@@ -849,17 +849,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             AOS.init({
-                duration: 1000,
-                once: true,
-                offset: 50,
-                disable: 'mobile',
-                mirror: false,
-                anchorPlacement: 'top-bottom'
+                duration: 800,
+                once: false,
+                offset: 0,
+                disable: false,
+                mirror: true,
+                anchorPlacement: 'center-center'
             });
 
             // Đảm bảo AOS được refresh khi slide thay đổi
             Reveal.addEventListener('slidechanged', function () {
-                AOS.refresh();
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 100);
             });
         });
     </script>
@@ -1128,6 +1130,25 @@
             const portalTransition = document.querySelector('.portal-transition5721');
             if (portalTransition) {
                 portalTransition.classList.remove('active');
+            }
+        });
+    </script>
+
+    <script>
+        // Thêm vào phần script
+        Reveal.addEventListener('ready', function (event) {
+            // Khởi tạo timeline khi presentation được load
+            const timelineContainer = document.querySelector('.timeline-container8462');
+            if (timelineContainer) {
+                const timelineItems = timelineContainer.querySelectorAll('.timeline-item8462');
+                timelineItems.forEach(item => {
+                    item.style.opacity = '1';
+                    const content = item.querySelector('.timeline-content8462');
+                    if (content) {
+                        content.style.opacity = '1';
+                        content.style.transform = 'none';
+                    }
+                });
             }
         });
     </script>
