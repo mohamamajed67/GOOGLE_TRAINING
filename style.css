@@ -2196,3 +2196,545 @@
         opacity: 0;
     }
 }
+
+/* Updated Benefits Section Styles */
+.benefits-section7249 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1f25 0%, #17212b 100%);
+    perspective: 1000px;
+}
+
+.benefits-section7249::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(41, 98, 255, 0.1) 0%, rgba(41, 98, 255, 0) 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 65, 65, 0.1) 0%, rgba(255, 65, 65, 0) 50%);
+    pointer-events: none;
+}
+
+.benefits-container7249 {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title7249.glowing-text7249 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: titleFadeIn 0.8s ease forwards 0.3s;
+}
+
+.benefits-grid7249 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    perspective: 1000px;
+}
+
+.benefit-card7249 {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.benefit-card7249::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0) 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.benefit-card7249:hover {
+    transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.5);
+}
+
+.benefit-card7249:hover::before {
+    opacity: 1;
+}
+
+.benefit-icon7249 {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-icon {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 0 15px var(--icon-glow-color));
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.material-icon path {
+    transition: all 0.3s ease;
+}
+
+.benefit-card7249:hover .material-icon {
+    transform: scale(1.1);
+}
+
+.benefit-card7249:hover .material-icon path {
+    filter: brightness(1.2);
+}
+
+/* Custom animation for SVG icons */
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 15px var(--icon-glow-color));
+    }
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 25px var(--icon-glow-color));
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 15px var(--icon-glow-color));
+    }
+}
+
+.material-icon {
+    animation: iconPulse 3s ease-in-out infinite;
+}
+
+/* Update icon colors on hover */
+.benefit-card7249:nth-child(1):hover .material-icon path {
+    fill: #5c9cff;
+}
+
+.benefit-card7249:nth-child(2):hover .material-icon path {
+    fill: #3dc469;
+}
+
+.benefit-card7249:nth-child(3):hover .material-icon path {
+    fill: #ff5a4f;
+}
+
+.benefit-card7249:nth-child(4):hover .material-icon path {
+    fill: #ffd04f;
+}
+
+.benefit-card7249 h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    transform: translateZ(20px);
+}
+
+.benefit-features7249 {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    transform: translateZ(15px);
+}
+
+.benefit-features7249 li {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: featureSlideIn 0.5s ease forwards;
+}
+
+.benefit-features7249 li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--icon-glow-color);
+}
+
+.benefit-stats7249 {
+    text-align: center;
+    transform: translateZ(25px);
+}
+
+.stat7249 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number7249 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px var(--icon-glow-color);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: statPop 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.stat-label7249 {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* New Animations */
+@keyframes titleFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes featureSlideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes statPop {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Custom styles for each card */
+.benefit-card7249:nth-child(1) {
+    --icon-glow-color: rgba(66, 133, 244, 0.5);
+}
+
+.benefit-card7249:nth-child(2) {
+    --icon-glow-color: rgba(52, 168, 83, 0.5);
+}
+
+.benefit-card7249:nth-child(3) {
+    --icon-glow-color: rgba(234, 67, 53, 0.5);
+}
+
+.benefit-card7249:nth-child(4) {
+    --icon-glow-color: rgba(251, 188, 5, 0.5);
+}
+
+/* Particle effects */
+.benefits-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: particleFloat 20s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .benefits-grid7249 {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title7249.glowing-text7249 {
+        font-size: 2rem;
+    }
+    
+    .benefit-card7249 {
+        padding: 1.5rem;
+    }
+}
+
+/* Account Management Section Styles */
+.account-management-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.section-container9371 {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header9371 {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.glow-text9371 {
+    color: #ffffff;
+    font-size: 3rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    margin-bottom: 1rem;
+}
+
+.header-underline9371 {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    margin: 1rem auto;
+}
+
+.admin-privileges-grid9371 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.privilege-card9371 {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.privilege-card9371:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-icon9371 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.privilege-card9371 h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.privilege-list9371 {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.privilege-list9371 li {
+    color: #ffffff;
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.privilege-list9371 li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+}
+
+.video-trigger9371 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.video-trigger9371:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.video-trigger9371 i {
+    margin-right: 0.5rem;
+}
+
+/* Video Modal Styles */
+.video-modal9371 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+
+.modal-content9371 {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 2% auto;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.modal-header9371 {
+    padding: 1.5rem;
+    background: #1a237e;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-modal9371 {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.modal-body9371 {
+    padding: 2rem;
+}
+
+.video-container9371 {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container9371 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .admin-privileges-grid9371 {
+        grid-template-columns: 1fr;
+    }
+
+    .glow-text9371 {
+        font-size: 2rem;
+    }
+
+    .modal-content9371 {
+        width: 95%;
+        margin: 5% auto;
+    }
+}
+
+/* Animation Styles */
+@keyframes cardPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.privilege-card9371:hover .card-icon9371 {
+    animation: cardPulse 1s infinite;
+}
+
+/* Thêm hiệu ứng particle cho background */
+.account-management-section9371::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
