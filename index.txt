@@ -11,8 +11,7 @@ PHẦN 2: QUẢN LÝ TÀI KHOẢN VÀ GIẤY PHÉP
 •	2.1. THAO TÁC QUẢN TRỊ (ADMIN) 
 o	Truy cập Google Admin Console
 o	Thêm/Xóa tài khoản người dùng
-	Hướng dẫn tạo tài khoản mới (nhập thông tin, đặt mật khẩu ban đầu).
-	Vô hiệu hóa hoặc xóa tài khoản người dùng (lưu ý về dữ liệu).
+	Hướng dẫn tạo tài khoản mới
 o	Quản lý giấy phép (License)
 	Gán/Gỡ giấy phép cho người dùng (ví dụ: Business Standard, Business Plus).
 	Xem thông tin về gói Subscription của công ty.
