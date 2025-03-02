@@ -397,7 +397,7 @@
             <!-- Phần 2: Quản lý tài khoản -->
             <section class="account-management-section" data-background-transition="zoom">
                 <!-- Slide 1: Title Slide -->
-                <section class="title-slide4529">
+                <section class="title-slide4529" data-background="transparent" data-state="title-slide">
                     <div class="title-content4529">
                         <h2 class="main-title4529">PHẦN 2: QUẢN LÝ TÀI KHOẢN VÀ GIẤY PHÉP</h2>
                         <div class="title-divider4529"></div>
@@ -1185,6 +1185,159 @@
             titles.forEach(title => {
                 title.classList.remove('show8462');
             });
+        });
+    </script>
+
+    <!-- Account Management Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize account management features when the page loads
+            initVideoControls();
+            
+            // Fix title slide positioning
+            fixTitleSlidePositioning();
+        });
+        
+        function fixTitleSlidePositioning() {
+            // Add event listener for the title slide
+            Reveal.addEventListener('title-slide', function() {
+                // Phương thức này hiện chỉ là phương án dự phòng
+                // CSS đã được thiết lập để căn giữa từ đầu 
+                // Code dưới đây sẽ không thực thi trừ khi CSS không hoạt động
+                const titleContent = document.querySelector('.title-content4529');
+                if (titleContent && !titleContent.style.transform) {
+                    // Center exactly in the middle - chỉ áp dụng nếu transform chưa được thiết lập
+                    titleContent.style.position = 'absolute';
+                    titleContent.style.top = '50%';
+                    titleContent.style.left = '50%';
+                    titleContent.style.transform = 'translate(-50%, -50%)';
+                    titleContent.style.margin = '0';
+                }
+            });
+        }
+        
+        function initVideoControls() {
+            // Get video elements
+            const videoPlaceholder = document.querySelector('.video-placeholder4529');
+            const playButton = document.querySelector('.play-button4529');
+            const pauseButton = document.querySelector('.pause-button4529');
+            const restartButton = document.querySelector('.restart-button4529');
+            
+            // Replace placeholder with actual video when a real video is available
+            let video = null;
+            
+            // Setup video when it's ready or when placeholder is clicked
+            if (videoPlaceholder) {
+                videoPlaceholder.addEventListener('click', function() {
+                    // This would be where you'd initialize the video
+                    // For example:
+                    // initRealVideo();
+                    
+                    // For now, just show an alert since we don't have a real video
+                    alert('Video sẽ được phát khi có file video thực tế.');
+                });
+            }
+            
+            // Uncomment this when you have a real video
+            /*
+            function initRealVideo() {
+                // Create video element if it doesn't exist
+                if (!video) {
+                    const videoContainer = document.querySelector('.video-container4529');
+                    videoPlaceholder.style.display = 'none';
+                    
+                    video = document.createElement('video');
+                    video.controls = false;
+                    video.style.width = '100%';
+                    video.style.height = '100%';
+                    video.style.objectFit = 'contain';
+                    
+                    const source = document.createElement('source');
+                    source.src = 'videos/account-management.mp4'; // Path to your video
+                    source.type = 'video/mp4';
+                    
+                    video.appendChild(source);
+                    videoContainer.appendChild(video);
+                    
+                    // Add event listeners to the video
+                    video.addEventListener('ended', function() {
+                        playButton.style.display = 'inline-flex';
+                        pauseButton.style.display = 'none';
+                    });
+                }
+            }
+            */
+            
+            // Setup control buttons
+            if (playButton) {
+                playButton.addEventListener('click', function() {
+                    // Uncomment when you have a real video
+                    /*
+                    if (!video) {
+                        initRealVideo();
+                    }
+                    video.play();
+                    playButton.style.display = 'none';
+                    pauseButton.style.display = 'inline-flex';
+                    */
+                    
+                    alert('Phát video sẽ hoạt động khi có file video thực tế.');
+                });
+            }
+            
+            if (pauseButton) {
+                pauseButton.style.display = 'none'; // Hide pause button initially
+                
+                pauseButton.addEventListener('click', function() {
+                    // Uncomment when you have a real video
+                    /*
+                    if (video) {
+                        video.pause();
+                        pauseButton.style.display = 'none';
+                        playButton.style.display = 'inline-flex';
+                    }
+                    */
+                    
+                    alert('Tạm dừng video sẽ hoạt động khi có file video thực tế.');
+                });
+            }
+            
+            if (restartButton) {
+                restartButton.addEventListener('click', function() {
+                    // Uncomment when you have a real video
+                    /*
+                    if (video) {
+                        video.currentTime = 0;
+                        video.play();
+                        playButton.style.display = 'none';
+                        pauseButton.style.display = 'inline-flex';
+                    } else {
+                        initRealVideo();
+                        video.play();
+                        playButton.style.display = 'none';
+                        pauseButton.style.display = 'inline-flex';
+                    }
+                    */
+                    
+                    alert('Xem lại video sẽ hoạt động khi có file video thực tế.');
+                });
+            }
+        }
+        
+        // Reinitialize when slide changes to account management section
+        Reveal.addEventListener('slidechanged', function(event) {
+            if (event.currentSlide.classList.contains('account-management-section') || 
+                event.currentSlide.classList.contains('instruction-slide4529') || 
+                event.currentSlide.classList.contains('title-slide4529')) {
+                
+                // Initialize video controls
+                initVideoControls();
+                
+                // Check if it's the title slide and fix positioning
+                if (event.currentSlide.classList.contains('title-slide4529')) {
+                    fixTitleSlidePositioning();
+                }
+            }
         });
     </script>
 </body>
