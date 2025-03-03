@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -22,29 +23,140 @@
         .video-selector4529 {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 0;
         }
 
         .selector-button4529 {
-            padding: 8px 16px;
+            padding: 8px 20px;
             border: none;
-            border-radius: 4px;
-            background-color: #e0e0e0;
-            color: #333;
+            border-radius: 20px;
+            background-color: #f1f3f4;
+            color: #5f6368;
             font-weight: 500;
+            font-size: 0.9rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            outline: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .selector-button4529:hover {
-            background-color: #d0d0d0;
+            background-color: #e8eaed;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transform: translateY(-1px);
         }
 
         .selector-button4529.active {
             background-color: #4285f4;
             color: white;
+            box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
         }
+
+        .selector-button4529.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 40%;
+            height: 3px;
+            background: #fff;
+            transform: translateX(-50%);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        /* Video Section Header Styling */
+        .video-section-header4529 {
+            background: linear-gradient(to right, #f5f5f5, #e9e9e9);
+            border-radius: 8px 8px 0 0;
+            padding: 12px 15px;
+            border-bottom: 2px solid #4285f4;
+            margin-bottom: 0;
+        }
+        
+        .video-section-header4529 h4 {
+            margin: 0 0 10px 0;
+            color: #202124;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        /* Update video container to match header styling */
+        .video-container4529 {
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Make video controls match the design */
+        .video-controls4529 {
+            background: #f5f5f5;
+            border-radius: 0 0 8px 8px;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 0;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .control-button4529 {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background-color: #f8f9fa;
+            color: #5f6368;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 90px;
+        }
+        
+        .control-button4529 i {
+            margin-right: 6px;
+        }
+        
+        .control-button4529:hover {
+            background-color: #e8eaed;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            transform: translateY(-1px);
+        }
+        
+        .play-button4529 {
+            background-color: #34a853;
+            color: white;
+        }
+        
+        .play-button4529:hover {
+            background-color: #2d9249;
+        }
+        
+        .pause-button4529 {
+            background-color: #fbbc05;
+            color: white;
+        }
+        
+        .pause-button4529:hover {
+            background-color: #e8ae04;
+        }
+        
+        .restart-button4529 {
+            background-color: #4285f4;
+            color: white;
+        }
+        
+        .restart-button4529:hover {
+            background-color: #3b78e7;
+        }
+        
     </style>
 </head>
 
@@ -460,7 +572,7 @@
                     <div class="title-content4529">
                         <h2 class="main-title4529">PHẦN 2: QUẢN LÝ TÀI KHOẢN VÀ GIẤY PHÉP</h2>
                         <div class="title-divider4529"></div>
-                        <p class="subtitle4529">Google Workspace Admin Console</p>
+                        <p class="subtitle4529">Dành cho Admin Google Workspace</p>
                     </div>
                 </section>
 
@@ -533,10 +645,16 @@
 
                         <!-- Right side: Video Demonstration -->
                         <div class="video-panel4529">
+                            <!-- Move video selector outside the video container and add a header -->
+                            <div class="video-section-header4529">
+                                <h4>Hướng dẫn thực hành</h4>
+                                <div class="video-selector4529">
+                                    <button id="add-account-btn" class="selector-button4529 active" onclick="switchVideo('add-account-video')">Thêm tài khoản</button>
+                                    <button id="delete-account-btn" class="selector-button4529" onclick="switchVideo('delete-account-video')">Xóa tài khoản</button>
+                                </div>
+                            </div>
+                                
                             <div class="video-container4529">
-                                <!-- Video selector tabs -->
-
-
                                 <!-- First video (existing) - add ID -->
                                 <video id="add-account-video" controls class="active-video">
                                     <source src="https://apidrive.di9x.net/1fhmkkb43L8dikNEVbKeQZ87ZvBKE604i"
@@ -553,13 +671,7 @@
                             </div>
 
                             <div class="video-controls4529">
-                                <div class="video-selector4529" style="margin-bottom: 15px; text-align: center;">
-                                    <button id="add-account-btn" class="selector-button4529 active"
-                                        onclick="switchVideo('add-account-video')">Thêm tài khoản</button>
-                                    <button id="delete-account-btn" class="selector-button4529"
-                                        onclick="switchVideo('delete-account-video')">Xóa tài khoản</button>
-                                </div>
-                                <!-- <button class="control-button4529 play-button4529">
+                                <button class="control-button4529 play-button4529">
                                     <i class="fas fa-play"></i> Phát
                                 </button>
                                 <button class="control-button4529 pause-button4529">
@@ -567,9 +679,202 @@
                                 </button>
                                 <button class="control-button4529 restart-button4529">
                                     <i class="fas fa-redo"></i> Xem lại
-                                </button> -->
+                                </button>
                             </div>
                         </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3: Gán/Gỡ giấy phép cho người dùng -->
+                <section class="instruction-slide4529">
+                    <div class="slide-header4529">
+                        <h2>Gán/Gỡ giấy phép cho người dùng</h2>
+                    </div>
+
+                    <div class="content-wrapper4529">
+                        <!-- Left side: Instructions -->
+                        <div class="instructions-panel4529">
+                            <h3 class="panel-title4529">Hướng dẫn quản lý giấy phép</h3>
+
+                            <div class="instruction-steps4529">
+                                <div class="step4529">
+                                    <div class="step-number4529">1</div>
+                                    <div class="step-content4529">
+                                        <h4>Truy cập Google Admin Console</h4>
+                                        <p>Đăng nhập vào <strong>admin.google.com</strong> với tài khoản quản trị</p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">2</div>
+                                    <div class="step-content4529">
+                                        <h4>Mở trang quản lý giấy phép</h4>
+                                        <p>Từ menu bên trái, chọn <strong>Thanh toán → Đăng ký → Quản lý giấy phép</strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">3</div>
+                                    <div class="step-content4529">
+                                        <h4>Gán giấy phép cho người dùng</h4>
+                                        <p>Nhấn vào <strong>Gán giấy phép</strong> → Chọn người dùng → Chọn loại giấy phép → <strong>Gán</strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">4</div>
+                                    <div class="step-content4529">
+                                        <h4>Gỡ giấy phép khỏi người dùng</h4>
+                                        <p>Chọn người dùng → Nhấn vào biểu tượng <strong>Tùy chọn</strong> → Chọn <strong>Gỡ giấy phép</strong></p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">5</div>
+                                    <div class="step-content4529">
+                                        <h4>Quản lý giấy phép hàng loạt</h4>
+                                        <p>Chọn nhiều người dùng → Nhấn <strong>Gán giấy phép</strong> hoặc <strong>Gỡ giấy phép</strong> ở menu trên cùng</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="key-notes4529">
+                                <h4><i class="fas fa-lightbulb"></i> Lưu ý quan trọng</h4>
+                                <ul>
+                                    <li>Khi gỡ giấy phép: Người dùng sẽ mất quyền truy cập vào các tính năng của gói đó</li>
+                                    <li>Khi nâng cấp/hạ cấp: Dữ liệu có thể bị ảnh hưởng nếu tính năng không có trong gói mới</li>
+                                    <li>Hệ thống tự động cảnh báo khi gỡ giấy phép của các tài khoản quản trị viên</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right side: Video Demonstration -->
+                        <div class="video-panel4529">
+                            <!-- Move video selector outside the video container and add a header -->
+                            <div class="video-section-header4529">
+                                <h4>Hướng dẫn thực hành</h4>
+                                <div class="video-selector4529">
+                                    <button id="assign-license-btn" class="selector-button4529 active" onclick="switchVideo('assign-license-video')">Gán giấy phép</button>
+                                    <button id="remove-license-btn" class="selector-button4529" onclick="switchVideo('remove-license-video')">Gỡ giấy phép</button>
+                                </div>
+                            </div>
+                                
+                            <div class="video-container4529">
+                                <!-- First video - for license assignment -->
+                                <video id="assign-license-video" controls class="active-video">
+                                    <source src="YOUR_LICENSE_ASSIGNMENT_VIDEO_URL" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+
+                                <!-- Second video - for license removal -->
+                                <video id="remove-license-video" style="display: none;" controls>
+                                    <source src="YOUR_LICENSE_REMOVAL_VIDEO_URL" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+
+                            <div class="video-controls4529">
+                                <button class="control-button4529 play-button4529">
+                                    <i class="fas fa-play"></i> Phát
+                                </button>
+                                <button class="control-button4529 pause-button4529">
+                                    <i class="fas fa-pause"></i> Tạm dừng
+                                </button>
+                                <button class="control-button4529 restart-button4529">
+                                    <i class="fas fa-redo"></i> Xem lại
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4: Phân quyền quản trị cho user -->
+                <section class="instruction-slide4529">
+                    <div class="slide-header4529">
+                        <h2>Phân quyền quản trị cho user</h2>
+                    </div>
+                    <div class="content-wrapper4529">
+                        <!-- Left Side: Instructions -->
+                        <div class="instructions-panel4529">
+                            <h3 class="panel-title4529">Các vai trò quản trị trong Google Workspace</h3>
+                            <div class="instruction-steps4529">
+                                <div class="step4529">
+                                    <div class="step-number4529">1</div>
+                                    <div class="step-content4529">
+                                        <h4>Quản trị viên cấp cao</h4>
+                                        <p><strong>Google Workspace Administrator Seed Role</strong> - Có toàn quyền quản trị và kiểm soát tất cả các tính năng trong Google Workspace.</p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">2</div>
+                                    <div class="step-content4529">
+                                        <h4>Quản trị nhóm người dùng</h4>
+                                        <p><strong>Groups Administrator:</strong> Quản lý toàn bộ nhóm<br>
+                                        <strong>Groups Reader:</strong> Chỉ có quyền xem thông tin nhóm<br>
+                                        <strong>Groups Editor:</strong> Có quyền chỉnh sửa thông tin nhóm</p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">3</div>
+                                    <div class="step-content4529">
+                                        <h4>Quản trị người dùng và hỗ trợ</h4>
+                                        <p><strong>User Management Administrator:</strong> Quản lý người dùng<br>
+                                        <strong>Help Desk Administrator:</strong> Hỗ trợ người dùng<br>
+                                        <strong>Services Administrator:</strong> Quản lý dịch vụ</p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">4</div>
+                                    <div class="step-content4529">
+                                        <h4>Quản trị chuyên biệt</h4>
+                                        <p><strong>Mobile Administrator:</strong> Quản lý thiết bị di động<br>
+                                        <strong>Storage Admin Role:</strong> Quản lý bộ nhớ<br>
+                                        <strong>Directory Sync Admin Role:</strong> Đồng bộ hóa thư mục<br>
+                                        <strong>Relay Admin:</strong> Quản lý chuyển tiếp</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="key-notes4529">
+                                <h4><i class="fas fa-lightbulb"></i> Lưu ý quan trọng</h4>
+                                <ul>
+                                    <li>Có thể tạo vai trò tùy chỉnh với các quyền hạn cụ thể</li>
+                                    <li>Một người dùng có thể được gán nhiều vai trò khác nhau</li>
+                                    <li>Nên tuân thủ nguyên tắc cấp quyền tối thiểu cần thiết</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Video -->
+                        <div class="video-panel4529">
+                            <div class="video-container4529">
+                                <video id="admin-roles-video" controls>
+                                    <source src="YOUR_ADMIN_ROLES_VIDEO_URL" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+
+                            <div class="video-controls4529">
+                                <button class="control-button4529 play-button4529">
+                                    <i class="fas fa-play"></i> Phát
+                                </button>
+                                <button class="control-button4529 pause-button4529">
+                                    <i class="fas fa-pause"></i> Tạm dừng
+                                </button>
+                                <button class="control-button4529 restart-button4529">
+                                    <i class="fas fa-redo"></i> Xem lại
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="title-slide4529" data-background="transparent" data-state="title-slide">
+                    <div class="title-content4529">
+                        <h2 class="main-title4529">2.2. THAO TÁC NGƯỜI DÙNG</h2>
+                        <div class="title-divider4529"></div>
                     </div>
                 </section>
             </section>
@@ -872,7 +1177,7 @@
                 // Thêm class active sau khi ánh sáng chạy qua
                 setTimeout(() => {
                     branchNode.classList.add('active');
-                }, 1500); // Một nửa thời gian của animation lightFlow
+                }, 1500);
 
                 // Chuyển đến branch tiếp theo
                 currentIndex = (currentIndex + 1) % branches.length;
@@ -1378,7 +1683,7 @@
             videos.forEach(video => {
                 video.style.display = 'none';
                 video.pause(); // Pause any playing video
-                video.classList.remove('active-video');
+                video.currentTime = 0; // Reset video to beginning
             });
 
             // Show the selected video
@@ -1394,10 +1699,17 @@
                 button.classList.remove('active');
             });
 
-            if (videoId === 'add-account-video') {
-                document.getElementById('add-account-btn').classList.add('active');
-            } else {
-                document.getElementById('delete-account-btn').classList.add('active');
+            // Map video IDs to their corresponding button IDs
+            const buttonMap = {
+                'add-account-video': 'add-account-btn',
+                'delete-account-video': 'delete-account-btn',
+                'assign-license-video': 'assign-license-btn',
+                'remove-license-video': 'remove-license-btn'
+            };
+            
+            // Activate the corresponding button
+            if (buttonMap[videoId]) {
+                document.getElementById(buttonMap[videoId]).classList.add('active');
             }
 
             // Reset control buttons
@@ -1409,6 +1721,88 @@
             }
         }
     </script>
+
+    <script>
+        // Initialize when slide changes to admin roles section
+        Reveal.addEventListener('slidechanged', function (event) {
+            if (event.currentSlide.querySelector('.admin-roles-panel4529')) {
+                // Set the slide as active to trigger animations
+                event.currentSlide.classList.add('active');
+                
+                // Animate role cards with staggered delay
+                const roleCards = event.currentSlide.querySelectorAll('.admin-role4529');
+                roleCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.animationPlayState = 'running';
+                    }, 100 * index);
+                });
+                
+                // Apply animation to the roles header
+                const header = event.currentSlide.querySelector('.admin-roles-header4529');
+                if (header) {
+                    header.classList.add('animated');
+                }
+            }
+        });
+    </script>
+
+    <!-- Admin Role Video Controls -->
+    <script>
+    function playAdminVideo() {
+        const videoElement = document.getElementById('admin-role-video');
+        if (videoElement) {
+            videoElement.play();
+            document.querySelector('.admin-play-button4529').style.display = 'none';
+            document.querySelector('.admin-pause-button4529').style.display = 'inline-block';
+        }
+    }
+
+    function pauseAdminVideo() {
+        const videoElement = document.getElementById('admin-role-video');
+        if (videoElement) {
+            videoElement.pause();
+            document.querySelector('.admin-play-button4529').style.display = 'inline-block';
+            document.querySelector('.admin-pause-button4529').style.display = 'none';
+        }
+    }
+
+    function restartAdminVideo() {
+        const videoElement = document.getElementById('admin-role-video');
+        if (videoElement) {
+            videoElement.currentTime = 0;
+            videoElement.play();
+            document.querySelector('.admin-play-button4529').style.display = 'none';
+            document.querySelector('.admin-pause-button4529').style.display = 'inline-block';
+        }
+    }
+
+    // Initialize Admin Role Video controls
+    function initAdminVideoControls() {
+        const videoElement = document.getElementById('admin-role-video');
+        if (videoElement) {
+            videoElement.addEventListener('play', function() {
+                document.querySelector('.admin-play-button4529').style.display = 'none';
+                document.querySelector('.admin-pause-button4529').style.display = 'inline-block';
+            });
+
+            videoElement.addEventListener('pause', function() {
+                document.querySelector('.admin-play-button4529').style.display = 'inline-block';
+                document.querySelector('.admin-pause-button4529').style.display = 'none';
+            });
+
+            videoElement.addEventListener('ended', function() {
+                document.querySelector('.admin-play-button4529').style.display = 'inline-block';
+                document.querySelector('.admin-pause-button4529').style.display = 'none';
+            });
+        }
+    }
+
+    // Initialize all video controls on load
+    document.addEventListener('DOMContentLoaded', function() {
+        initVideoControls();
+        initAdminVideoControls();
+    });
+</script>
 </body>
 
 </html>
