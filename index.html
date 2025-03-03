@@ -871,28 +871,463 @@
                         </div>
                     </div>
                 </section>
-                <section class="title-slide4529" data-background="transparent" data-state="title-slide">
-                    <div class="title-content4529">
-                        <h2 class="main-title4529">2.2. THAO TÁC NGƯỜI DÙNG</h2>
-                        <div class="title-divider4529"></div>
+
+                <!-- Slide 5: Thao tác người dùng -->
+                <section class="instruction-slide4529">
+                    <div class="slide-header4529">
+                        <h2 class="section-title glowing-text">2.2. THAO TÁC NGƯỜI DÙNG</h2>
+                        <div class="title-underline"></div>
+                    </div>
+                    <div class="content-wrapper4529">
+                        <!-- Left side: Instructions -->
+                        <div class="instructions-panel4529">
+                            <h3 class="panel-title4529">Các thao tác cơ bản</h3>
+                            <div class="instruction-steps4529">
+                                <div class="step4529">
+                                    <div class="step-number4529">1</div>
+                                    <div class="step-content4529">
+                                        <h4>Đặt lại mật khẩu</h4>
+                                        <p>Hỗ trợ người dùng khi quên mật khẩu hoặc cần đặt lại vì lý do bảo mật</p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">2</div>
+                                    <div class="step-content4529">
+                                        <h4>Khóa/Mở khóa tài khoản</h4>
+                                        <p>Tạm thời vô hiệu hóa hoặc kích hoạt lại quyền truy cập của người dùng</p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">3</div>
+                                    <div class="step-content4529">
+                                        <h4>Chuyển dữ liệu</h4>
+                                        <p>Di chuyển dữ liệu giữa các tài khoản khi cần thiết</p>
+                                    </div>
+                                </div>
+
+                                <div class="step4529">
+                                    <div class="step-number4529">4</div>
+                                    <div class="step-content4529">
+                                        <h4>Quản lý thiết bị</h4>
+                                        <p>Kiểm soát các thiết bị được phép truy cập tài khoản</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="key-notes4529">
+                                <h4><i class="fas fa-lightbulb"></i> Lưu ý quan trọng</h4>
+                                <ul>
+                                    <li>Luôn xác minh danh tính trước khi thực hiện các thao tác quan trọng</li>
+                                    <li>Ghi lại nhật ký cho mọi thao tác thực hiện</li>
+                                    <li>Tuân thủ quy trình và chính sách bảo mật của tổ chức</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Right side: Video Demonstration -->
+                        <div class="video-panel4529">
+                            <div class="video-section-header4529">
+                                <h4>Hướng dẫn thực hành</h4>
+                                <div class="video-selector4529">
+                                    <button id="reset-password-btn" class="selector-button4529 active" onclick="switchVideo('reset-password-video')">Đặt lại mật khẩu</button>
+                                    <button id="lock-account-btn" class="selector-button4529" onclick="switchVideo('lock-account-video')">Khóa tài khoản</button>
+                                </div>
+                            </div>
+                                
+                            <div class="video-container4529">
+                                <video id="reset-password-video" controls class="active-video">
+                                    <source src="YOUR_RESET_PASSWORD_VIDEO_URL" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+
+                                <video id="lock-account-video" style="display: none;" controls>
+                                    <source src="YOUR_LOCK_ACCOUNT_VIDEO_URL" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+
+                            <div class="video-controls4529">
+                                <button class="control-button4529 play-button4529">
+                                    <i class="fas fa-play"></i> Phát
+                                </button>
+                                <button class="control-button4529 pause-button4529">
+                                    <i class="fas fa-pause"></i> Tạm dừng
+                                </button>
+                                <button class="control-button4529 restart-button4529">
+                                    <i class="fas fa-redo"></i> Xem lại
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </section>
 
             <!-- Phần 3: Shared Drive -->
-            <section data-background-gradient="linear-gradient(45deg, #fbbc05, #ea4335)">
-                <section>
-                    <h2>Shared Drive</h2>
-                    <div class="fragment fade-up">
-                        <img src="shared-drive.png" alt="Shared Drive">
+            <section>
+                <!-- Slide 1: Title Slide -->
+                <section data-background-gradient="linear-gradient(to bottom right, #2D5E8B, #4A90E2)" 
+                         data-auto-animate>
+                    <div class="shared-drive-title">
+                        <h2 class="r-fit-text">Shared Drive: Quản Lý Dữ Liệu Thông Minh</h2>
+                        <p class="subtitle">Tối ưu hóa cộng tác & kiểm soát dữ liệu tập thể</p>
+                        
+                        <div class="logo-container">
+                            <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Google Logo" class="fragment fade-right">
+                            <img src="https://www.gstatic.com/images/branding/product/1x/drive_48dp.png" alt="Google Drive Logo" class="fragment fade-right" data-fragment-index="1">
+                        </div>
+                        
+                        <div class="shared-drive-illustration fragment fade-up" data-fragment-index="2">
+                            <i class="fas fa-folder-open fa-3x"></i>
+                            <i class="fas fa-share-alt fa-2x"></i>
+                            <i class="fas fa-users fa-3x"></i>
+                        </div>
                     </div>
                 </section>
 
-                <section data-background-iframe="https://example.com/shared-drive-demo" data-background-interactive>
-                    <div style="background-color: rgba(0,0,0,0.7); padding: 20px;">
-                        <h3>D
-                            emo trực tiếp</h3>
-                        <p>Khám phá tính năng Shared Drive</p>
+                <!-- Slide 2: Giới Thiệu Shared Drive -->
+                <section data-auto-animate>
+                    <div class="two-columns">
+                        <div class="column">
+                            <h3 class="highlight-question">Shared Drive là gì?</h3>
+                            <p class="definition">Không gian lưu trữ tập thể thuộc sở hữu tổ chức, độc lập với tài khoản cá nhân.</p>
+                        </div>
+                        <div class="column">
+                            <div class="comparison-graphic">
+                                <div class="circle my-drive">
+                                    <i class="fas fa-user"></i>
+                                    <i class="fas fa-lock"></i>
+                                    <p>My Drive</p>
+                                </div>
+                                <div class="circle shared-drive">
+                                    <i class="fas fa-users"></i>
+                                    <i class="fas fa-share-alt"></i>
+                                    <p>Shared Drive</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="benefits-footer">
+                        <div class="benefit-item fragment fade-up">
+                            <i class="fas fa-building"></i>
+                            <p>Quyền sở hữu công ty</p>
+                        </div>
+                        <div class="benefit-item fragment fade-up" data-fragment-index="1">
+                            <i class="fas fa-sync"></i>
+                            <p>Cộng tác real-time</p>
+                        </div>
+                        <div class="benefit-item fragment fade-up" data-fragment-index="2">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Kiểm soát tập trung</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3: Phân Biệt Shared Drive vs. My Drive -->
+                <section data-auto-animate>
+                    <h3>Phân Biệt Shared Drive vs. My Drive</h3>
+                    
+                    <div class="comparison-container">
+                        <div class="visual-comparison">
+                            <div class="my-drive-visual">
+                                <i class="fas fa-folder fa-3x" style="color: #777;"></i>
+                                <p>My Drive</p>
+                            </div>
+                            <div class="shared-drive-visual">
+                                <i class="fas fa-folder-open fa-3x" style="color: #4285F4;"></i>
+                                <p>Shared Drive</p>
+                            </div>
+                        </div>
+                        
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Tiêu chí</th>
+                                <th>My Drive</th>
+                                <th>Shared Drive</th>
+                            </tr>
+                            <tr class="fragment fade-up">
+                                <td>Quyền sở hữu</td>
+                                <td>Cá nhân</td>
+                                <td class="highlight">Tổ chức</td>
+                            </tr>
+                            <tr class="fragment fade-up">
+                                <td>Quyền truy cập</td>
+                                <td>Chỉ định thủ công</td>
+                                <td class="highlight">Theo nhóm/vai trò</td>
+                            </tr>
+                            <tr class="fragment fade-up">
+                                <td>Lưu trữ dữ liệu</td>
+                                <td>Mất khi xóa tài khoản</td>
+                                <td class="highlight">Giữ nguyên khi người dùng rời đi</td>
+                            </tr>
+                            <tr class="fragment fade-up">
+                                <td>Trường hợp sử dụng</td>
+                                <td>Dữ liệu cá nhân</td>
+                                <td class="highlight">Dữ liệu dự án/phòng ban</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Slide 4: Ưu Điểm Nổi Bật -->
+                <section data-background-color="#fff" data-auto-animate>
+                    <h3>Ưu Điểm Nổi Bật</h3>
+                    
+                    <div class="card-container">
+                        <div class="feature-card fragment fade-up">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt fa-3x"></i>
+                            </div>
+                            <h4>An Toàn Pháp Lý</h4>
+                            <p>Dữ liệu thuộc sở hữu tổ chức, không phụ thuộc vào cá nhân nào</p>
+                        </div>
+                        
+                        <div class="feature-card fragment fade-up" data-fragment-index="1">
+                            <div class="card-icon">
+                                <i class="fas fa-key fa-3x"></i>
+                            </div>
+                            <h4>Linh Hoạt Quyền Truy Cập</h4>
+                            <p>Phân quyền theo vai trò, dễ dàng quản lý nhiều người dùng</p>
+                        </div>
+                        
+                        <div class="feature-card fragment fade-up" data-fragment-index="2">
+                            <div class="card-icon">
+                                <i class="fas fa-users-cog fa-3x"></i>
+                            </div>
+                            <h4>Không Rào Cản Cộng Tác</h4>
+                            <p>Chỉnh sửa đồng thời, không lo conflict phiên bản</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 5: Tạo & Quản Lý Shared Drive -->
+                <section data-auto-animate>
+                    <h3>Tạo & Quản Lý Shared Drive</h3>
+                    
+                    <div class="steps-container">
+                        <div class="step fragment fade-up">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Tạo Shared Drive</h4>
+                                <p>Click "New" > "Shared Drive" từ Google Drive</p>
+                                <div class="step-image">
+                                    <i class="fas fa-plus-circle fa-2x"></i>
+                                    <i class="fas fa-folder-plus fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step fragment fade-up" data-fragment-index="1">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Đặt tên & mô tả</h4>
+                                <p>Tên rõ ràng theo phòng ban/dự án</p>
+                                <div class="step-image">
+                                    <i class="fas fa-font fa-2x"></i>
+                                    <i class="fas fa-edit fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step fragment fade-up" data-fragment-index="2">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Thêm thành viên</h4>
+                                <p class="important-note">Thiết lập quyền truy cập NGAY KHI TẠO</p>
+                                <div class="step-image">
+                                    <i class="fas fa-user-plus fa-2x"></i>
+                                    <i class="fas fa-user-lock fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 6: Phân Cấp Quyền Truy Cập -->
+                <section data-auto-animate>
+                    <h3>Phân Cấp Quyền Truy Cập</h3>
+                    
+                    <div class="pyramid-container">
+                        <div class="pyramid-level level-top fragment fade-in">
+                            <div class="level-content">
+                                <h4>Manager</h4>
+                                <p>Kiểm soát toàn diện</p>
+                                <i class="fas fa-crown fa-2x"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="pyramid-level level-middle fragment fade-in" data-fragment-index="1">
+                            <div class="level-content">
+                                <h4>Contributor</h4>
+                                <p>Thêm/chỉnh sửa nội dung</p>
+                                <i class="fas fa-edit fa-2x"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="pyramid-level level-bottom fragment fade-in" data-fragment-index="2">
+                            <div class="level-content">
+                                <h4>Viewer/Commenter</h4>
+                                <p>Chỉ xem và bình luận</p>
+                                <i class="fas fa-eye fa-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="access-examples fragment fade-up" data-fragment-index="3">
+                        <p class="example-text">Ví dụ: Sales Team cần Contributor, HR chỉ cần Viewer</p>
+                        <p class="warning-note"><i class="fas fa-exclamation-triangle"></i> Tránh chia sẻ quyền Manager tràn lan</p>
+                    </div>
+                </section>
+
+                <!-- Slide 7: Best Practices Quản Lý Dữ liệu -->
+                <section data-auto-animate>
+                    <h3>Best Practices Quản Lý Dữ liệu</h3>
+                    
+                    <div class="best-practices-container">
+                        <div class="folder-structure fragment fade-up">
+                            <h4><i class="fas fa-sitemap"></i> Cấu Trúc Thư Mục Khoa Học</h4>
+                            <div class="tree-diagram">
+                                <div class="tree-root">
+                                    <i class="fas fa-folder-open"></i> Shared Drive
+                                    <div class="tree-branch">
+                                        <div class="tree-item"><i class="fas fa-folder"></i> Phòng ban</div>
+                                        <div class="tree-item"><i class="fas fa-folder"></i> Dự án</div>
+                                        <div class="tree-item"><i class="fas fa-folder"></i> Quy trình</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="naming-convention fragment fade-up" data-fragment-index="1">
+                            <h4><i class="fas fa-check-square"></i> Quy Tắc Đặt Tên</h4>
+                            <ul class="checklist">
+                                <li><i class="fas fa-check"></i> YYYY-MM-DD_Tên-file</li>
+                                <li><i class="fas fa-check"></i> [TEAM]_Loại-tài-liệu_Tên</li>
+                                <li><i class="fas fa-check"></i> [V1.2]_Tên-tài-liệu_Trạng-thái</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="color-labels fragment fade-up" data-fragment-index="2">
+                            <h4><i class="fas fa-tags"></i> Dùng Nhãn Màu Phân Loại</h4>
+                            <div class="color-label-examples">
+                                <div class="label" style="background-color: #f44336;">Ưu tiên cao</div>
+                                <div class="label" style="background-color: #ffeb3b;">Đang xử lý</div>
+                                <div class="label" style="background-color: #4caf50;">Hoàn thành</div>
+                                <div class="label" style="background-color: #2196f3;">Tham khảo</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 8: Chính Sách Dữ liệu Quan Trọng -->
+                <section data-auto-animate>
+                    <h3>Chính Sách Dữ liệu Quan Trọng</h3>
+                    
+                    <div class="policy-panels">
+                        <div class="policy-panel fragment fade-up">
+                            <h4><i class="fas fa-database"></i> Lưu Trữ</h4>
+                            <div class="storage-chart">
+                                <i class="fas fa-cloud fa-3x"></i>
+                                <div class="storage-bar">
+                                    <div class="used-storage" style="width: 30%;"></div>
+                                </div>
+                            </div>
+                            <p>Không giới hạn với Google Enterprise</p>
+                        </div>
+                        
+                        <div class="policy-panel fragment fade-up" data-fragment-index="1">
+                            <h4><i class="fas fa-trash-restore"></i> Xóa/Khôi Phục</h4>
+                            <div class="timeline">
+                                <div class="timeline-marker start">
+                                    <i class="fas fa-trash"></i>
+                                    <span>Xóa</span>
+                                </div>
+                                <div class="timeline-line"></div>
+                                <div class="timeline-marker end">
+                                    <i class="fas fa-minus-circle"></i>
+                                    <span>25 ngày</span>
+                                </div>
+                            </div>
+                            <p>Cửa sổ 25 ngày để khôi phục</p>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-alert fragment fade-up" data-fragment-index="2">
+                        <i class="fas fa-exclamation-triangle fa-lg"></i>
+                        <p>Dữ liệu SHARED DRIVE sẽ MẤT VĨNH VIỄN nếu xóa khỏi thùng rác</p>
+                    </div>
+                </section>
+
+                <!-- Slide 9: Xử Lý Khi Xóa Tài Khoản -->
+                <section data-auto-animate>
+                    <h3>Xử Lý Khi Xóa Tài Khoản</h3>
+                    
+                    <div class="scenarios-container">
+                        <div class="scenario bad-scenario fragment fade-up">
+                            <div class="scenario-title">
+                                <i class="fas fa-times-circle"></i>
+                                <h4>Xóa tài khoản trực tiếp</h4>
+                            </div>
+                            <div class="scenario-content">
+                                <i class="fas fa-user-slash fa-3x"></i>
+                                <i class="fas fa-arrow-right"></i>
+                                <i class="fas fa-folder-minus fa-3x"></i>
+                            </div>
+                            <p>Mất quyền truy cập các file là owner</p>
+                        </div>
+                        
+                        <div class="vs-divider fragment fade-up" data-fragment-index="1">VS</div>
+                        
+                        <div class="scenario good-scenario fragment fade-up" data-fragment-index="2">
+                            <div class="scenario-title">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Transfer Ownership</h4>
+                            </div>
+                            <div class="scenario-content">
+                                <i class="fas fa-exchange-alt fa-3x"></i>
+                                <i class="fas fa-arrow-right"></i>
+                                <i class="fas fa-folder-open fa-3x"></i>
+                            </div>
+                            <p>Dữ liệu được bảo toàn</p>
+                        </div>
+                    </div>
+                    
+                    <div class="callout-box fragment fade-up" data-fragment-index="3">
+                        <i class="fas fa-bullhorn"></i>
+                        <p>Luôn transfer ownership TRƯỚC KHI offboard nhân sự</p>
+                    </div>
+                </section>
+
+                <!-- Slide 10: Tổng Kết & Q&A -->
+                <section data-background-image="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" data-background-opacity="0.3" data-auto-animate>
+                    <h3>Tổng Kết & Q&A</h3>
+                    
+                    <div class="key-takeaways">
+                        <div class="takeaway fragment fade-up">
+                            <i class="fas fa-shield-alt fa-3x"></i>
+                            <h4>An Toàn</h4>
+                            <p>Bảo vệ dữ liệu tổ chức</p>
+                        </div>
+                        
+                        <div class="takeaway fragment fade-up" data-fragment-index="1">
+                            <i class="fas fa-users fa-3x"></i>
+                            <h4>Cộng Tác</h4>
+                            <p>Làm việc nhóm hiệu quả</p>
+                        </div>
+                        
+                        <div class="takeaway fragment fade-up" data-fragment-index="2">
+                            <i class="fas fa-clipboard-check fa-3x"></i>
+                            <h4>Tuân Thủ</h4>
+                            <p>Đáp ứng các yêu cầu pháp lý</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-button fragment fade-up" data-fragment-index="3">
+                        <button class="action-button">
+                            <i class="fas fa-rocket"></i> Bắt đầu triển khai Shared Drive NGAY HÔM NAY
+                        </button>
                     </div>
                 </section>
             </section>
@@ -1704,7 +2139,9 @@
                 'add-account-video': 'add-account-btn',
                 'delete-account-video': 'delete-account-btn',
                 'assign-license-video': 'assign-license-btn',
-                'remove-license-video': 'remove-license-btn'
+                'remove-license-video': 'remove-license-btn',
+                'reset-password-video': 'reset-password-btn',
+                'lock-account-video': 'lock-account-btn'
             };
             
             // Activate the corresponding button

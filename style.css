@@ -2205,7 +2205,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #1a1f25 0%, #17212b 100%);
+    /* background: linear-gradient(135deg, #1a1f25 0%, #17212b 100%); */
     perspective: 1000px;
 }
 
@@ -2736,5 +2736,607 @@
     100% {
         transform: scale(1);
         opacity: 0.5;
+    }
+}
+
+/* Shared Drive Styles */
+/* Title Slide */
+.shared-drive-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.shared-drive-title h2 {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+}
+
+.shared-drive-title .subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.shared-drive-illustration {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.shared-drive-illustration i {
+    color: white;
+}
+
+/* Slide 2: Introduction */
+.two-columns {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.column {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.highlight-question {
+    color: #2D5E8B;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.definition {
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+
+.comparison-graphic {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.circle p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.circle.my-drive {
+    background-color: #f1f1f1;
+    color: #555;
+    margin-right: -30px;
+    z-index: 1;
+}
+
+.circle.shared-drive {
+    background-color: #4285F4;
+    color: white;
+    margin-left: -30px;
+    z-index: 2;
+}
+
+.benefits-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.benefit-item {
+    text-align: center;
+    width: 30%;
+}
+
+.benefit-item i {
+    color: #FF6D00;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Slide 3: Comparison */
+.comparison-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.visual-comparison {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.my-drive-visual, .shared-drive-visual {
+    text-align: center;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.comparison-table th {
+    background-color: #2D5E8B;
+    color: white;
+}
+
+.comparison-table .highlight {
+    background-color: rgba(255, 109, 0, 0.1);
+    color: #FF6D00;
+    font-weight: bold;
+}
+
+/* Slide 4: Key Benefits */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.feature-card {
+    width: 30%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    margin-bottom: 15px;
+}
+
+.card-icon i {
+    color: #2D5E8B;
+}
+
+.feature-card h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Slide 5: Create & Manage */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+}
+
+.step-number {
+    background-color: #2D5E8B;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-right: 20px;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h4 {
+    margin-bottom: 10px;
+    color: #2D5E8B;
+}
+
+.step-image {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.step-image i {
+    color: #FF6D00;
+}
+
+.important-note {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+/* Slide 6: Access Levels */
+.pyramid-container {
+    position: relative;
+    height: 300px;
+    margin: 40px auto;
+    max-width: 500px;
+}
+
+.pyramid-level {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.level-top {
+    top: 0;
+    width: 60%;
+}
+
+.level-middle {
+    top: 100px;
+    width: 80%;
+}
+
+.level-bottom {
+    top: 200px;
+    width: 100%;
+}
+
+.level-content {
+    background-color: #2D5E8B;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 6px;
+    text-align: center;
+    width: 100%;
+}
+
+.level-top .level-content {
+    background-color: #d32f2f;
+}
+
+.level-middle .level-content {
+    background-color: #FF6D00;
+}
+
+.level-bottom .level-content {
+    background-color: #4285F4;
+}
+
+.access-examples {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.example-text {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.warning-note {
+    color: #d32f2f;
+}
+
+.warning-note i {
+    margin-right: 5px;
+}
+
+/* Slide 7: Best Practices */
+.best-practices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.folder-structure, .naming-convention, .color-labels {
+    background-color: rgba(45, 94, 139, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.tree-diagram {
+    margin-top: 15px;
+    font-family: monospace;
+}
+
+.tree-root {
+    margin-left: 0;
+}
+
+.tree-branch {
+    margin-left: 20px;
+    border-left: 1px dashed #2D5E8B;
+    padding-left: 15px;
+}
+
+.tree-item {
+    margin: 10px 0;
+}
+
+.checklist {
+    list-style-type: none;
+    padding: 0;
+}
+
+.checklist li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.checklist li i {
+    color: #4caf50;
+    margin-right: 10px;
+}
+
+.color-label-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.label {
+    padding: 5px 15px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Slide 8: Data Policies */
+.policy-panels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.policy-panel {
+    width: 48%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.storage-chart {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.storage-bar {
+    height: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.used-storage {
+    height: 100%;
+    background-color: #4285F4;
+}
+
+.timeline {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.timeline-marker {
+    text-align: center;
+}
+
+.timeline-marker span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.timeline-line {
+    flex: 1;
+    height: 3px;
+    background-color: #FF6D00;
+    margin: 0 10px;
+}
+
+.warning-alert {
+    background-color: rgba(211, 47, 47, 0.1);
+    border-left: 4px solid #d32f2f;
+    padding: 15px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.warning-alert i {
+    color: #d32f2f;
+    margin-right: 15px;
+}
+
+/* Slide 9: Account Deletion */
+.scenarios-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.scenario {
+    width: 40%;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.bad-scenario {
+    background-color: rgba(211, 47, 47, 0.1);
+}
+
+.good-scenario {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.scenario-title {
+    margin-bottom: 15px;
+}
+
+.scenario-title i {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.bad-scenario .scenario-title i {
+    color: #d32f2f;
+}
+
+.good-scenario .scenario-title i {
+    color: #4caf50;
+}
+
+.scenario-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.scenario-content i {
+    margin: 0 10px;
+}
+
+.vs-divider {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0 20px;
+}
+
+.callout-box {
+    background-color: #2D5E8B;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.callout-box i {
+    font-size: 1.5em;
+    margin-right: 15px;
+}
+
+/* Slide 10: Summary */
+.key-takeaways {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.takeaway {
+    text-align: center;
+    width: 30%;
+}
+
+.takeaway i {
+    color: #2D5E8B;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.action-button {
+    background-color: #FF6D00;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #E65100;
+}
+
+.action-button i {
+    margin-right: 10px;
+}
+
+/* General Shared Drive Section Styles */
+section h3 {
+    color: #2D5E8B;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .two-columns {
+        flex-direction: column;
+    }
+    
+    .column {
+        margin-bottom: 20px;
+    }
+    
+    .card-container, .policy-panels, .key-takeaways {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-card, .policy-panel, .takeaway {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    
+    .scenarios-container {
+        flex-direction: column;
+    }
+    
+    .scenario {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    
+    .vs-divider {
+        margin: 20px 0;
     }
 }
