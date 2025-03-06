@@ -1463,49 +1463,152 @@
                 </section>
 
                 <!-- Slide 3: Phân Biệt Shared Drive vs. My Drive -->
-                <section data-auto-animate>
-                    <h3>Phân Biệt Shared Drive vs. My Drive</h3>
+                <section data-background-gradient="radial-gradient(circle, #4e4376, #2b5876)" data-auto-animate>
+                    <div class="title-container">
+                        <h2 class="section-title glowing-text">Phân Biệt Shared Drive vs. My Drive</h2>
+                        <div class="title-underline"></div>
+                    </div>
                     
-                    <div class="comparison-container">
+                    <div class="comparison-container" style="margin-top: 30px;">
                         <div class="visual-comparison">
-                            <div class="my-drive-visual">
-                                <i class="fas fa-folder fa-3x" style="color: #777;"></i>
-                                <p>My Drive</p>
+                            <div class="my-drive-visual fade-in-down" style="animation-delay: 0.2s;">
+                                <i class="fas fa-folder fa-4x" style="color: #fbbc05; text-shadow: 0 0 15px rgba(251, 188, 5, 0.5);"></i>
+                                <p style="font-size: 1.2em; margin-top: 10px; color: #eee;">My Drive</p>
                             </div>
-                            <div class="shared-drive-visual">
-                                <i class="fas fa-folder-open fa-3x" style="color: #4285F4;"></i>
-                                <p>Shared Drive</p>
+                            <div class="vs-marker" style="font-size: 1.5em; color: #4ecca3; margin: 0 30px; animation: pulse 2s infinite;">VS</div>
+                            <div class="shared-drive-visual fade-in-down" style="animation-delay: 0.4s;">
+                                <i class="fas fa-folder-open fa-4x" style="color: #4285F4; text-shadow: 0 0 15px rgba(66, 133, 244, 0.5);"></i>
+                                <p style="font-size: 1.2em; margin-top: 10px; color: #eee;">Shared Drive</p>
                             </div>
                         </div>
                         
-                        <table class="comparison-table">
-                            <tr>
-                                <th>Tiêu chí</th>
-                                <th>My Drive</th>
-                                <th>Shared Drive</th>
-                            </tr>
-                            <tr class="fragment fade-up">
-                                <td>Quyền sở hữu</td>
-                                <td>Cá nhân</td>
-                                <td class="highlight">Tổ chức</td>
-                            </tr>
-                            <tr class="fragment fade-up">
-                                <td>Quyền truy cập</td>
-                                <td>Chỉ định thủ công</td>
-                                <td class="highlight">Theo nhóm/vai trò</td>
-                            </tr>
-                            <tr class="fragment fade-up">
-                                <td>Lưu trữ dữ liệu</td>
-                                <td>Mất khi xóa tài khoản</td>
-                                <td class="highlight">Giữ nguyên khi người dùng rời đi</td>
-                            </tr>
-                            <tr class="fragment fade-up">
-                                <td>Trường hợp sử dụng</td>
-                                <td>Dữ liệu cá nhân</td>
-                                <td class="highlight">Dữ liệu dự án/phòng ban</td>
-                            </tr>
-                        </table>
+                        <div class="comparison-wrapper" style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 20px; backdrop-filter: blur(10px); margin-top: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); max-height: 65vh; overflow-y: auto;">
+                            <table class="comparison-table" style="width: 100%; border-collapse: separate; border-spacing: 0 10px;">
+                                <tr>
+                                    <th style="background: rgba(0, 0, 0, 0.3); color: #4ecca3; border-radius: 8px 0 0 8px; padding: 12px 15px; font-size: 1.1em; position: sticky; top: 0; z-index: 10;">Tiêu chí</th>
+                                    <th style="background: rgba(251, 188, 5, 0.2); color: #fff; padding: 12px 15px; font-size: 1.1em; position: sticky; top: 0; z-index: 10;">My Drive</th>
+                                    <th style="background: rgba(66, 133, 244, 0.2); color: #fff; border-radius: 0 8px 8px 0; padding: 12px 15px; font-size: 1.1em; position: sticky; top: 0; z-index: 10;">Shared Drive</th>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.1s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Quyền sở hữu</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-user" style="color: #fbbc05; margin-right: 8px;"></i>Thuộc cá nhân (người tải lên)</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-building" style="color: #4285F4; margin-right: 8px;"></i>Thuộc nhóm/tổ chức, không phụ thuộc vào cá nhân</td>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.2s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Tính ổn định</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-exclamation-triangle" style="color: #fbbc05; margin-right: 8px;"></i>Nếu người sở hữu rời khỏi tổ chức, dữ liệu có thể mất nếu không chuyển quyền</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-shield-alt" style="color: #4285F4; margin-right: 8px;"></i>Dữ liệu tồn tại ngay cả khi thành viên rời nhóm</td>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.3s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Quyền truy cập</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-hand-pointer" style="color: #fbbc05; margin-right: 8px;"></i>Chia sẻ thủ công (theo người/email hoặc link), cấp quyền từng file/folder</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-users" style="color: #4285F4; margin-right: 8px;"></i>Tự động cho nhóm được chỉ định (quản lý theo vai trò: Manager, Contributor, Viewer)</td>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.4s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Cấu trúc lưu trữ</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-random" style="color: #fbbc05; margin-right: 8px;"></i>Tổ chức theo cá nhân, tùy ý người dùng</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-sitemap" style="color: #4285F4; margin-right: 8px;"></i>Chuẩn hóa cho nhóm, dễ tìm kiếm và quản lý tập trung</td>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.5s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Lưu trữ dữ liệu</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-trash-alt" style="color: #fbbc05; margin-right: 8px;"></i>Mất khi xóa tài khoản</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-database" style="color: #4285F4; margin-right: 8px;"></i>Giữ nguyên khi người dùng rời đi</td>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.6s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Giới hạn lưu trữ</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-hdd" style="color: #fbbc05; margin-right: 8px;"></i>Dùng chung với Gmail, Google Photos (tùy gói dịch vụ)</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-server" style="color: #4285F4; margin-right: 8px;"></i>Dùng riêng cho nhóm (tuỳ cấu hình Workspace, có thể tách biệt)</td>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.7s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Đối tượng sử dụng</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-user-shield" style="color: #fbbc05; margin-right: 8px;"></i>Cá nhân, file riêng tư hoặc chia sẻ tạm thời</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-project-diagram" style="color: #4285F4; margin-right: 8px;"></i>Nhóm/dự án cần cộng tác lâu dài, dữ liệu quan trọng của tổ chức</td>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.8s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Xóa file</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-trash" style="color: #fbbc05; margin-right: 8px;"></i>File xóa vào thùng rác cá nhân</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-recycle" style="color: #4285F4; margin-right: 8px;"></i>File xóa vào thùng rác Shared Drive (Manager có thể khôi phục)</td>
+                                </tr>
+                                <tr class="fragment fade-up" style="--delay: 0.9s;">
+                                    <td style="background: rgba(0, 0, 0, 0.2); color: #eee; border-radius: 8px 0 0 8px; padding: 10px 15px;">Yêu cầu tài khoản</td>
+                                    <td style="background: rgba(255, 255, 255, 0.05); color: #ddd; padding: 10px 15px;"><i class="fas fa-check-circle" style="color: #fbbc05; margin-right: 8px;"></i>Có sẵn cho mọi tài khoản Google</td>
+                                    <td style="background: rgba(255, 255, 255, 0.1); color: #fff; border-radius: 0 8px 8px 0; padding: 10px 15px;"><i class="fas fa-briefcase" style="color: #4285F4; margin-right: 8px;"></i>Yêu cầu Google Workspace (doanh nghiệp/trường học)</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
+                    
+                    <div class="key-takeaway fragment fade-in-up" style="background: rgba(78, 204, 163, 0.1); border-left: 4px solid #4ecca3; padding: 15px; border-radius: 0 8px 8px 0; margin-top: 25px; max-width: 80%; margin-left: auto; margin-right: auto; backdrop-filter: blur(5px);">
+                        <i class="fas fa-lightbulb" style="color: #4ecca3; margin-right: 10px; font-size: 1.2em;"></i>
+                        <span style="color: #fff;">Shared Drive là giải pháp tối ưu cho quản lý dữ liệu chung của tổ chức, giảm thiểu rủi ro mất dữ liệu khi nhân viên nghỉ việc.</span>
+                    </div>
+                    
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const slideThree = document.currentScript.parentNode;
+                            
+                            // Add event listener for slide animation reset
+                            if (typeof Reveal !== 'undefined') {
+                                Reveal.addEventListener('slidechanged', function(event) {
+                                    if (event.currentSlide === slideThree) {
+                                        console.log('Entering Slide 3 - Restarting animations');
+                                        resetSlideAnimations();
+                                    }
+                                });
+                            }
+                            
+                            function resetSlideAnimations() {
+                                const animatedElements = slideThree.querySelectorAll('.fade-in-down, .fade-up, .fade-in-up');
+                                
+                                animatedElements.forEach(function(element) {
+                                    // Store original animation
+                                    const originalAnimation = element.style.animation;
+                                    const originalOpacity = element.style.opacity;
+                                    
+                                    // Reset animation
+                                    element.style.animation = 'none';
+                                    element.style.opacity = '0';
+                                    
+                                    // Force reflow
+                                    void element.offsetWidth;
+                                    
+                                    // Restart animation
+                                    setTimeout(function() {
+                                        element.style.animation = originalAnimation;
+                                        if (originalOpacity) element.style.opacity = originalOpacity;
+                                    }, 50);
+                                });
+                            }
+                        });
+                    </script>
+                    
+                    <style>
+                        @keyframes pulse {
+                            0%, 100% { opacity: 0.6; transform: scale(1); }
+                            50% { opacity: 1; transform: scale(1.05); }
+                        }
+                        
+                        .fade-in-down {
+                            animation: fadeInDown 0.8s ease forwards;
+                            opacity: 0;
+                        }
+                        
+                        @keyframes fadeInDown {
+                            from { opacity: 0; transform: translateY(-20px); }
+                            to { opacity: 1; transform: translateY(0); }
+                        }
+                        
+                        .fade-in-up {
+                            animation: fadeInUp 0.8s ease forwards;
+                            opacity: 0;
+                            animation-delay: var(--delay, 0.5s);
+                        }
+                        
+                        @keyframes fadeInUp {
+                            from { opacity: 0; transform: translateY(20px); }
+                            to { opacity: 1; transform: translateY(0); }
+                        }
+                    </style>
                 </section>
 
                 <!-- Slide 4: Ưu Điểm Nổi Bật -->
