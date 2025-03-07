@@ -1,0 +1,509 @@
+/* Estilos para la sección de ventajas (Slide 4) */
+.advantages-section {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.advantages-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* Eliminar el background-image que podría estar causando conflicto */
+    /* background-image: radial-gradient(circle, rgb(78, 67, 118), rgb(43, 88, 118)); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Capa de decoración adicional para crear un efecto de profundidad */
+.advantages-particles::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    background-size: 30px 30px;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* Líneas de conexión dinámicas */
+.advantages-particles::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.advantages-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Título de sección con efecto de brillo */
+.advantages-section .section-title {
+    font-size: 2.4em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+.advantages-section .title-underline {
+    height: 4px;
+    width: 80px;
+    background: linear-gradient(90deg, #4285f4, #34a853);
+    border-radius: 4px;
+    margin: 5px auto 30px;
+    position: relative;
+}
+
+.advantages-section .title-underline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #4285f4, #34a853);
+    border-radius: 4px;
+    filter: blur(4px);
+    opacity: 0.7;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 20px 0;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Diseño de tarjeta moderno con borde de luz */
+.advantage-card {
+    position: relative;
+    height: auto;
+    min-height: 230px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 28px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto de borde brillante al pasar el ratón */
+.advantage-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        rgba(66, 133, 244, 0), 
+        rgba(66, 133, 244, 0.3), 
+        rgba(52, 168, 83, 0.3), 
+        rgba(52, 168, 83, 0));
+    border-radius: 16px;
+    z-index: -1;
+    transform: scale(0.98);
+    filter: blur(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.advantage-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Efecto de gradiente flotante en la tarjeta */
+.advantage-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                rgba(255, 255, 255, 0.15) 0%, 
+                transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 0;
+}
+
+.advantage-card:hover::after {
+    opacity: 1;
+}
+
+.advantage-card .card-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Icono con animación 3D */
+.card-icon {
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 
+                0 0 15px rgba(66, 133, 244, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-icon::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: inherit;
+    filter: blur(20px);
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.advantage-card:hover .card-icon {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(66, 133, 244, 0.4);
+}
+
+.card-icon i {
+    font-size: 32px;
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+}
+
+.advantage-card:hover .card-icon i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Títulos y textos mejorados */
+.advantage-card h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.advantage-card h4::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #4285f4, #34a853);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.advantage-card:hover h4::after {
+    width: 60px;
+}
+
+.advantage-card p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+/* Resaltado con efecto de cristal */
+.card-highlight {
+    background: rgba(66, 133, 244, 0.15);
+    padding: 10px 18px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: auto;
+}
+
+.advantage-card:hover .card-highlight {
+    background: rgba(66, 133, 244, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-highlight i {
+    color: #34a853;
+    font-size: 1.1rem;
+    filter: drop-shadow(0 1px 2px rgba(52, 168, 83, 0.4));
+}
+
+.card-highlight span {
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+}
+
+/* Resumen con efecto de cristal flotante */
+.advantages-summary {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 18px 35px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    max-width: 80%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-left: 4px solid #4285f4;
+    position: relative;
+    overflow: hidden;
+}
+
+.advantages-summary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(66, 133, 244, 0.2), 
+        rgba(52, 168, 83, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.advantages-summary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.advantages-summary:hover::before {
+    opacity: 1;
+}
+
+.summary-icon {
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2),
+                0 0 10px rgba(66, 133, 244, 0.4);
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.advantages-summary:hover .summary-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.summary-icon i {
+    font-size: 22px;
+    color: white;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.advantages-summary p {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-text {
+    background: linear-gradient(90deg, #4285f4, #34a853);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    position: relative;
+}
+
+.highlight-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #4285f4, #34a853);
+    opacity: 0.8;
+}
+
+/* Animaciones mejoradas */
+@keyframes float-in {
+    0% { 
+        opacity: 0; 
+        transform: translateY(40px) scale(0.95);
+        filter: blur(5px);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.float-in {
+    animation: float-in 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+    animation-delay: var(--delay, 0.2s);
+    /* Asegurar que siempre sea visible al final */
+    animation-fill-mode: forwards;
+    will-change: opacity, transform, filter;
+}
+
+/* Clase para garantizar la visibilidad en transiciones */
+.reveal-slide .advantage-card,
+.reveal-slide .advantages-summary,
+.reveal-slide .section-title,
+.reveal-slide .title-underline {
+    will-change: opacity, transform;
+}
+
+/* Animación para las partículas */
+@keyframes floating-particle {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+}
+
+/* Animación para el resplandor del borde */
+@keyframes border-glow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(0.98);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Asegurar que el grid se adapte a pantallas más pequeñas */
+@media screen and (max-width: 1024px) {
+    .advantages-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        width: 95%;
+    }
+    
+    .advantage-card {
+        min-height: 200px;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+    
+    .advantages-summary {
+        max-width: 90%;
+        padding: 15px 25px;
+    }
+    
+    .advantages-section .section-title {
+        font-size: 2em;
+    }
+}
+
+/* Asegurar que las partículas funcionan en todos los navegadores */
+@supports not (backdrop-filter: blur(10px)) {
+    .advantage-card, 
+    .card-highlight, 
+    .advantages-summary {
+        background-color: rgba(30, 30, 40, 0.85);
+    }
+}
+
+/* Mejorar la compatibilidad con reveal.js */
+.reveal .slides section.advantages-section {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.reveal .advantages-container {
+    width: 100%;
+    max-width: 1400px;
+} 

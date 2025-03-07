@@ -1,0 +1,880 @@
+/* Estilos para la sección de proceso (Slide 5) */
+.process-section {
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.process-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Capa de decoración para efecto de profundidad */
+.process-particles::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></svg>');
+    background-size: 30px 30px;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* Líneas de conexión dinámicas */
+.process-particles::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.process-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilos para el título de la sección */
+.process-section .section-title {
+    font-size: 2.4em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+.process-section .title-underline {
+    height: 4px;
+    width: 80px;
+    background: linear-gradient(90deg, #4285f4, #34a853);
+    border-radius: 4px;
+    margin: 5px auto 30px;
+    position: relative;
+}
+
+.process-section .title-underline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #4285f4, #34a853);
+    border-radius: 4px;
+    filter: blur(4px);
+    opacity: 0.7;
+}
+
+/* Estilos para las pestañas */
+.process-tabs {
+    display: flex;
+    gap: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tab-button {
+    padding: 10px 15px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, rgba(66, 133, 244, 0.8), rgba(52, 168, 83, 0.8));
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.tab-button span {
+    font-weight: 500;
+}
+
+/* Contenedor de contenido */
+.tab-contents {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para el contenido dividido (texto + visual) */
+.split-content {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Panel de instrucciones */
+.instructions-panel {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.instruction-step {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.instruction-step:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.step-details h4 {
+    margin: 0 0 5px 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.step-details p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Panel visual */
+.visual-panel {
+    flex: 0 0 55%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #000;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+}
+
+.video-fallback img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-button i {
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 12px 12px;
+}
+
+.control-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.play-btn {
+    background: rgba(66, 133, 244, 0.3);
+}
+
+.play-btn:hover {
+    background: rgba(66, 133, 244, 0.5);
+}
+
+.pause-btn {
+    background: rgba(251, 188, 5, 0.3);
+}
+
+.pause-btn:hover {
+    background: rgba(251, 188, 5, 0.5);
+}
+
+.restart-btn {
+    background: rgba(234, 67, 53, 0.3);
+}
+
+.restart-btn:hover {
+    background: rgba(234, 67, 53, 0.5);
+}
+
+/* Insights de clave */
+.key-insights {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.insight {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(66, 133, 244, 0.1);
+    border-radius: 12px;
+    border-left: 3px solid #4285f4;
+}
+
+.insight-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(66, 133, 244, 0.2);
+    color: #4285f4;
+    font-size: 1.2rem;
+}
+
+.insight p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Estilos para permisos */
+.permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+    width: 100%;
+}
+
+.role-card {
+    padding: 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.role-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.role-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.role-card.manager .role-icon {
+    background: linear-gradient(135deg, #4285f4, #0d47a1);
+    color: white;
+}
+
+.role-card.content-manager .role-icon {
+    background: linear-gradient(135deg, #34a853, #1b5e20);
+    color: white;
+}
+
+.role-card.contributor .role-icon {
+    background: linear-gradient(135deg, #fbbc05, #ef6c00);
+    color: white;
+}
+
+.role-card.commenter .role-icon {
+    background: linear-gradient(135deg, #ea4335, #b71c1c);
+    color: white;
+}
+
+.role-card.viewer .role-icon {
+    background: linear-gradient(135deg, #9e9e9e, #424242);
+    color: white;
+}
+
+.role-header h4 {
+    margin: 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.role-body {
+    padding: 15px;
+}
+
+.permissions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.permissions-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.permissions-list li i.fa-check {
+    color: #34a853;
+}
+
+.permissions-list li i.fa-times {
+    color: #ea4335;
+}
+
+.role-footer {
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.15);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+.permissions-demo {
+    grid-column: span 3;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.permissions-demo img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.demo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.demo-step {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-weight: 500;
+    width: fit-content;
+    margin: 0 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.demo-step.step1 {
+    align-self: flex-start;
+}
+
+.demo-step.step2 {
+    align-self: center;
+}
+
+.demo-step.step3 {
+    align-self: flex-end;
+}
+
+/* Estilos para estructura de carpetas */
+.structure-visualization {
+    display: flex;
+    gap: 30px;
+}
+
+.folder-structure {
+    flex: 0 0 60%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.root-folder {
+    font-size: 1.1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.root-folder i {
+    color: #fbbc05;
+}
+
+.subfolder-container {
+    padding-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-left: 1px dashed rgba(255, 255, 255, 0.2);
+    margin-left: 5px;
+    width: 100%;
+}
+
+.folder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+.folder:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.folder i {
+    color: #fbbc05;
+}
+
+.folder.level-1 {
+    font-size: 1rem;
+}
+
+.folder.level-2 {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.structure-tips {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tip {
+    display: flex;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.tip:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.tip-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(251, 188, 5, 0.2);
+    color: #fbbc05;
+    font-size: 1.2rem;
+}
+
+.tip-content h4 {
+    margin: 0 0 5px 0;
+    color: white;
+    font-size: 1rem;
+}
+
+.tip-content p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* Estilos para mejores prácticas */
+.best-practices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.practice-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.practice-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.practice-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4285f4, #0d47a1);
+    color: white;
+}
+
+.practice-header h4 {
+    margin: 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.practice-details {
+    padding: 15px;
+}
+
+.practice-details p {
+    margin: 0 0 15px 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.practice-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.do, .dont {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.do {
+    background: rgba(52, 168, 83, 0.1);
+    color: #34a853;
+}
+
+.dont {
+    background: rgba(234, 67, 53, 0.1);
+    color: #ea4335;
+}
+
+.practice-example {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 15px;
+}
+
+.example-title {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+}
+
+.example-code {
+    font-family: monospace;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #4285f4;
+    font-size: 0.9rem;
+}
+
+.practice-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.visual-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.visual-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.visual-icon.good {
+    background: rgba(52, 168, 83, 0.2);
+    color: #34a853;
+}
+
+.visual-icon.bad {
+    background: rgba(234, 67, 53, 0.2);
+    color: #ea4335;
+}
+
+.visual-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.practice-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.practice-steps .step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.practice-steps .step span {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(66, 133, 244, 0.3);
+    color: white;
+    font-size: 0.8rem;
+}
+
+/* Animaciones */
+@keyframes float-in {
+    0% { 
+        opacity: 0; 
+        transform: translateY(40px) scale(0.95);
+        filter: blur(5px);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.float-in {
+    animation: float-in 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+    animation-delay: var(--delay, 0.2s);
+    /* Asegurar que siempre sea visible al final */
+    animation-fill-mode: forwards;
+    will-change: opacity, transform, filter;
+}
+
+/* Diseño responsivo */
+@media screen and (max-width: 1024px) {
+    .split-content {
+        flex-direction: column;
+    }
+    
+    .instructions-panel,
+    .visual-panel {
+        flex: 0 0 100%;
+    }
+    
+    .permissions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .permissions-demo {
+        grid-column: span 2;
+    }
+    
+    .best-practices {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .process-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 12px;
+    }
+    
+    .structure-visualization {
+        flex-direction: column;
+    }
+}
+
+/* Estilos específicos de reveal.js */
+.reveal .slides section.process-section {
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+} 
