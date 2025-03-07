@@ -1937,79 +1937,513 @@
                 </section>
 
                 <!-- Slide 6: Phân Cấp Quyền Truy Cập -->
-                <section data-auto-animate>
-                    <h3>Phân Cấp Quyền Truy Cập</h3>
+                <section data-auto-animate class="access-rights-section">
+                    <!-- CSS styles specific to this slide -->
+                    <style>
+                        .access-rights-section {
+                            background-image: radial-gradient(circle, rgb(78, 67, 118), rgb(43, 88, 118));
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            position: relative;
+                            overflow: hidden;
+                        }
+                        
+                        .starry-bg {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-image: 
+                                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 2px),
+                                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 2px),
+                                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 2px);
+                            background-size: 100px 100px;
+                            z-index: 0;
+                            opacity: 0.5;
+                        }
+                        
+                        /* Fix for centered display in reveal.js */
+                        .reveal.center .slides section.access-rights-section {
+                            top: 50% !important;
+                            left: 50% !important;
+                            transform: translate(-50%, -50%) !important;
+                        }
+                    </style>
                     
-                    <div class="pyramid-container">
-                        <div class="pyramid-level level-top fragment fade-in">
-                            <div class="level-content">
-                                <h4>Manager</h4>
-                                <p>Kiểm soát toàn diện</p>
-                                <i class="fas fa-crown fa-2x"></i>
-                            </div>
+                    <div class="starry-bg"></div>
+                    <div class="access-rights-container">
+                        <div class="glowing-title">
+                            <h3 class="section-title">Phân Cấp Quyền Truy Cập</h3>
+                            <div class="title-underline"></div>
                         </div>
                         
-                        <div class="pyramid-level level-middle fragment fade-in" data-fragment-index="1">
-                            <div class="level-content">
-                                <h4>Contributor</h4>
-                                <p>Thêm/chỉnh sửa nội dung</p>
-                                <i class="fas fa-edit fa-2x"></i>
-                            </div>
-                        </div>
-                        
-                        <div class="pyramid-level level-bottom fragment fade-in" data-fragment-index="2">
-                            <div class="level-content">
-                                <h4>Viewer/Commenter</h4>
-                                <p>Chỉ xem và bình luận</p>
-                                <i class="fas fa-eye fa-2x"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="access-examples fragment fade-up" data-fragment-index="3">
-                        <p class="example-text">Ví dụ: Sales Team cần Contributor, HR chỉ cần Viewer</p>
-                        <p class="warning-note"><i class="fas fa-exclamation-triangle"></i> Tránh chia sẻ quyền Manager tràn lan</p>
-                    </div>
-                </section>
-
-                <!-- Slide 7: Best Practices Quản Lý Dữ liệu -->
-                <section data-auto-animate>
-                    <h3>Best Practices Quản Lý Dữ liệu</h3>
-                    
-                    <div class="best-practices-container">
-                        <div class="folder-structure fragment fade-up">
-                            <h4><i class="fas fa-sitemap"></i> Cấu Trúc Thư Mục Khoa Học</h4>
-                            <div class="tree-diagram">
-                                <div class="tree-root">
-                                    <i class="fas fa-folder-open"></i> Shared Drive
-                                    <div class="tree-branch">
-                                        <div class="tree-item"><i class="fas fa-folder"></i> Phòng ban</div>
-                                        <div class="tree-item"><i class="fas fa-folder"></i> Dự án</div>
-                                        <div class="tree-item"><i class="fas fa-folder"></i> Quy trình</div>
-                                    </div>
+                        <!-- Tóm tắt vai trò tổng quan -->
+                        <div class="roles-summary">
+                            <div class="role-card">
+                                <div class="role-icon manager-icon">
+                                    <i class="fas fa-crown"></i>
                                 </div>
+                                <h4>Giám đốc</h4>
+                                <p>Kiểm soát toàn diện mọi quyền trong Drive</p>
+                                <div class="key-permission">Quản lý thành viên</div>
+                                <div class="key-permission">Cấu hình Drive</div>
+                            </div>
+                            
+                            <div class="role-card">
+                                <div class="role-icon content-manager-icon">
+                                    <i class="fas fa-user-cog"></i>
+                                </div>
+                                <h4>Trình quản lý nội dung</h4>
+                                <p>Quản lý nội dung và một số quyền hạn chế</p>
+                                <div class="key-permission">Quản lý tài liệu</div>
+                                <div class="key-permission">Tổ chức dữ liệu</div>
+                            </div>
+                            
+                            <div class="role-card">
+                                <div class="role-icon contributor-icon">
+                                    <i class="fas fa-user-edit"></i>
+                                </div>
+                                <h4>Người đóng góp</h4>
+                                <p>Tạo và chỉnh sửa nội dung trong Drive</p>
+                                <div class="key-permission">Tạo nội dung</div>
+                                <div class="key-permission">Chỉnh sửa file</div>
+                            </div>
+                            
+                            <div class="role-card">
+                                <div class="role-icon viewer-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h4>Commenter/Viewer</h4>
+                                <p>Chỉ xem và tương tác cơ bản với nội dung</p>
+                                <div class="key-permission">Xem nội dung</div>
+                                <div class="key-permission">Bình luận</div>
                             </div>
                         </div>
                         
-                        <div class="naming-convention fragment fade-up" data-fragment-index="1">
-                            <h4><i class="fas fa-check-square"></i> Quy Tắc Đặt Tên</h4>
-                            <ul class="checklist">
-                                <li><i class="fas fa-check"></i> YYYY-MM-DD_Tên-file</li>
-                                <li><i class="fas fa-check"></i> [TEAM]_Loại-tài-liệu_Tên</li>
-                                <li><i class="fas fa-check"></i> [V1.2]_Tên-tài-liệu_Trạng-thái</li>
-                            </ul>
+                        <!-- Hệ thống tab cho phân nhóm quyền -->
+                        <div class="tab-navigation">
+                            <button class="tab-button active" data-tab="basic-permissions">
+                                <i class="fas fa-file-alt"></i> Quyền Cơ bản
+                            </button>
+                            <button class="tab-button" data-tab="organization-permissions">
+                                <i class="fas fa-sitemap"></i> Tổ chức Dữ liệu
+                            </button>
+                            <button class="tab-button" data-tab="management-permissions">
+                                <i class="fas fa-users-cog"></i> Quản lý Thành viên
+                            </button>
+                            <button class="tab-button" data-tab="admin-permissions">
+                                <i class="fas fa-shield-alt"></i> Quyền Quản trị
+                            </button>
                         </div>
                         
-                        <div class="color-labels fragment fade-up" data-fragment-index="2">
-                            <h4><i class="fas fa-tags"></i> Dùng Nhãn Màu Phân Loại</h4>
-                            <div class="color-label-examples">
-                                <div class="label" style="background-color: #f44336;">Ưu tiên cao</div>
-                                <div class="label" style="background-color: #ffeb3b;">Đang xử lý</div>
-                                <div class="label" style="background-color: #4caf50;">Hoàn thành</div>
-                                <div class="label" style="background-color: #2196f3;">Tham khảo</div>
+                        <!-- Tab content cho các nhóm quyền -->
+                        <div id="basic-permissions" class="tab-content active">
+                            <div class="access-table-container">
+                                <table class="access-rights-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Quyền Cơ bản</th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon manager-icon">
+                                                        <i class="fas fa-crown"></i>
+                                                    </div>
+                                                    <span>Giám đốc</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon content-manager-icon">
+                                                        <i class="fas fa-user-cog"></i>
+                                                    </div>
+                                                    <span>Quản lý nội dung</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon contributor-icon">
+                                                        <i class="fas fa-user-edit"></i>
+                                                    </div>
+                                                    <span>Người đóng góp</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon commenter-icon">
+                                                        <i class="fas fa-comment"></i>
+                                                    </div>
+                                                    <span>Commenter</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon viewer-icon">
+                                                        <i class="fas fa-eye"></i>
+                                                    </div>
+                                                    <span>Viewer</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể xem tệp và thư mục</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể nhận xét về tệp</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể chỉnh sửa tệp</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể tạo và thêm tệp, có thể tạo thư mục</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td>
+                                                <i class="fas fa-check checkmark"></i>
+                                                <span class="permission-note">*
+                                                    <span class="tooltip-text">Có một số giới hạn về quyền tạo thư mục</span>
+                                                </span>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể khôi phục tệp từ Thùng rác (tối đa 30 ngày)</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+                        
+                        <div id="organization-permissions" class="tab-content">
+                            <div class="access-table-container">
+                                <table class="access-rights-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tổ chức Dữ liệu</th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon manager-icon">
+                                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                                    <span>Giám đốc</span>
+                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon content-manager-icon">
+                                                        <i class="fas fa-user-cog"></i>
+                                                    </div>
+                                                    <span>Quản lý nội dung</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon contributor-icon">
+                                                        <i class="fas fa-user-edit"></i>
+                                                    </div>
+                                                    <span>Người đóng góp</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon commenter-icon">
+                                                        <i class="fas fa-comment"></i>
+                                                    </div>
+                                                    <span>Commenter</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon viewer-icon">
+                                                        <i class="fas fa-eye"></i>
+                                                    </div>
+                                                    <span>Viewer</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể di chuyển tệp từ Drive cá nhân sang ổ đĩa dùng chung</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể di chuyển tệp và thư mục vào Thùng rác</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể di chuyển tệp và thư mục trong bộ nhớ dùng chung</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể di chuyển thư mục từ Drive cá nhân sang bộ nhớ dùng chung</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể di chuyển tệp từ Drive dùng chung này sang Drive dùng chung khác</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div id="management-permissions" class="tab-content">
+                            <div class="access-table-container">
+                                <table class="access-rights-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Quản lý Người dùng & Quyền</th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon manager-icon">
+                                                        <i class="fas fa-crown"></i>
+                                                    </div>
+                                                    <span>Giám đốc</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon content-manager-icon">
+                                                        <i class="fas fa-user-cog"></i>
+                                                    </div>
+                                                    <span>Quản lý nội dung</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon contributor-icon">
+                                                        <i class="fas fa-user-edit"></i>
+                                                    </div>
+                                                    <span>Người đóng góp</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon commenter-icon">
+                                                        <i class="fas fa-comment"></i>
+                                                    </div>
+                                                    <span>Commenter</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon viewer-icon">
+                                                        <i class="fas fa-eye"></i>
+                                                    </div>
+                                                    <span>Viewer</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể thêm và xóa người và nhóm trên các tệp cụ thể</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể đặt quyền truy cập hạn chế vào các thư mục</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể thêm/xóa người và nhóm trong các thư mục cụ thể</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td>
+                                                <i class="fas fa-check checkmark partial"></i>
+                                                <span class="permission-note">**
+                                                    <span class="tooltip-text">Chỉ có thể thực hiện với quyền truy cập đặc biệt</span>
+                                                </span>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể thêm hoặc xóa thành viên của bộ nhớ dùng chung</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể thay đổi cấp độ truy cập của thành viên</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div id="admin-permissions" class="tab-content">
+                            <div class="access-table-container">
+                                <table class="access-rights-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Quyền Quản trị</th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon manager-icon">
+                                                        <i class="fas fa-crown"></i>
+                            </div>
+                                                    <span>Giám đốc</span>
+                        </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon content-manager-icon">
+                                                        <i class="fas fa-user-cog"></i>
+                                                    </div>
+                                                    <span>Quản lý nội dung</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon contributor-icon">
+                                                        <i class="fas fa-user-edit"></i>
+                                                    </div>
+                                                    <span>Người đóng góp</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon commenter-icon">
+                                                        <i class="fas fa-comment"></i>
+                                                    </div>
+                                                    <span>Commenter</span>
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <div class="role-heading">
+                                                    <div class="role-icon viewer-icon">
+                                                        <i class="fas fa-eye"></i>
+                                                    </div>
+                                                    <span>Viewer</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể xóa vĩnh viễn các tệp trong Thùng rác</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể đổi tên hoặc thay đổi chủ đề Drive</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="fade-in-row">
+                                            <td>Có thể xóa ổ đĩa dùng chung</td>
+                                            <td><i class="fas fa-check checkmark"></i></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="permission-legend">
+                            <div class="legend-item">
+                                <div class="legend-icon" style="color: #34a853;">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span>Có quyền</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-icon" style="color: #fbbc05;">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span>Quyền hạn chế</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-icon" style="color: #ea4335;">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <span>Không có quyền</span>
+                            </div>
+                        </div>
+                        
+                        <div class="access-notes">
+                            <h4><i class="fas fa-lightbulb"></i> Lưu ý quan trọng</h4>
+                            <p><span class="highlight">*</span> - Người đóng góp có quyền tạo tệp và thư mục, nhưng không thể tạo thư mục ở cấp cao nhất</p>
+                            <p><span class="highlight">**</span> - Trình quản lý nội dung có thể thêm người dùng vào các thư mục cụ thể với quyền hạn chế</p>
+                            <p><i class="fas fa-exclamation-triangle" style="color: #fbbc05;"></i> <span class="highlight">Khuyến nghị:</span> Hạn chế cấp quyền Giám đốc, chỉ nên cấp cho người quản lý trực tiếp dữ liệu</p>
                         </div>
                     </div>
+                    
+                    <!-- Thêm liên kết tới CSS và JS -->
+                    <link rel="stylesheet" href="access-rights.css">
+                    <script src="access-rights.js"></script>
                 </section>
 
                 <!-- Slide 8: Chính Sách Dữ liệu Quan Trọng -->
