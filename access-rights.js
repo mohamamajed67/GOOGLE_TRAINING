@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Khởi tạo hiệu ứng khi slide hiển thị
     initAccessRightsTable();
     
+    // Gọi trực tiếp hàm khởi tạo tab ngay khi trang tải
+    initTabSystem();
+    
     // Xử lý tình huống đặc biệt cho reveal.js
     ensureProperCentering();
 });
@@ -140,10 +143,14 @@ function initTabSystem() {
                 selectedTab.classList.add('active');
                 selectedTab.style.animation = 'fadeIn 0.5s ease forwards';
                 
-                // Kích hoạt lại các hiệu ứng cho tab mới hiển thị
+                // Kích hoạt lại các hiệu ứng cho tab mới hiển thị nếu các hàm tồn tại
                 setTimeout(() => {
-                    animateTableRows(selectedTab);
-                    highlightCheckmarks(selectedTab);
+                    if (typeof animateTableRows === 'function') {
+                        animateTableRows(selectedTab);
+                    }
+                    if (typeof highlightCheckmarks === 'function') {
+                        highlightCheckmarks(selectedTab);
+                    }
                 }, 100);
             }
         });
