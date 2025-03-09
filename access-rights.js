@@ -8,7 +8,154 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Xử lý tình huống đặc biệt cho reveal.js
     ensureProperCentering();
+    
+    // Thêm một listener đặc biệt cho việc chuyển slide
+    if (typeof Reveal !== 'undefined') {
+        // Chạy mỗi khi slide thay đổi
+        Reveal.addEventListener('slidechanged', function(event) {
+            // Nếu đang hiển thị slide quyền truy cập (slide 6)
+            if (event.currentSlide.classList.contains('access-rights-section')) {
+                // Gọi hàm với nhiều thời gian chờ khác nhau để đảm bảo nó được áp dụng
+                forceShowAccessTitle(event.currentSlide);
+                setTimeout(() => forceShowAccessTitle(event.currentSlide), 100);
+                setTimeout(() => forceShowAccessTitle(event.currentSlide), 300);
+                setTimeout(() => forceShowAccessTitle(event.currentSlide), 500);
+                setTimeout(() => forceShowAccessTitle(event.currentSlide), 1000);
+            }
+        });
+        
+        // Kiểm tra khi tải trang hoàn tất
+        Reveal.addEventListener('ready', function(event) {
+            // Kiểm tra nếu slide hiện tại là slide quyền truy cập
+            if (event.currentSlide.classList.contains('access-rights-section')) {
+                forceShowAccessTitle(event.currentSlide);
+                setTimeout(() => forceShowAccessTitle(event.currentSlide), 100);
+                setTimeout(() => forceShowAccessTitle(event.currentSlide), 500);
+            }
+        });
+    }
+    
+    // Kiểm tra URL hash để biết nếu đang truy cập trực tiếp vào slide quyền truy cập
+    if (window.location.hash.includes('/4/5') || window.location.hash.includes('access-rights-section')) {
+        // Đảm bảo tiêu đề hiển thị với các khoảng thời gian khác nhau
+        setTimeout(function() {
+            const accessSection = document.querySelector('.access-rights-section');
+            if (accessSection) {
+                forceShowAccessTitle(accessSection);
+            }
+        }, 500);
+        
+        setTimeout(function() {
+            const accessSection = document.querySelector('.access-rights-section');
+            if (accessSection) {
+                forceShowAccessTitle(accessSection);
+            }
+        }, 1000);
+        
+        setTimeout(function() {
+            const accessSection = document.querySelector('.access-rights-section');
+            if (accessSection) {
+                forceShowAccessTitle(accessSection);
+            }
+        }, 2000);
+    }
+    
+    // Theo dõi sự thay đổi của DOM
+    setupAccessTitleObserver();
 });
+
+// Hàm mới để buộc hiển thị tiêu đề trong mọi trường hợp
+function forceShowAccessTitle(accessSection) {
+    // Đặt lại kiểu cho section
+    if (accessSection) {
+        // Đảm bảo section có vị trí và kích thước đúng
+        accessSection.style.position = 'absolute';
+        accessSection.style.width = '100%';
+        accessSection.style.height = '100%';
+        accessSection.style.left = '50%';
+        accessSection.style.top = '50%';
+        accessSection.style.transform = 'translate(-50%, -50%)';
+        accessSection.style.margin = '0';
+        accessSection.style.display = 'flex';
+        accessSection.style.flexDirection = 'column';
+        accessSection.style.alignItems = 'center';
+        accessSection.style.justifyContent = 'flex-start';
+        accessSection.style.overflow = 'visible';
+        accessSection.style.paddingTop = '40px';
+        
+        // Xác định tiêu đề và container
+        const sectionTitle = accessSection.querySelector('.section-title');
+        const titleUnderline = accessSection.querySelector('.title-underline');
+        const container = accessSection.querySelector('.access-rights-container');
+        
+        // Buộc hiển thị tiêu đề chính
+        if (sectionTitle) {
+            sectionTitle.style.display = 'block';
+            sectionTitle.style.visibility = 'visible';
+            sectionTitle.style.opacity = '1';
+            sectionTitle.style.position = 'relative';
+            sectionTitle.style.zIndex = '300';
+            sectionTitle.style.fontSize = '2.4em';
+            sectionTitle.style.fontWeight = '700';
+            sectionTitle.style.color = '#fff';
+            sectionTitle.style.textShadow = '0 0 15px rgba(255, 255, 255, 0.3)';
+            sectionTitle.style.width = '100%';
+            sectionTitle.style.textAlign = 'center';
+            sectionTitle.style.marginTop = '0';
+        }
+        
+        // Buộc hiển thị gạch dưới tiêu đề
+        if (titleUnderline) {
+            titleUnderline.style.visibility = 'visible';
+            titleUnderline.style.opacity = '1';
+            titleUnderline.style.display = 'block';
+            titleUnderline.style.margin = '5px auto 30px';
+            titleUnderline.style.zIndex = '300';
+        }
+        
+        // Buộc hiển thị container
+        if (container) {
+            container.style.display = 'flex';
+            container.style.flexDirection = 'column';
+            container.style.alignItems = 'center';
+            container.style.width = '90%';
+            container.style.maxWidth = '1200px';
+            container.style.paddingTop = '0';
+            container.style.paddingBottom = '20px';
+            container.style.visibility = 'visible';
+            container.style.opacity = '1';
+            container.style.zIndex = '100';
+            container.style.position = 'relative';
+            container.style.boxSizing = 'border-box';
+        }
+    }
+}
+
+// Thiết lập MutationObserver để theo dõi thay đổi của DOM
+function setupAccessTitleObserver() {
+    // Tạo observer để theo dõi các thay đổi trong DOM
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            // Kiểm tra nếu có slide quyền truy cập
+            const accessSection = document.querySelector('.access-rights-section');
+            if (accessSection && accessSection.classList.contains('present')) {
+                // Nếu slide quyền truy cập đang hiển thị, buộc hiển thị tiêu đề
+                forceShowAccessTitle(accessSection);
+            }
+        });
+    });
+    
+    // Cấu hình và bắt đầu theo dõi
+    const config = { 
+        attributes: true, 
+        childList: true, 
+        subtree: true,
+        attributeFilter: ['class', 'style']
+    };
+    
+    // Bắt đầu theo dõi toàn bộ tài liệu
+    observer.observe(document.body, config);
+}
 
 // Đảm bảo căn giữa cho reveal.js
 function ensureProperCentering() {
@@ -43,6 +190,25 @@ function ensureProperCentering() {
         accessSection.style.display = 'flex';
         accessSection.style.alignItems = 'center';
         accessSection.style.justifyContent = 'center';
+        
+        // Đảm bảo container bên trong có padding đủ để hiển thị tiêu đề
+        const container = accessSection.querySelector('.access-rights-container');
+        if (container) {
+            container.style.paddingTop = '80px';  // Thêm padding top để hiển thị tiêu đề
+            container.style.boxSizing = 'border-box';
+            container.style.overflow = 'visible';
+        }
+        
+        // Đảm bảo tiêu đề hiển thị đúng
+        const title = accessSection.querySelector('.glowing-title');
+        if (title) {
+            title.style.position = 'relative';
+            title.style.visibility = 'visible';
+            title.style.opacity = '1';
+            title.style.zIndex = '10';
+            title.style.marginBottom = '30px';
+            title.style.marginTop = '0';
+        }
     }
 }
 
@@ -289,14 +455,6 @@ function animateLegendItems() {
         }, 1000 + index * 100);
     });
 }
-
-// Gọi hàm khởi tạo khi slide quyền truy cập xuất hiện
-Reveal.addEventListener('ready', function(event) {
-    if (event.currentSlide.classList.contains('access-rights-section')) {
-        initAccessRightsTable();
-        ensureProperCentering();
-    }
-});
 
 // Thêm xử lý khi thay đổi kích thước trình duyệt để đảm bảo vẫn căn giữa đúng
 window.addEventListener('resize', function() {
